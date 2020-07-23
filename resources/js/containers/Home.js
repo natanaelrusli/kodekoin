@@ -2,13 +2,15 @@ import React from "react";
 import "./Home.css";
 import ReactDOM from 'react-dom';
 import Routes from "../Routes";
+import Navbar from "../components/TopNavbar"
 
 function Home() {
   return (
     <div className="Home">
+      <Navbar></Navbar>
       <div className="lander">
         <h1>Kode Koin</h1>
-        <p>Some bijak and cool text here</p>
+        <p>Something bijak and cool text here</p>
       </div>
     </div>
   );
