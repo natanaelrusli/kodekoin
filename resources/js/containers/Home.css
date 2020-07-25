@@ -1,6 +1,7 @@
 .Home .lander {
-    padding: 80px 0;
-    text-align: center;
+    margin-left: 20px;
+    margin-top: 40px;
+    text-align: left;
   }
   
   .Home .lander h1 {
@@ -11,3 +12,7 @@
   .Home .lander p {
     color: #999;
   }
+  
+.row {
+  width: 100vw !important;
+}

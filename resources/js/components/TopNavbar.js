@@ -17,7 +17,6 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import "./Navbar.css";
 
 function NavbarComponent() {
     const useStyles = makeStyles((theme) => ({
@@ -38,8 +37,8 @@ function NavbarComponent() {
                     {/* Only to push the other button to the right */}
                 </Nav>
                 <Nav className="mr-sm-2">
-                    <Button variant="outline-success" href="/login">Login</Button>
-                    <Button variant="outline-success" href="/signup">Signup</Button>
+                    <Button href="/login">Login</Button>
+                    <Button href="/signup">Signup</Button>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
