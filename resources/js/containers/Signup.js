@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ReactDOM from 'react-dom';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import logo from '../images/logoimg.png';
+import './css/signup.css'
 
 function Copyright() {
   return (
@@ -53,12 +55,11 @@ export default function Signup() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <PersonAddIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+        <img src={logo} width={160} className="mb-3">
+        </img>
+        <h1 className="signup-text">
+          Sign Up
+        </h1>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>

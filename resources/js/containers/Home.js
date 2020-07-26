@@ -1,7 +1,6 @@
 import React from "react";
-import "./Home.css";
+import "./css/Home.css";
 import ReactDOM from 'react-dom';
-import Routes from "../Routes";
 import Navbar from "../components/TopNavbar"
 import PriceList from "../components/PriceList"
 import HomeImage from "../components/HomeImage"
@@ -15,7 +14,7 @@ function Home() {
       <div className="container-fluid">
         <div className="row mb-3">
           <div className="col-sm-5 mt-3">
-            <MediaQuery minDeviceWidth={1224}>
+            <MediaQuery minDeviceWidth={576}>
               <HomeImage></HomeImage>
             </MediaQuery>
           </div>

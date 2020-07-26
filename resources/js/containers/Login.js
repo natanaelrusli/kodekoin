@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactDOM from 'react-dom';
+import logo from '../images/logoimg.png';
 
 function Copyright() {
   return (
@@ -67,12 +68,8 @@ export default function Login() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
+          <img src={logo} width={120}>
+          </img>
           <form className={classes.form} noValidate>
             <TextField
               variant="outlined"

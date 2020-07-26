@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+@media all and (min-width: 480px) {
+    .Signup {
+      padding: 60px 0;
+    }
+  
+    .Signup form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
+  
+  .Signup form span.help-block {
+    font-size: 14px;
+    padding-bottom: 10px;
+    color: #999;
+  }
+
+.signup-text{
+  font-family: 'Josefin Sans', sans-serif !important;
+  color: #F88D4B;
+}
+
+.logo{
+  width: 120px;
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

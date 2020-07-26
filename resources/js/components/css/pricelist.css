@@ -18,17 +18,24 @@
 }
 
 .denom Button{
-    width: 22.2%;
+    width: 22%;
     margin: 10px 10px;
     padding: 5px;
 }
 
 @media only screen and (max-width: 600px) {
     .denom button {
-        width: 29%;
+        width: 30%;
         margin: 5px 5px;
     }
-  }
+}
+
+@media only screen and (max-width: 360px) {
+    .denom button {
+        width: 29.3%;
+        margin: 5px 5px;
+    }
+}
 
 .payment-methods img{
     width: 7%;
@@ -65,8 +72,25 @@
 
 @media only screen and (max-width: 600px) {
     .checkoutbutton{
-        width: 60% !important;
+        width: 40% !important;
+        font-size: 1.2rem;
     }
+}
+
+@media only screen and (max-width: 1024px) {
+    .checkoutbutton{
+        width: 40% !important;
+        font-size: 1.2rem;
+    }
+}
+.orange-button{
+    color: white;
+    border-color: #F88D4B !important;
+    background-color: #F88D4B;
+}
+
+.orange-button:hover{
+    color: white;
 }
 
 .button-color-outline{
@@ -76,6 +100,7 @@
 
 .button-color-outline:hover{
     background-color : #F88D4B !important;
+    color: white;
 }
 
 .lg-btn{

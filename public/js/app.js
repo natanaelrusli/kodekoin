@@ -29875,7 +29875,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 130vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}", ""]);
+exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 145vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}\r\n\r\n@media only screen and (max-width: 1025px) {\r\n    .homeimage img{\r\n        height: 100vw;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -29913,26 +29913,45 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
 
 // module
-exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.denom Button{\r\n    width: 22.2%;\r\n    margin: 10px 10px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 29%;\r\n        margin: 5px 5px;\r\n    }\r\n  }\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 60% !important;\r\n    }\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}", ""]);
+exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.denom Button{\r\n    width: 22%;\r\n    margin: 10px 10px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 30%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 360px) {\r\n    .denom button {\r\n        width: 29.3%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n.orange-button{\r\n    color: white;\r\n    border-color: #F88D4B !important;\r\n    background-color: #F88D4B;\r\n}\r\n\r\n.orange-button:hover{\r\n    color: white;\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n    color: white;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/Home.css":
-/*!**************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/containers/Home.css ***!
-  \**************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/css/Home.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/containers/css/Home.css ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
 exports.push([module.i, ".Home .lander {\r\n    margin-left: 20px;\r\n    margin-top: 40px;\r\n    text-align: left;\r\n  }\r\n\r\n  @media only screen and (max-width: 600px) {\r\n    .Home .lander {\r\n      margin-left: 0px;\r\n    }\r\n  }\r\n  \r\n  .Home .lander p {\r\n    color: #999;\r\n  }\r\n  ", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/css/signup.css":
+/*!********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/containers/css/signup.css ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
+
+// module
+exports.push([module.i, "@media all and (min-width: 480px) {\r\n    .Signup {\r\n      padding: 60px 0;\r\n    }\r\n  \r\n    .Signup form {\r\n      margin: 0 auto;\r\n      max-width: 320px;\r\n    }\r\n  }\r\n  \r\n  .Signup form span.help-block {\r\n    font-size: 14px;\r\n    padding-bottom: 10px;\r\n    color: #999;\r\n  }\r\n\r\n.signup-text{\r\n  font-family: 'Josefin Sans', sans-serif !important;\r\n  color: #F88D4B;\r\n}\r\n\r\n.logo{\r\n  width: 120px;\r\n  user-drag: none; \r\n  user-select: none;\r\n  -moz-user-select: none;\r\n  -webkit-user-drag: none;\r\n  -webkit-user-select: none;\r\n  -ms-user-select: none;\r\n}", ""]);
 
 // exports
 
@@ -111697,32 +111716,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/Routes.js":
-/*!********************************!*\
-  !*** ./resources/js/Routes.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Routes; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _containers_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./containers/Home */ "./resources/js/containers/Home.js");
-
-
-
-function Routes() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_Home__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
-}
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -111895,21 +111888,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
-/* harmony import */ var _material_ui_core_CardActionArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/esm/CardActionArea/index.js");
-/* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
-/* harmony import */ var _material_ui_core_CardMedia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CardMedia */ "./node_modules/@material-ui/core/esm/CardMedia/index.js");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
-/* harmony import */ var react_bootstrap_ButtonGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/ButtonGroup */ "./node_modules/react-bootstrap/esm/ButtonGroup.js");
-/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
-/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../images/bca-logo.png */ "./resources/js/images/bca-logo.png");
-/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../images/gopay-logo.png */ "./resources/js/images/gopay-logo.png");
-/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../images/ovo-logo.png */ "./resources/js/images/ovo-logo.png");
-/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../images/dana-logo.png */ "./resources/js/images/dana-logo.png");
-/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/bca-logo.png */ "./resources/js/images/bca-logo.png");
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/gopay-logo.png */ "./resources/js/images/gopay-logo.png");
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/ovo-logo.png */ "./resources/js/images/ovo-logo.png");
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/dana-logo.png */ "./resources/js/images/dana-logo.png");
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -111930,20 +111919,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
-
-
 function PriceList() {
+  //Items is for list of denom shown in the page
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([10000, 20000, 30000, 40000, 50000, 60000, 70000]),
       _useState2 = _slicedToArray(_useState, 2),
       items = _useState2[0],
-      setItems = _useState2[1];
+      setItems = _useState2[1]; //To store the price chosen by user
+
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
       _useState4 = _slicedToArray(_useState3, 2),
       price = _useState4[0],
-      setPrice = _useState4[1];
+      setPrice = _useState4[1]; //To store payment method chosen by the user
+
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      method = _useState6[0],
+      setMethod = _useState6[1];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "p-3 mb-5 shadow"
@@ -111952,9 +111945,9 @@ function PriceList() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Denominasi")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "denom"
   }, items.map(function (item) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      variant: "outline-secondary",
-      className: "button-color-outline",
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      variant: "secondary-outline",
+      className: price == item ? "orange-button" : "button-color-outline",
       onClick: function onClick() {
         return setPrice(item);
       }
@@ -111973,44 +111966,56 @@ function PriceList() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    variant: "outline-secondary",
-    className: "lg-btn button-color-outline",
-    disabled: !price
+    src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "secondary-outline",
+    className: method == 'gopay' ? "orange-button" : "button-color-outline",
+    disabled: !price,
+    onClick: function onClick() {
+      return setMethod('gopay');
+    }
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    variant: "outline-secondary",
-    className: "lg-btn button-color-outline",
-    disabled: !price
+    src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "secondary-outline",
+    className: method == 'bca' ? "orange-button" : "button-color-outline",
+    disabled: !price,
+    onClick: function onClick() {
+      return setMethod('bca');
+    }
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    variant: "outline-secondary",
-    className: "lg-btn button-color-outline",
-    disabled: !price
+    src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "secondary-outline",
+    className: method == 'ovo' ? "orange-button" : "button-color-outline",
+    disabled: !price,
+    onClick: function onClick() {
+      return setMethod('ovo');
+    }
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    variant: "outline-secondary",
-    className: "lg-btn button-color-outline",
-    disabled: !price
+    src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "secondary-outline",
+    className: method == 'dana' ? "orange-button" : "button-color-outline",
+    disabled: !price,
+    onClick: function onClick() {
+      return setMethod('dana');
+    }
   }, "Pilih"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex flex-row mt-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "warning",
     className: "checkoutbutton",
     active: true
@@ -112224,36 +112229,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./resources/js/containers/Home.css":
-/*!******************************************!*\
-  !*** ./resources/js/containers/Home.css ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/postcss-loader/src??ref--6-2!./Home.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/Home.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./resources/js/containers/Home.js":
 /*!*****************************************!*\
   !*** ./resources/js/containers/Home.js ***!
@@ -112265,18 +112240,16 @@ if(false) {}
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.css */ "./resources/js/containers/Home.css");
-/* harmony import */ var _Home_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Home_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_Home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css/Home.css */ "./resources/js/containers/css/Home.css");
+/* harmony import */ var _css_Home_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_Home_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Routes */ "./resources/js/Routes.js");
-/* harmony import */ var _components_TopNavbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/TopNavbar */ "./resources/js/components/TopNavbar.js");
-/* harmony import */ var _components_PriceList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/PriceList */ "./resources/js/components/PriceList.js");
-/* harmony import */ var _components_HomeImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/HomeImage */ "./resources/js/components/HomeImage.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js");
-/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_responsive__WEBPACK_IMPORTED_MODULE_8__);
-
+/* harmony import */ var _components_TopNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TopNavbar */ "./resources/js/components/TopNavbar.js");
+/* harmony import */ var _components_PriceList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/PriceList */ "./resources/js/components/PriceList.js");
+/* harmony import */ var _components_HomeImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HomeImage */ "./resources/js/components/HomeImage.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js");
+/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_responsive__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -112289,19 +112262,19 @@ __webpack_require__.r(__webpack_exports__);
 function Home() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "Home"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TopNavbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TopNavbar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-5 mt-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    minDeviceWidth: 1224
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeImage__WEBPACK_IMPORTED_MODULE_6__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_7___default.a, {
+    minDeviceWidth: 576
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeImage__WEBPACK_IMPORTED_MODULE_5__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-7"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lander"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PriceList__WEBPACK_IMPORTED_MODULE_5__["default"], null))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PriceList__WEBPACK_IMPORTED_MODULE_4__["default"], null))))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -112340,6 +112313,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -112421,12 +112397,10 @@ function Login() {
     square: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.paper
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: classes.avatar
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_11___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], {
-    component: "h1",
-    variant: "h5"
-  }, "Sign in"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15___default.a,
+    width: 120
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: classes.form,
     noValidate: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -112513,6 +112487,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _material_ui_icons_PersonAdd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/icons/PersonAdd */ "./node_modules/@material-ui/icons/PersonAdd.js");
 /* harmony import */ var _material_ui_icons_PersonAdd__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_PersonAdd__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _css_signup_css__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./css/signup.css */ "./resources/js/containers/css/signup.css");
+/* harmony import */ var _css_signup_css__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_css_signup_css__WEBPACK_IMPORTED_MODULE_17__);
+
+
 
 
 
@@ -112567,12 +112547,13 @@ function Signup() {
     maxWidth: "xs"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.paper
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: classes.avatar
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_PersonAdd__WEBPACK_IMPORTED_MODULE_15___default.a, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    component: "h1",
-    variant: "h5"
-  }, "Sign up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_16___default.a,
+    width: 160,
+    className: "mb-3"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "signup-text"
+  }, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: classes.form,
     noValidate: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -112648,6 +112629,66 @@ function Signup() {
 if (document.getElementById('signup')) {
   react_dom__WEBPACK_IMPORTED_MODULE_14___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Signup, null), document.getElementById('signup'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/containers/css/Home.css":
+/*!**********************************************!*\
+  !*** ./resources/js/containers/css/Home.css ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./Home.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/css/Home.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/containers/css/signup.css":
+/*!************************************************!*\
+  !*** ./resources/js/containers/css/signup.css ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./signup.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/containers/css/signup.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
