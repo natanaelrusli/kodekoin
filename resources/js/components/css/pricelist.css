@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+    --base-orange : #F88D4B;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.shadow{
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.denom-header{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.denom Button{
+    width: 22.2%;
+    margin: 10px 10px;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .denom button {
+        width: 29%;
+        margin: 5px 5px;
+    }
+  }
+
+.payment-methods img{
+    width: 7%;
+}
+
+@media only screen and (max-width: 600px) {
+    .payment-methods img{
+        padding-left: 10px;
+        width: 20%;
+    }
+  }
+
+.payment-methods h3{
+    margin: auto;
+    color: #F88D4B;
+}
+
+.checkoutbutton{
+    font-family: 'Josefin Sans', sans-serif;
+    width: 30% !important;
+    height: 70px !important;
+    font-size: 30px;
+    background-color: #F88D4B !important;
+    border: #F88D4B !important;
+    color: white !important;
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;
+    transition: ease-in 0.2s !important;
+}
+
+.checkoutbutton:hover{
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    transition: ease-in 0.2s !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .checkoutbutton{
+        width: 60% !important;
+    }
+}
+
+.button-color-outline{
+    border-color: #F88D4B !important;
+    color: #F88D4B;
+}
+
+.button-color-outline:hover{
+    background-color : #F88D4B !important;
+}
+
+.lg-btn{
+    width: 70px;
+}

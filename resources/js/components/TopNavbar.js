@@ -11,10 +11,10 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import logo from '../images/logoimg.png';
+import './css/navstyle.css';
 
 function NavbarComponent() {
     const useStyles = makeStyles((theme) => ({
-        
         navShadow: {
             boxShadow: "1px 3px 1px #bdbdbd",
         },
@@ -38,8 +38,8 @@ function NavbarComponent() {
                     {/* Only to push the other button to the right */}
                 </Nav>
                 <Nav className="mr-sm-2">
-                    <Button href="/login">Login</Button>
-                    <Button href="/signup">Signup</Button>
+                    <Button href="/login" className="navbutton">Login</Button>
+                    <Button href="/signup" className="navbutton">Signup</Button>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

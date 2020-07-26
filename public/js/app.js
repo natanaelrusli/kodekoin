@@ -29875,7 +29875,45 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 100vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}", ""]);
+exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 130vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/navstyle.css":
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/css/navstyle.css ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
+
+// module
+exports.push([module.i, ".navbutton {\r\n    font-family: 'Josefin Sans', sans-serif !important;\r\n    font-size: 15px !important;\r\n    transition: ease-in-out 0.3s !important;\r\n    color: #000000 !important;\r\n}\r\n.navbutton:hover{\r\n    transition: ease-in-out 0.3s;\r\n    color: #F88D4B !important;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/pricelist.css":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/css/pricelist.css ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
+
+// module
+exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.denom Button{\r\n    width: 22.2%;\r\n    margin: 10px 10px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 29%;\r\n        margin: 5px 5px;\r\n    }\r\n  }\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 60% !important;\r\n    }\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}", ""]);
 
 // exports
 
@@ -29894,7 +29932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".Home .lander {\r\n    margin-left: 20px;\r\n    margin-top: 40px;\r\n    text-align: left;\r\n  }\r\n  \r\n  .Home .lander h1 {\r\n    font-family: \"Open Sans\", sans-serif;\r\n    font-weight: 600;\r\n  }\r\n  \r\n  .Home .lander p {\r\n    color: #999;\r\n  }\r\n  \r\n.row {\r\n  width: 100% !important;\r\n}", ""]);
+exports.push([module.i, ".Home .lander {\r\n    margin-left: 20px;\r\n    margin-top: 40px;\r\n    text-align: left;\r\n  }\r\n\r\n  @media only screen and (max-width: 600px) {\r\n    .Home .lander {\r\n      margin-left: 0px;\r\n    }\r\n  }\r\n  \r\n  .Home .lander p {\r\n    color: #999;\r\n  }\r\n  ", ""]);
 
 // exports
 
@@ -111860,28 +111898,111 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_CardActionArea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/esm/CardActionArea/index.js");
 /* harmony import */ var _material_ui_core_CardContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js");
 /* harmony import */ var _material_ui_core_CardMedia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/CardMedia */ "./node_modules/@material-ui/core/esm/CardMedia/index.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap_ButtonGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/ButtonGroup */ "./node_modules/react-bootstrap/esm/ButtonGroup.js");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../images/bca-logo.png */ "./resources/js/images/bca-logo.png");
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../images/gopay-logo.png */ "./resources/js/images/gopay-logo.png");
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../images/ovo-logo.png */ "./resources/js/images/ovo-logo.png");
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../images/dana-logo.png */ "./resources/js/images/dana-logo.png");
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
 
 
 
 
 
 function PriceList() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(['10.000', '20.000', '30.000', '40.000', '50.000', '60.000']),
+      _useState2 = _slicedToArray(_useState, 2),
+      items = _useState2[0],
+      setItems = _useState2[1];
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "p-3 mb-5 shadow"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "denom-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Denominasi")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "denom"
+  }, items.map(function (item) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      variant: "outline-secondary",
+      className: "button-color-outline"
+    }, "IDR ", item);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: {
       width: '100%'
     },
-    className: "p-3 mb-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Nominal")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    style: {
-      width: '100%'
-    },
-    className: "p-3 mb-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Metode Pembayaran")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    style: {
-      width: '100%'
-    },
-    className: "p-3 mb-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pay")));
+    className: "p-3 mb-5 shadow"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "denom-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Metode Pembayaran")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "payment-methods"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    variant: "outline-secondary",
+    className: "lg-btn button-color-outline"
+  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    variant: "outline-secondary",
+    className: "lg-btn button-color-outline"
+  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    variant: "outline-secondary",
+    className: "lg-btn button-color-outline"
+  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    variant: "outline-secondary",
+    className: "lg-btn button-color-outline"
+  }, "Pilih"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex flex-row mt-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    variant: "warning",
+    className: "checkoutbutton",
+    active: true
+  }, "Pembayaran")));
 }
 
 /***/ }),
@@ -111905,6 +112026,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
 /* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
 /* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _css_navstyle_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./css/navstyle.css */ "./resources/js/components/css/navstyle.css");
+/* harmony import */ var _css_navstyle_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_css_navstyle_css__WEBPACK_IMPORTED_MODULE_8__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -111926,6 +112049,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -111965,9 +112089,11 @@ function NavbarComponent() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
     className: "mr-sm-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: "/login"
+    href: "/login",
+    className: "navbutton"
   }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: "/signup"
+    href: "/signup",
+    className: "navbutton"
   }, "Signup"))));
 }
 
@@ -112005,6 +112131,66 @@ var TopNavbar = /*#__PURE__*/function (_React$Component) {
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./homeimage.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/homeimage.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/css/navstyle.css":
+/*!**************************************************!*\
+  !*** ./resources/js/components/css/navstyle.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./navstyle.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/navstyle.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./resources/js/components/css/pricelist.css":
+/*!***************************************************!*\
+  !*** ./resources/js/components/css/pricelist.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./pricelist.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/pricelist.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -112175,7 +112361,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__["m
       height: '100vh'
     },
     image: {
-      backgroundImage: 'url(https://source.unsplash.com/random)',
+      backgroundImage: 'url("../../images/BG.png")',
       backgroundRepeat: 'no-repeat',
       backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
       backgroundSize: 'cover',
@@ -112453,6 +112639,39 @@ if (document.getElementById('signup')) {
 
 /***/ }),
 
+/***/ "./resources/js/images/bca-logo.png":
+/*!******************************************!*\
+  !*** ./resources/js/images/bca-logo.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bca-logo.png?782a9d3d4f3a189bc8dd29b70c64605d";
+
+/***/ }),
+
+/***/ "./resources/js/images/dana-logo.png":
+/*!*******************************************!*\
+  !*** ./resources/js/images/dana-logo.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/dana-logo.png?de5a56753ebbaa0bdccee204510d171a";
+
+/***/ }),
+
+/***/ "./resources/js/images/gopay-logo.png":
+/*!********************************************!*\
+  !*** ./resources/js/images/gopay-logo.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/gopay-logo.png?f0ccff4502c023f9ff09a94a3e783850";
+
+/***/ }),
+
 /***/ "./resources/js/images/logoimg.png":
 /*!*****************************************!*\
   !*** ./resources/js/images/logoimg.png ***!
@@ -112460,7 +112679,18 @@ if (document.getElementById('signup')) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/logoimg.png?3a52c11df46d1fe89ba314ef94bb6347";
+module.exports = "/images/logoimg.png?d33cfeaa2c57aba904526099cf601ac0";
+
+/***/ }),
+
+/***/ "./resources/js/images/ovo-logo.png":
+/*!******************************************!*\
+  !*** ./resources/js/images/ovo-logo.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ovo-logo.png?f84d527c34d366cb34130129794cc450";
 
 /***/ }),
 
