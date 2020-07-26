@@ -29875,7 +29875,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 130vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}", ""]);
+exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 130vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}", ""]);
 
 // exports
 
@@ -111935,10 +111935,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function PriceList() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(['10.000', '20.000', '30.000', '40.000', '50.000', '60.000']),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([10000, 20000, 30000, 40000, 50000, 60000, 70000]),
       _useState2 = _slicedToArray(_useState, 2),
       items = _useState2[0],
       setItems = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      price = _useState4[0],
+      setPrice = _useState4[1];
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "p-3 mb-5 shadow"
@@ -111949,8 +111954,11 @@ function PriceList() {
   }, items.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
       variant: "outline-secondary",
-      className: "button-color-outline"
-    }, "IDR ", item);
+      className: "button-color-outline",
+      onClick: function onClick() {
+        return setPrice(item);
+      }
+    }, "IDR ", new Intl.NumberFormat().format(item));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: {
       width: '100%'
@@ -111966,36 +111974,40 @@ function PriceList() {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_9___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     variant: "outline-secondary",
-    className: "lg-btn button-color-outline"
+    className: "lg-btn button-color-outline",
+    disabled: !price
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     variant: "outline-secondary",
-    className: "lg-btn button-color-outline"
+    className: "lg-btn button-color-outline",
+    disabled: !price
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_10___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     variant: "outline-secondary",
-    className: "lg-btn button-color-outline"
+    className: "lg-btn button-color-outline",
+    disabled: !price
   }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "mb-3 p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_11___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Rp. Sekian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
     variant: "outline-secondary",
-    className: "lg-btn button-color-outline"
+    className: "lg-btn button-color-outline",
+    disabled: !price
   }, "Pilih"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex flex-row mt-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {

@@ -12,7 +12,8 @@ import OvoLogo from '../images/ovo-logo.png'
 import DanaLogo from '../images/dana-logo.png'
 
 export default function PriceList(){
-    const [items, setItems] = useState(['10.000','20.000','30.000','40.000','50.000','60.000']);
+    const [items, setItems] = useState([10000,20000,30000,40000,50000,60000,70000]);
+    const [price, setPrice] = useState();
 
     return(
         <div>
@@ -22,7 +23,12 @@ export default function PriceList(){
                 </div>
                 <div className="denom">
                     {items.map(item => (
-                        <Button variant="outline-secondary" className="button-color-outline">IDR {item}</Button>
+                        <Button
+                          variant="outline-secondary"
+                          className="button-color-outline"
+                          onClick={()=>setPrice(item)}>
+                          IDR {new Intl.NumberFormat().format(item)}
+                        </Button>
                     ))}
                 </div>
             </Card>
@@ -31,36 +37,46 @@ export default function PriceList(){
                 <div className="denom-header">
                     <h1>Pilih Metode Pembayaran</h1>
                 </div>
+
                 <div className="payment-methods">
                     <Card className="mb-3 p-3">
                         <div className = "row p-3">
                             <img src={GopayLogo}></img>
-                            <h3>Rp. Sekian</h3>
-                            <Button variant="outline-secondary" className="lg-btn button-color-outline">Pilih</Button>
+                            <h3>
+                                {price==null? '-' : 'IDR ' + new Intl.NumberFormat().format(price)}
+                            </h3>
+                            <Button variant="outline-secondary" className="lg-btn button-color-outline" disabled={!price}>Pilih</Button>
                         </div>
                     </Card>
                     <Card className="mb-3 p-3">
                         <div className = "row p-3">
                             <img src={BcaLogo}></img>
-                            <h3>Rp. Sekian</h3>
-                            <Button variant="outline-secondary" className="lg-btn button-color-outline">Pilih</Button>
+                            <h3>
+                                {price==null? '-' : 'IDR ' + new Intl.NumberFormat().format(price)}
+                            </h3>
+                            <Button variant="outline-secondary" className="lg-btn button-color-outline" disabled={!price}>Pilih</Button>
                         </div>
                     </Card>
                     <Card className="mb-3 p-3">
                         <div className = "row p-3">
                             <img src={OvoLogo}></img>
-                            <h3>Rp. Sekian</h3>
-                            <Button variant="outline-secondary" className="lg-btn button-color-outline">Pilih</Button>
+                            <h3>
+                                {price==null? '-' : 'IDR ' + new Intl.NumberFormat().format(price)}
+                            </h3>
+                            <Button variant="outline-secondary" className="lg-btn button-color-outline" disabled={!price}>Pilih</Button>
                         </div>
                     </Card>
                     <Card className="mb-3 p-3">
                         <div className = "row p-3">
                             <img src={DanaLogo}></img>
-                            <h3>Rp. Sekian</h3>
-                            <Button variant="outline-secondary" className="lg-btn button-color-outline">Pilih</Button>
+                            <h3>
+                                {price==null? '-' : 'IDR ' + new Intl.NumberFormat().format(price)}
+                            </h3>
+                            <Button variant="outline-secondary" className="lg-btn button-color-outline" disabled={!price}>Pilih</Button>
                         </div>
                     </Card>
                 </div>
+
             </Card>
 
             <div className="d-flex flex-row mt-3">
