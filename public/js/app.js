@@ -29863,6 +29863,25 @@ function toVal(mix) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/gamedescription.css":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/css/gamedescription.css ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
+
+// module
+exports.push([module.i, ".gamelogo{\r\n    width: 150px;\r\n}\r\n\r\n.gametitle{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n}\r\n\r\n@media only screen and (max-width: 769px) {\r\n    .gamelogo{\r\n        width: 60px;\r\n        margin-right: 5px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .gamelogo{\r\n        width: 120px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.8rem;\r\n    }\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/homeimage.css":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/css/homeimage.css ***!
@@ -29875,7 +29894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 145vh;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}\r\n\r\n@media only screen and (max-width: 1025px) {\r\n    .homeimage img{\r\n        height: 100vw;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 150%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    margin-top: 23px;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .homeimage img{\r\n        height: 50vh;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -29913,7 +29932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
 
 // module
-exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.denom Button{\r\n    width: 22%;\r\n    margin: 10px 10px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 30%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 360px) {\r\n    .denom button {\r\n        width: 29.3%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n.orange-button{\r\n    color: white;\r\n    border-color: #F88D4B !important;\r\n    background-color: #F88D4B;\r\n}\r\n\r\n.orange-button:hover{\r\n    color: white;\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n    color: white;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}", ""]);
+exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: -10px;\r\n}\r\n\r\n.denom-header p{\r\n    margin-top: -5px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.denom Button{\r\n    width: 23.5%;\r\n    margin: 5px 5px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 30%;\r\n        height: 60px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 360px) {\r\n    .denom button {\r\n        width: 29.3%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    font-size: 1.1rem;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n.orange-button{\r\n    color: white;\r\n    border-color: #F88D4B !important;\r\n    background-color: #F88D4B;\r\n}\r\n\r\n.orange-button:hover{\r\n    color: white;\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n    color: white;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}\r\n\r\n.method{\r\n    transition: ease-in 0.2s !important;\r\n    background-color: #fff !important;\r\n    cursor: pointer;\r\n}\r\n\r\n.choose{\r\n    transition: ease-in 0.2s !important;\r\n    background-color : #F88D4B !important;\r\n    box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.choose h3{\r\n    transition: ease-in 0.2s !important;\r\n    color: white;\r\n}\r\n\r\n.choose:hover{\r\n    cursor: pointer;\r\n}", ""]);
 
 // exports
 
@@ -111831,6 +111850,51 @@ if (document.getElementById('example')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/GameDescription.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/GameDescription.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return HomeImage; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_gamedescription_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css/gamedescription.css */ "./resources/js/components/css/gamedescription.css");
+/* harmony import */ var _css_gamedescription_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_gamedescription_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
+/* harmony import */ var _images_gratismain_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/gratismain.png */ "./resources/js/images/gratismain.png");
+/* harmony import */ var _images_gratismain_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_gratismain_png__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+function HomeImage() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "mt-3 p-3 shadow"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-5 mb-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_gratismain_png__WEBPACK_IMPORTED_MODULE_4___default.a,
+    className: "gamelogo"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-sm-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "gametitle"
+  }, "RF Online GratisMain"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "gamedetails"
+  }));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/HomeImage.js":
 /*!**********************************************!*\
   !*** ./resources/js/components/HomeImage.js ***!
@@ -111889,16 +111953,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js");
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
-/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
-/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/bca-logo.png */ "./resources/js/images/bca-logo.png");
-/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/gopay-logo.png */ "./resources/js/images/gopay-logo.png");
-/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/ovo-logo.png */ "./resources/js/images/ovo-logo.png");
-/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/dana-logo.png */ "./resources/js/images/dana-logo.png");
-/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Modal */ "./node_modules/react-bootstrap/esm/Modal.js");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./css/pricelist.css */ "./resources/js/components/css/pricelist.css");
+/* harmony import */ var _css_pricelist_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_pricelist_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/bca-logo.png */ "./resources/js/images/bca-logo.png");
+/* harmony import */ var _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_bca_logo_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/gopay-logo.png */ "./resources/js/images/gopay-logo.png");
+/* harmony import */ var _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/ovo-logo.png */ "./resources/js/images/ovo-logo.png");
+/* harmony import */ var _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../images/dana-logo.png */ "./resources/js/images/dana-logo.png");
+/* harmony import */ var _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_dana_logo_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_9__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -111919,30 +111986,62 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function PriceList() {
   //Items is for list of denom shown in the page
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([10000, 20000, 30000, 40000, 50000, 60000, 70000]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([10000, 20000, 30000, 40000, 50000, 60000, 70000, 100000, 120000]),
       _useState2 = _slicedToArray(_useState, 2),
       items = _useState2[0],
       setItems = _useState2[1]; //To store the price chosen by user
 
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState4 = _slicedToArray(_useState3, 2),
       price = _useState4[0],
       setPrice = _useState4[1]; //To store payment method chosen by the user
 
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState6 = _slicedToArray(_useState5, 2),
       method = _useState6[0],
       setMethod = _useState6[1];
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      show = _useState8[0],
+      setShow = _useState8[1];
+
+  var handleClose = function handleClose() {
+    return setShow(false);
+  };
+
+  var handleShow = function handleShow() {
+    return setShow(true);
+  };
+
+  function sendPayment() {
+    alert("Send Payment " + method + " " + price);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    show: show,
+    onHide: handleClose,
+    backdrop: "static",
+    keyboard: false
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Header, {
+    closeButton: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Title, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_9___default.a,
+    width: "70"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Body, null, "Silahkan pilih denominasi dan metode pembayaran terlebih dahulu!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "secondary",
+    onClick: handleClose
+  }, "Close"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     className: "p-3 mb-5 shadow"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "denom-header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Denominasi")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Denominasi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "* Dalam Rupiah (IDR)")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "denom"
   }, items.map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -111951,73 +112050,70 @@ function PriceList() {
       onClick: function onClick() {
         return setPrice(item);
       }
-    }, "IDR ", new Intl.NumberFormat().format(item));
+    }, new Intl.NumberFormat().format(item));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     style: {
       width: '100%'
     },
     className: "p-3 mb-5 shadow"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "denom-header"
+    className: "denom-header mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Metode Pembayaran")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "payment-methods"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: "mb-3 p-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row p-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    variant: "secondary-outline",
-    className: method == 'gopay' ? "orange-button" : "button-color-outline",
-    disabled: !price,
-    onClick: function onClick() {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: price == null ? function () {
+      return setMethod();
+    } : function () {
       return setMethod('gopay');
     }
-  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: price == null ? "mb-3 p-3" : method == 'gopay' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_4___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    variant: "secondary-outline",
-    className: method == 'bca' ? "orange-button" : "button-color-outline",
-    disabled: !price,
-    onClick: function onClick() {
+    src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: price == null ? function () {
+      return setMethod('');
+    } : function () {
       return setMethod('bca');
     }
-  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: price == null ? "mb-3 p-3" : method == 'bca' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    variant: "secondary-outline",
-    className: method == 'ovo' ? "orange-button" : "button-color-outline",
-    disabled: !price,
-    onClick: function onClick() {
+    src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: price == null ? function () {
+      return setMethod('');
+    } : function () {
       return setMethod('ovo');
     }
-  }, "Pilih"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: "mb-3 p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: price == null ? "mb-3 p-3" : method == 'ovo' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == null ? '-' : 'IDR ' + new Intl.NumberFormat().format(price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    variant: "secondary-outline",
-    className: method == 'dana' ? "orange-button" : "button-color-outline",
-    disabled: !price,
-    onClick: function onClick() {
+    src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: price == null ? function () {
+      return setMethod('');
+    } : function () {
       return setMethod('dana');
     }
-  }, "Pilih"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: price == null ? "mb-3 p-3" : method == 'dana' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row p-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _images_dana_logo_png__WEBPACK_IMPORTED_MODULE_8___default.a
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "d-flex flex-row mt-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "warning",
     className: "checkoutbutton",
+    onClick: method == false || price == false ? handleShow : sendPayment,
     active: true
   }, "Pembayaran")));
 }
@@ -112139,6 +112235,36 @@ var TopNavbar = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/css/gamedescription.css":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/css/gamedescription.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/postcss-loader/src??ref--6-2!./gamedescription.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/css/gamedescription.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/components/css/homeimage.css":
 /*!***************************************************!*\
   !*** ./resources/js/components/css/homeimage.css ***!
@@ -112247,9 +112373,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TopNavbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TopNavbar */ "./resources/js/components/TopNavbar.js");
 /* harmony import */ var _components_PriceList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/PriceList */ "./resources/js/components/PriceList.js");
 /* harmony import */ var _components_HomeImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HomeImage */ "./resources/js/components/HomeImage.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js");
-/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_responsive__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_GameDescription__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/GameDescription */ "./resources/js/components/GameDescription.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-responsive */ "./node_modules/react-responsive/dist/react-responsive.js");
+/* harmony import */ var react_responsive__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_responsive__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -112268,9 +112396,9 @@ function Home() {
     className: "row mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-5 mt-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_7___default.a, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_8___default.a, {
     minDeviceWidth: 576
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeImage__WEBPACK_IMPORTED_MODULE_5__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeImage__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_GameDescription__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-7"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lander"
@@ -112722,6 +112850,17 @@ module.exports = "/images/dana-logo.png?de5a56753ebbaa0bdccee204510d171a";
 /***/ (function(module, exports) {
 
 module.exports = "/images/gopay-logo.png?f0ccff4502c023f9ff09a94a3e783850";
+
+/***/ }),
+
+/***/ "./resources/js/images/gratismain.png":
+/*!********************************************!*\
+  !*** ./resources/js/images/gratismain.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/gratismain.png?a6aac41a5aa95a1cdad26a22c1c400c4";
 
 /***/ }),
 

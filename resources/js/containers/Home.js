@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Navbar from "../components/TopNavbar"
 import PriceList from "../components/PriceList"
 import HomeImage from "../components/HomeImage"
+import GameDesc from "../components/GameDescription"
 import Grid from '@material-ui/core/Grid';
 import MediaQuery, { useMediaQuery } from 'react-responsive'
 
@@ -17,6 +18,7 @@ function Home() {
             <MediaQuery minDeviceWidth={576}>
               <HomeImage></HomeImage>
             </MediaQuery>
+            <GameDesc></GameDesc>
           </div>
           <div className="col-sm-7">
             <div className="lander">

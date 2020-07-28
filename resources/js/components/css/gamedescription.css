@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+.gamelogo{
+    width: 150px;
+}
+
+.gametitle{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+@media only screen and (max-width: 769px) {
+    .gamelogo{
+        width: 60px;
+        margin-right: 5px;
+    }
+    .gametitle{
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .gamelogo{
+        width: 120px;
+    }
+    .gametitle{
+        font-size: 1.8rem;
+    }
+}

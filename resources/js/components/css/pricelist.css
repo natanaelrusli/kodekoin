@@ -14,18 +14,24 @@
 
 .denom-header{
     font-family: 'Josefin Sans', sans-serif;
-    margin-bottom: 10px;
+    margin-bottom: -10px;
+}
+
+.denom-header p{
+    margin-top: -5px;
+    margin-bottom: 20px;
 }
 
 .denom Button{
-    width: 22%;
-    margin: 10px 10px;
+    width: 23.5%;
+    margin: 5px 5px;
     padding: 5px;
 }
 
 @media only screen and (max-width: 600px) {
     .denom button {
         width: 30%;
+        height: 60px;
         margin: 5px 5px;
     }
 }
@@ -50,6 +56,7 @@
 
 .payment-methods h3{
     margin: auto;
+    font-size: 1.1rem;
     color: #F88D4B;
 }
 
@@ -105,4 +112,25 @@
 
 .lg-btn{
     width: 70px;
+}
+
+.method{
+    transition: ease-in 0.2s !important;
+    background-color: #fff !important;
+    cursor: pointer;
+}
+
+.choose{
+    transition: ease-in 0.2s !important;
+    background-color : #F88D4B !important;
+    box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.choose h3{
+    transition: ease-in 0.2s !important;
+    color: white;
+}
+
+.choose:hover{
+    cursor: pointer;
 }
