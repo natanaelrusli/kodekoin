@@ -2,15 +2,29 @@
 
 .gamelogo{
     width: 150px;
+    margin-top: 10px;
 }
 
 .gametitle{
     font-family: 'Josefin Sans', sans-serif;
+    margin-top: 5px;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (min-width: 360px) {
+    .gamelogo{
+        width: 160px;
+        margin-top: -10px;
+        margin-left: -10px;
+    }
+    .gametitle{
+        margin-top: 10px;
+        font-size: 2rem;
+    }
+}
+@media only screen and (min-width: 600px) {
     .gamelogo{
         width: 60px;
+        margin-top: -10px;
         margin-right: 5px;
     }
     .gametitle{
@@ -18,11 +32,23 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) {
     .gamelogo{
-        width: 120px;
+        width: 100px;
+        margin-top: 5px;
+        margin-left: 2px;
     }
     .gametitle{
-        font-size: 1.8rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .gamelogo{
+        width: 150px;
+        margin-right: 15px;
+    }
+    .gametitle{
+        font-size: 2.2rem;
     }
 }

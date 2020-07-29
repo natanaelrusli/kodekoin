@@ -8,7 +8,7 @@ export default function HomeImage(){
     return(
         <Card className="mt-3 p-3 shadow">
             <div className="row">
-                <div className="col-sm-5 mb-3">
+                <div className="col-sm-5">
                     <img src={GameLogo} className="gamelogo"></img>
                 </div>
                 <div className="col-sm-7">

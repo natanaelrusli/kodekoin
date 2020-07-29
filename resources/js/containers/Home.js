@@ -15,7 +15,7 @@ function Home() {
       <div className="container-fluid">
         <div className="row mb-3">
           <div className="col-sm-5 mt-3">
-            <MediaQuery minDeviceWidth={576}>
+            <MediaQuery minDeviceWidth={600}>
               <HomeImage></HomeImage>
             </MediaQuery>
             <GameDesc></GameDesc>

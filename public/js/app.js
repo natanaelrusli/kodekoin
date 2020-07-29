@@ -29875,7 +29875,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".gamelogo{\r\n    width: 150px;\r\n}\r\n\r\n.gametitle{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n}\r\n\r\n@media only screen and (max-width: 769px) {\r\n    .gamelogo{\r\n        width: 60px;\r\n        margin-right: 5px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .gamelogo{\r\n        width: 120px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.8rem;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".gamelogo{\r\n    width: 150px;\r\n    margin-top: 10px;\r\n}\r\n\r\n.gametitle{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-top: 5px;\r\n}\r\n\r\n@media only screen and (min-width: 360px) {\r\n    .gamelogo{\r\n        width: 160px;\r\n        margin-top: -10px;\r\n        margin-left: -10px;\r\n    }\r\n    .gametitle{\r\n        margin-top: 10px;\r\n        font-size: 2rem;\r\n    }\r\n}\r\n@media only screen and (min-width: 600px) {\r\n    .gamelogo{\r\n        width: 60px;\r\n        margin-top: -10px;\r\n        margin-right: 5px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 768px) {\r\n    .gamelogo{\r\n        width: 100px;\r\n        margin-top: 5px;\r\n        margin-left: 2px;\r\n    }\r\n    .gametitle{\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 1024px) {\r\n    .gamelogo{\r\n        width: 150px;\r\n        margin-right: 15px;\r\n    }\r\n    .gametitle{\r\n        font-size: 2.2rem;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -29894,7 +29894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 150%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    margin-top: 23px;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .homeimage img{\r\n        height: 50vh;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".homeimage img{\r\n    /* Head Image */\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n    width: 100%;\r\n    height: 150%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    margin-top: 24px;\r\n\r\n    user-drag: none; \r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .homeimage img{\r\n        height: 50vh;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -29932,7 +29932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap);", ""]);
 
 // module
-exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: -10px;\r\n}\r\n\r\n.denom-header p{\r\n    margin-top: -5px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.denom Button{\r\n    width: 23.5%;\r\n    margin: 5px 5px;\r\n    padding: 5px;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .denom button {\r\n        width: 30%;\r\n        height: 60px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 360px) {\r\n    .denom button {\r\n        width: 29.3%;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    font-size: 1.1rem;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (max-width: 1024px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n.orange-button{\r\n    color: white;\r\n    border-color: #F88D4B !important;\r\n    background-color: #F88D4B;\r\n}\r\n\r\n.orange-button:hover{\r\n    color: white;\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n    color: white;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}\r\n\r\n.method{\r\n    transition: ease-in 0.2s !important;\r\n    background-color: #fff !important;\r\n    cursor: pointer;\r\n}\r\n\r\n.choose{\r\n    transition: ease-in 0.2s !important;\r\n    background-color : #F88D4B !important;\r\n    box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.choose h3{\r\n    transition: ease-in 0.2s !important;\r\n    color: white;\r\n}\r\n\r\n.choose:hover{\r\n    cursor: pointer;\r\n}", ""]);
+exports.push([module.i, ":root{\r\n    --base-orange : #F88D4B;\r\n}\r\n\r\n*{\r\n    box-sizing: border-box;\r\n}\r\n\r\n.shadow{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.denom-header{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    margin-bottom: -10px;\r\n}\r\n\r\n.denom-header p{\r\n    margin-top: -5px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.denom Button{\r\n    width: 23.8%;\r\n    margin: 5px 5px;\r\n    padding: 5px;\r\n}\r\n\r\n\r\n@media only screen and (min-width: 320px) {\r\n    .denom Button {\r\n        width: 29%;\r\n        height: 40px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 360px) {\r\n    .denom Button {\r\n        width: 29%;\r\n        height: 40px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 411px) {\r\n    .denom Button {\r\n        width: 30%;\r\n        height: 40px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 411px) {\r\n    .denom Button {\r\n        width: 30.3%;\r\n        height: 40px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 768px) {\r\n    .denom Button {\r\n        width: 22%;\r\n        height: 50px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 1024px) {\r\n    .denom Button {\r\n        width: 23%;\r\n        height: 50px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 1080px) {\r\n    .denom Button {\r\n        width: 23.3%;\r\n        height: 40px;\r\n        margin: 5px 5px;\r\n    }\r\n}\r\n\r\n.payment-methods img{\r\n    width: 7%;\r\n}\r\n\r\n@media only screen and (max-width: 600px) {\r\n    .payment-methods img{\r\n        padding-left: 10px;\r\n        width: 20%;\r\n    }\r\n  }\r\n\r\n.payment-methods h3{\r\n    margin: auto;\r\n    font-size: 1.1rem;\r\n    color: #F88D4B;\r\n}\r\n\r\n.checkoutbutton{\r\n    font-family: 'Josefin Sans', sans-serif;\r\n    width: 30% !important;\r\n    height: 70px !important;\r\n    font-size: 30px;\r\n    background-color: #F88D4B !important;\r\n    border: #F88D4B !important;\r\n    color: white !important;\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n.checkoutbutton:hover{\r\n    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;\r\n    transition: ease-in 0.2s !important;\r\n}\r\n\r\n@media only screen and (min-width: 320px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        height: 50px !important;\r\n        font-size: 1rem;\r\n        margin-top: -30px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 360px) {\r\n    .checkoutbutton{\r\n        width: 40% !important;\r\n        height: 70px !important;\r\n        font-size: 1.2rem;\r\n        margin-top: -30px;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) {\r\n    .checkoutbutton{\r\n        margin-top: -20px;\r\n        width: 40% !important;\r\n        font-size: 1.2rem;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 1024px) {\r\n    .checkoutbutton{\r\n        margin-top: -20px;\r\n        width: 30% !important;\r\n        font-size: 1.4rem;\r\n    }\r\n}\r\n.orange-button{\r\n    color: white;\r\n    border-color: #F88D4B !important;\r\n    background-color: #F88D4B;\r\n}\r\n\r\n.orange-button:hover{\r\n    color: white;\r\n}\r\n\r\n.button-color-outline{\r\n    border-color: #F88D4B !important;\r\n    color: #F88D4B;\r\n}\r\n\r\n.button-color-outline:hover{\r\n    background-color : #F88D4B !important;\r\n    color: white;\r\n}\r\n\r\n.lg-btn{\r\n    width: 70px;\r\n}\r\n\r\n.method{\r\n    transition: ease-in 0.2s !important;\r\n    background-color: #fff !important;\r\n    cursor: pointer;\r\n}\r\n\r\n.choose{\r\n    transition: ease-in 0.2s !important;\r\n    background-color : #F88D4B !important;\r\n    box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);\r\n}\r\n\r\n.choose h3{\r\n    transition: ease-in 0.2s !important;\r\n    color: white;\r\n}\r\n\r\n.choose:hover{\r\n    cursor: pointer;\r\n}", ""]);
 
 // exports
 
@@ -111880,7 +111880,7 @@ function HomeImage() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-sm-5 mb-3"
+    className: "col-sm-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_gratismain_png__WEBPACK_IMPORTED_MODULE_4___default.a,
     className: "gamelogo"
@@ -112034,7 +112034,7 @@ function PriceList() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Title, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_9___default.a,
     width: "70"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Body, null, "Silahkan pilih denominasi dan metode pembayaran terlebih dahulu!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Body, null, "Silahkan pilih denominasi dan metode pembayaran terlebih dahulu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_3__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "secondary",
     onClick: handleClose
   }, "Close"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -112061,49 +112061,49 @@ function PriceList() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Pilih Metode Pembayaran")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "payment-methods"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    onClick: price == null ? function () {
+    onClick: price == false ? function () {
       return setMethod();
     } : function () {
       return setMethod('gopay');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: price == null ? "mb-3 p-3" : method == 'gopay' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
+    className: price == false ? "mb-3 p-3" : method == 'gopay' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_gopay_logo_png__WEBPACK_IMPORTED_MODULE_6___default.a
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    onClick: price == null ? function () {
+    onClick: price == false ? function () {
       return setMethod('');
     } : function () {
       return setMethod('bca');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: price == null ? "mb-3 p-3" : method == 'bca' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
+    className: price == false ? "mb-3 p-3" : method == 'bca' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_bca_logo_png__WEBPACK_IMPORTED_MODULE_5___default.a
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    onClick: price == null ? function () {
+    onClick: price == false ? function () {
       return setMethod('');
     } : function () {
       return setMethod('ovo');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: price == null ? "mb-3 p-3" : method == 'ovo' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
+    className: price == false ? "mb-3 p-3" : method == 'ovo' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _images_ovo_logo_png__WEBPACK_IMPORTED_MODULE_7___default.a
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, price == false ? '-' : 'IDR ' + new Intl.NumberFormat().format(price))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    onClick: price == null ? function () {
+    onClick: price == false ? function () {
       return setMethod('');
     } : function () {
       return setMethod('dana');
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    className: price == null ? "mb-3 p-3" : method == 'dana' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
+    className: price == false ? "mb-3 p-3" : method == 'dana' ? "mb-3 p-3 choose" : "mb-3 p-3 method"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row p-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -112397,7 +112397,7 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-5 mt-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_responsive__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    minDeviceWidth: 576
+    minDeviceWidth: 600
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeImage__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_GameDescription__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-7"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -112425,25 +112425,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Login; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/index.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/index.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
-/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/esm/FormControlLabel/index.js");
-/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js");
-/* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Link */ "./node_modules/@material-ui/core/esm/Link/index.js");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/index.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/icons/LockOutlined */ "./node_modules/@material-ui/icons/LockOutlined.js");
-/* harmony import */ var _material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
-/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_15__);
-
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
+/* harmony import */ var _material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/CssBaseline */ "./node_modules/@material-ui/core/esm/CssBaseline/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
+/* harmony import */ var _material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControlLabel */ "./node_modules/@material-ui/core/esm/FormControlLabel/index.js");
+/* harmony import */ var _material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js");
+/* harmony import */ var _material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Link */ "./node_modules/@material-ui/core/esm/Link/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/icons/LockOutlined */ "./node_modules/@material-ui/icons/LockOutlined.js");
+/* harmony import */ var _material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_LockOutlined__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../images/logoimg.png */ "./resources/js/images/logoimg.png");
+/* harmony import */ var _images_logoimg_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_images_logoimg_png__WEBPACK_IMPORTED_MODULE_14__);
 
 
 
@@ -112461,17 +112459,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Copyright() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_11__["default"], {
     variant: "body2",
     color: "textSecondary",
     align: "center"
-  }, 'Copyright © ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, 'Copyright © ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
     color: "inherit",
     href: "https://material-ui.com/"
   }, "Your Website"), ' ', new Date().getFullYear(), '.');
 }
 
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__["makeStyles"])(function (theme) {
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_12__["makeStyles"])(function (theme) {
   return {
     root: {
       height: '100vh'
@@ -112505,33 +112503,33 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_13__["m
 });
 function Login() {
   var classes = useStyles();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     container: true,
     component: "main",
     className: classes.root
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_CssBaseline__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     item: true,
     xs: false,
     sm: 4,
     md: 7,
     className: classes.image
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     item: true,
     xs: 12,
     sm: 8,
     md: 5,
-    component: _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7__["default"],
     elevation: 6,
     square: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: classes.paper
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_15___default.a,
+    src: _images_logoimg_png__WEBPACK_IMPORTED_MODULE_14___default.a,
     width: 120
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: classes.form,
     noValidate: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "outlined",
     margin: "normal",
     required: true,
@@ -112541,7 +112539,7 @@ function Login() {
     name: "email",
     autoComplete: "email",
     autoFocus: true
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "outlined",
     margin: "normal",
     required: true,
@@ -112551,36 +112549,36 @@ function Login() {
     type: "password",
     id: "password",
     autoComplete: "current-password"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    control: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Checkbox__WEBPACK_IMPORTED_MODULE_5__["default"], {
       value: "remember",
       color: "primary"
     }),
     label: "Remember me"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     type: "submit",
     fullWidth: true,
     variant: "contained",
     color: "primary",
     className: classes.submit
-  }, "Sign In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, "Sign In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     container: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     item: true,
     xs: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
     href: "#",
     variant: "body2"
-  }, "Forgot password?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, "Forgot password?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_9__["default"], {
     item: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
     href: "/signup",
     variant: "body2"
   }, "Don't have an account? Sign Up")))))));
 }
 
 if (document.getElementById('login')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_14___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Login, null), document.getElementById('login'));
+  react_dom__WEBPACK_IMPORTED_MODULE_13___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Login, null), document.getElementById('login'));
 }
 
 /***/ }),
@@ -112838,7 +112836,7 @@ module.exports = "/images/bca-logo.png?782a9d3d4f3a189bc8dd29b70c64605d";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/dana-logo.png?de5a56753ebbaa0bdccee204510d171a";
+module.exports = "/images/dana-logo.png?456fe4a51a0940a11bd9c094d27139f4";
 
 /***/ }),
 
