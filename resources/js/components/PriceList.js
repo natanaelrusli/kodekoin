@@ -11,7 +11,7 @@ import logo from '../images/logoimg.png';
 
 export default function PriceList(){
     //Items is for list of denom shown in the page
-    const [items, setItems] = useState([10000,20000,30000,40000,50000,60000,70000, 100000, 120000]);
+    const [items, setItems] = useState([10000,20000,30000,40000,50000,60000,70000, 100000, 120000, 125000]);
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
@@ -31,6 +31,7 @@ export default function PriceList(){
 
     return(
         <div>
+            {/* Notification Modal */}
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -49,6 +50,7 @@ export default function PriceList(){
                     </Button>
                 </Modal.Footer>
             </Modal>
+
             {/* Denom card */}
             <Card className="p-3 mb-5 shadow">
                 <div className="denom-header">

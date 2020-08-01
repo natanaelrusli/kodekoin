@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+
+.navbutton {
+    /* font-family: 'Josefin Sans', sans-serif !important; */
+    font-size: 0.875rem !important;
+    transition: ease-in-out 0.3s !important;
+    color: #000000 !important;
+}
+.navbutton:hover{
+    transition: ease-in-out 0.3s;
+    color: #F88D4B !important;
+}

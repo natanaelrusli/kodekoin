@@ -16,3 +16,4 @@ require('./components/Example');
 require('./containers/Login');
 require('./containers/Home');
 require('./containers/Signup');
+require('./containers/Dashboard');

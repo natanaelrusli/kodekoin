@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
+Route::view('/dashboard', 'dashboard');
 Route::view('/', 'app');

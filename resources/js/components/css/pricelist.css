@@ -61,6 +61,22 @@
     }
 }
 
+@media only screen and (min-width: 575px) {
+    .denom Button {
+        width: 28%;
+        height: 40px;
+        margin: 5px 5px;
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    .denom Button {
+        width: 28%;
+        height: 40px;
+        margin: 5px 5px;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     .denom Button {
         width: 22%;
@@ -79,7 +95,7 @@
 
 @media only screen and (min-width: 1080px) {
     .denom Button {
-        width: 23.3%;
+        width: 23%;
         height: 40px;
         margin: 5px 5px;
     }
@@ -149,6 +165,14 @@
     .checkoutbutton{
         margin-top: -20px;
         width: 30% !important;
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    .checkoutbutton{
+        margin-top: -20px;
+        width: 20% !important;
         font-size: 1.4rem;
     }
 }

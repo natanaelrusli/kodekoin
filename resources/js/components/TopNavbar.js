@@ -38,8 +38,9 @@ function NavbarComponent() {
                     {/* Only to push the other button to the right */}
                 </Nav>
                 <Nav className="mr-sm-2">
-                    <Button href="/login" className="navbutton">Login</Button>
-                    <Button href="/signup" className="navbutton">Signup</Button>
+                    <Button href="/login" className="navbutton orange">Login</Button>
+                    <Button href="/signup" className="navbutton orange">Signup</Button>
+                    <Button href="/dashboard" className="navbutton orange">Profile</Button>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
