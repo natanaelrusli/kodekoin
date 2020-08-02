@@ -30,8 +30,8 @@ export default function PriceList(){
         alert("Send Payment " + method + " " + price);
 
         // Reset all states after sending data to back end
-        setPrice(false);
         setMethod(false);
+        setPrice(false);
     }
 
     return(
