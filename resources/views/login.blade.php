@@ -8,7 +8,7 @@
  
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
- 
+    <meta name="theme-color" content="#F88D4B" />
     <title>Login - Kode Koin</title>
  
     <!-- Styles -->

@@ -26,7 +26,12 @@ export default function PriceList(){
     const handleShow = () => setShow(true);
 
     function sendPayment(){
+        //Sending payment data to back end
         alert("Send Payment " + method + " " + price);
+
+        // Reset all states after sending data to back end
+        setPrice(false);
+        setMethod(false);
     }
 
     return(
