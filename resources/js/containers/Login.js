@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ReactDOM from 'react-dom';
 import logo from '../images/logoimg.png';
 import './css/Login.css';
+import { useState, useEffect } from 'react';
 
 function Copyright() {
   return (
@@ -58,8 +59,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function function1(){
+  
+}
+
 export default function Login() {
   const classes = useStyles();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  //All code inside this use effect will run when the component refreshed
+  useEffect(() => {
+    alert("Component Mounted");
+  }, []);
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -80,6 +92,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={function1}
             />
             <TextField
               variant="standard"

@@ -12,17 +12,13 @@ import logo from '../images/logoimg.png';
 export default function PriceList(){
     //Items is for list of denom shown in the page
     const [items, setItems] = useState([10000,25000,45000,75000,125000,225000,375000, 495000]);
-
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
-
     //To store payment method chosen by the user
     const [method, setMethod] = useState(false);
-    
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    
     const handleShow = () => setShow(true);
 
     function sendPayment(){
