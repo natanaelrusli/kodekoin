@@ -13,16 +13,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    color: '#F88D4B',
+    color: '#FF4646',
   },
 
   submit: {
     backgroundColor: '#FFF',
-    color: '#F88D4B',
-    borderColor: '#F88D4B',
+    color: '#FF4646',
+    borderColor: '#FF4646',
     "&:hover, &:focus": {
-        backgroundColor: '#F88D4B',
-        borderColor: '#F88D4B',
+        backgroundColor: '#FF4646',
+        borderColor: '#FF4646',
       },
   },
 

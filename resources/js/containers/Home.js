@@ -10,10 +10,10 @@ import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 function Home() {
   return (
-    <div className="Home">
+    <div className="Home" style={{ height: '100%' }}>
       <Navbar></Navbar>
       <div className="container-fluid">
-        <div className="row mb-3">
+        <div className="row">
           <div className="col-sm-5 mt-3">
             <MediaQuery minDeviceWidth={600}>
               <HomeImage></HomeImage>

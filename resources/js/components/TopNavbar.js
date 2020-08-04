@@ -15,32 +15,41 @@ import './css/navstyle.css';
 
 function NavbarComponent() {
     const useStyles = makeStyles((theme) => ({
-        navShadow: {
-            boxShadow: "1px 3px 1px #bdbdbd",
+        nav: {
+            boxShadow: "1px 3px 1px rgb(0,0,0,0.4)",
+            backgroundColor : '#2E2E2E',
+            borderColor: '#FF4646',
         },
+
+        navbutton: {
+            color: '#FFFFFF',
+            "&:hover, &:focus": {
+                color: '#FF4646',
+              },
+        }
     }));
     
     const classes = useStyles();
 
     return(
-        <Navbar bg="light" expand="sm" className={classes.navShadow}>
+        <Navbar expand="sm" className={classes.nav}>
             <Navbar.Brand href="/">
             <img 
                 src={logo}
-                width="70"
+                width="40"
                 className="d-inline-block align-top"
                 alt="logo">
             </img>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className='navbar-dark'/>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     {/* Only to push the other button to the right */}
                 </Nav>
                 <Nav className="mr-sm-2">
-                    <Button href="/login" className="navbutton orange">Login</Button>
-                    <Button href="/signup" className="navbutton orange">Signup</Button>
-                    <Button href="/dashboard" className="navbutton orange">Profile</Button>
+                    <Button href="/login" className={classes.navbutton}>Login</Button>
+                    <Button href="/signup" className={classes.navbutton}>Signup</Button>
+                    <Button href="/dashboard" className={classes.navbutton}>Profile</Button>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

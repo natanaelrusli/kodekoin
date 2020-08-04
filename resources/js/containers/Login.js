@@ -30,6 +30,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
+    backgroundColor: '#2E2E2E',
   },
   image: {
     backgroundImage: 'url("../../images/BG.png")',
@@ -70,7 +71,7 @@ export default function Login() {
 
   //All code inside this use effect will run when the component refreshed
   useEffect(() => {
-    alert("Component Mounted");
+    // alert("Component Mounted");
   }, []);
 
   return (
@@ -79,7 +80,7 @@ export default function Login() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <img src={logo} width={120}>
+          <img src={logo} width={60}>
           </img>
           <form className={classes.form} noValidate>
             <TextField

@@ -40,7 +40,7 @@ export default function PriceList(){
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                <Modal.Title><img src={logo} width="70"></img></Modal.Title>
+                <Modal.Title><img src={logo} width="40"></img></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     Silahkan pilih denominasi dan metode pembayaran terlebih dahulu
@@ -53,7 +53,7 @@ export default function PriceList(){
             </Modal>
 
             {/* Denom card */}
-            <Card className="p-3 mb-5 shadow">
+            <Card className="p-3 mb-5 shadow dark-grey-bg">
                 <div className="denom-header">
                     <h1>Pilih Denominasi</h1>
                     <p>* Dalam Rupiah (IDR)</p>
@@ -71,14 +71,14 @@ export default function PriceList(){
             </Card>
 
             {/* Payment method card */}
-            <Card style={{ width: '100%' }} className="p-3 mb-5 shadow">
+            <Card style={{ width: '100%' }} className="p-3 mb-5 shadow dark-grey-bg">
                 <div className="denom-header mb-3">
                     <h1>Pilih Metode Pembayaran</h1>
                 </div>
                 
                 <div className="payment-methods">
                     <a onClick={price==false? ()=>setMethod() : ()=>setMethod('gopay')}>
-                        <Card className= {price == false? "mb-3 p-3" : method=='gopay'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
+                        <Card className= {price == false? "mb-3 p-3 method-inactive" : method=='gopay'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
                             <div className = "row p-3">
                                 <img src={GopayLogo}></img>
                                 <h3>
@@ -89,7 +89,7 @@ export default function PriceList(){
                     </a>
 
                     <a onClick={price==false? ()=>setMethod('') : ()=>setMethod('bca')}>
-                        <Card className= {price == false? "mb-3 p-3" : method=='bca'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
+                        <Card className= {price == false? "mb-3 p-3 method-inactive" : method=='bca'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
                             <div className = "row p-3">
                                 <img src={BcaLogo}></img>
                                 <h3>
@@ -100,7 +100,7 @@ export default function PriceList(){
                     </a>
 
                     <a onClick={price==false? ()=>setMethod('') : ()=>setMethod('ovo')}>
-                        <Card className= {price == false? "mb-3 p-3" : method=='ovo'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
+                        <Card className= {price == false? "mb-3 p-3 method-inactive" : method=='ovo'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
                             <div className = "row p-3">
                                 <img src={OvoLogo}></img>
                                 <h3>
@@ -111,7 +111,7 @@ export default function PriceList(){
                     </a>
 
                     <a onClick={price==false? ()=>setMethod('') : ()=>setMethod('dana')}>
-                        <Card className= {price == false? "mb-3 p-3" : method=='dana'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
+                        <Card className= {price == false? "mb-3 p-3 method-inactive" : method=='dana'? "mb-3 p-3 choose" : "mb-3 p-3 method"}>
                             <div className = "row p-3">
                                 <img src={DanaLogo}></img>
                                 <h3>

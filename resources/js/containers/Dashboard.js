@@ -111,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    backgroundColor: '#F7F7F7',
   },
   fixedHeight: {
     height: 240,
@@ -156,9 +157,9 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ backgroundColor:'#222222' }}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)} style={{ background: '#FFF', color: '#F88D4B'}}>
+      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)} style={{ background: '#2E2E2E', color: '#FF4646'}}>
         <Toolbar className={classes.toolbar}>
           {/* <IconButton
             edge="start"
@@ -175,8 +176,8 @@ export default function Dashboard() {
             </Typography>
           ))}
 
-          <Button color="inherit" href="/" style={{color: 'black'}} className="navbuttom">Home</Button>
-          <Button color="inherit" style={{color: 'black'}} className="navbuttom">Logout</Button>
+          <Button color="inherit" href="/" style={{color: 'white'}} className="navbutton">Home</Button>
+          <Button color="inherit" style={{color: 'white'}} className="navbutton">Logout</Button>
         </Toolbar>
       </AppBar>
       

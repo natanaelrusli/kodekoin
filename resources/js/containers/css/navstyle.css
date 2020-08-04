@@ -3,10 +3,8 @@
 .navbutton {
     /* font-family: 'Josefin Sans', sans-serif !important; */
     font-size: 0.875rem !important;
-    transition: ease-in-out 0.3s !important;
-    color: #000000 !important;
+    color: white !important;
 }
 .navbutton:hover{
-    transition: ease-in-out 0.3s;
-    color: #F88D4B !important;
+    color: #FF4646 !important;
 }

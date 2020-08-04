@@ -55,7 +55,7 @@ export default function Signup() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <img src={logo} width={160} className="mb-3">
+        <img src={logo} width={80} className="mb-3">
         </img>
         <h1 className="signup-text">
           Sign Up

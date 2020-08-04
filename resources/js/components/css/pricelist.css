@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  }
 
 :root{
-    --base-orange : #F88D4B;
+    --base-red : #FF4646;
+    --dark-grey : #2E2E2E;
+    --white : #FFFFFF
 }
 
 *{
     box-sizing: border-box;
+}
+
+.dark-grey-bg {
+    background-color: var(--dark-grey) !important;
 }
 
 .shadow{
@@ -13,13 +25,15 @@
 }
 
 .denom-header{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Product Sans', sans-serif;
     margin-bottom: -10px;
+    color: var(--white);
 }
 
 .denom-header p{
     margin-top: -5px;
     margin-bottom: 20px;
+    color: var(--white) !important;
 }
 
 .denom Button{
@@ -101,6 +115,10 @@
     }
 }
 
+.red-border{
+    border-color: var(--base-red)!important;
+}
+
 .payment-methods img{
     width: 7%;
 }
@@ -115,16 +133,16 @@
 .payment-methods h3{
     margin: auto;
     font-size: 1.1rem;
-    color: #F88D4B;
+    color: var(--base-red);
 }
 
 .checkoutbutton{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Product Sans', sans-serif;
     width: 30% !important;
     height: 70px !important;
     font-size: 30px;
-    background-color: #F88D4B !important;
-    border: #F88D4B !important;
+    background-color: var(--base-red) !important;
+    border: var(--base-red) !important;
     color: white !important;
     box-shadow: 10px 4px 10px rgba(0, 0, 0, 0) !important;
     transition: ease-in 0.2s !important;
@@ -178,8 +196,8 @@
 }
 .orange-button{
     color: white;
-    border-color: #F88D4B !important;
-    background-color: #F88D4B;
+    border-color: var(--base-red) !important;
+    background-color: var(--base-red);
 }
 
 .orange-button:hover{
@@ -187,12 +205,12 @@
 }
 
 .button-color-outline{
-    border-color: #F88D4B !important;
-    color: #F88D4B;
+    border-color: var(--base-red) !important;
+    color: var(--base-red);
 }
 
 .button-color-outline:hover{
-    background-color : #F88D4B !important;
+    background-color : var(--base-red) !important;
     color: white;
 }
 
@@ -202,13 +220,17 @@
 
 .method{
     transition: ease-in 0.2s !important;
-    background-color: #fff !important;
+    background-color: #222222 !important;
     cursor: pointer;
+}
+
+.method-inactive{
+    background-color: #2E2E2E !important;
 }
 
 .choose{
     transition: ease-in 0.2s !important;
-    background-color : #F88D4B !important;
+    background-color : var(--base-red) !important;
     box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);
 }
 

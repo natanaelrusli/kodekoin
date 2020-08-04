@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;1,400&display=swap');
 
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
+:root{
+  --base-red : #FF4646;
+  --dark-grey : #2E2E2E;
+  --white : #FFFFFF
+}
+
+
 @media all and (min-width: 480px) {
     .Signup {
       padding: 60px 0;
@@ -18,8 +32,8 @@
   }
 
 .signup-text{
-  font-family: 'Josefin Sans', sans-serif !important;
-  color: #F88D4B;
+  font-family: 'Product Sans', sans-serif !important;
+  color: var(--base-red);
 }
 
 .logo{

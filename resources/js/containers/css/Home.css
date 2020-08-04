@@ -1,6 +1,23 @@
+:root{
+  --base-red : #FF4646;
+  --dark-grey : #2E2E2E;
+  --white : #FFFFFF
+}
+
+html, body {
+  height: 100%;
+}
+
+.Home{
+  background-color: #222222;
+  height: auto !important;
+  height: 100%;
+}
+
 .Home .lander {
     margin-left: 20px;
     margin-top: 40px;
+    margin-bottom: 40px;
     text-align: left;
   }
 

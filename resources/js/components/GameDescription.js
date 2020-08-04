@@ -6,7 +6,7 @@ import GameLogo from "../images/gratismain.png"
 
 export default function HomeImage(){
     return(
-        <Card className="mt-3 p-3 shadow">
+        <Card className="mt-3 p-3 shadow" style={{ backgroundColor : '#2E2E2E'}}>
             <div className="row">
                 <div className="col-sm-5">
                     <img src={GameLogo} className="gamelogo"></img>

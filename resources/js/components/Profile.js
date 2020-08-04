@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 
   title: {
-    color: '#F88D4B',
+    color: '#FF4646',
   },
 });
 
