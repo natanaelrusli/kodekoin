@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post("signup", "UserController@userSignUp");
+
+Route::post("login", "UserController@userLogin");
+
+Route::get("user/{email}", "UserController@userDetail");
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

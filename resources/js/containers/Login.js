@@ -1,144 +1,197 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import ReactDOM from 'react-dom';
-import logo from '../images/logoimg.png';
-import './css/Login.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import ReactDOM from "react-dom";
+import logo from "../images/logoimg.png";
+import "./css/Login.css";
 
 function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {"Copyright © "}
+            <Link color="inherit" href="https://material-ui.com/">
+                Your Website
+            </Link>{" "}
+            {new Date().getFullYear()}
+            {"."}
+        </Typography>
+    );
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-    backgroundColor: '#2E2E2E',
-  },
-  image: {
-    backgroundImage: 'url("../../images/BG.png")',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    backgroundColor: theme.palette.grey[600],
-    margin: theme.spacing(3, 0, 2),
-  },
+const useStyles = makeStyles(theme => ({
+    root: {
+        height: "100vh",
+        backgroundColor: "#2E2E2E"
+    },
+    image: {
+        backgroundImage: 'url("../../images/BG.png")',
+        backgroundRepeat: "no-repeat",
+        backgroundColor:
+            theme.palette.type === "light"
+                ? theme.palette.grey[50]
+                : theme.palette.grey[900],
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+    },
+    paper: {
+        margin: theme.spacing(8, 4),
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main
+    },
+    form: {
+        width: "100%", // Fix IE 11 issue.
+        marginTop: theme.spacing(1)
+    },
+    submit: {
+        backgroundColor: theme.palette.grey[600],
+        margin: theme.spacing(3, 0, 2)
+    }
 }));
 
-function function1(){
-  
-}
+function function1() {}
 
-export default function Login() {
-  const classes = useStyles();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login = e => {
+    const classes = useStyles();
+    const [email, setemail] = useState("");
+    const [password, setpassword] = useState("");
+    const [msg, setmsg] = useState("");
+    const [redirect, setredirect] = useState(false);
 
-  //All code inside this use effect will run when the component refreshed
-  useEffect(() => {
-    // alert("Component Mounted");
-  }, []);
+    const onSubmitHandler = e => {
+        e.preventDefault();
+        axios
+            .post("http://localhost:8000/api/login", {
+                email: email,
+                password: password
+            })
+            .then(response => {
+                console.log(response);
+                if (response.data.status === 200) {
+                    localStorage.setItem("isLoggedIn", true);
+                    localStorage.setItem(
+                        "userData",
+                        JSON.stringify(response.data.data)
+                    );
+                    setredirect(true);
+                    setmsg(response.data.message);
+                    console.log(response.data.message);
+                    setTimeout(() => {
+                        setmsg("");
+                    }, 5000);
+                }
 
-  return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <img src={logo} width={60}>
-          </img>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="standard"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onChange={function1}
-            />
-            <TextField
-              variant="standard"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              className="submit"
+                if (response.data.status === "failed") {
+                    setmsg(response.data.message);
+                    console.log(response.data.message);
+                    setTimeout(() => {
+                        setmsg("");
+                    }, 5000);
+                }
+            })
+            .catch(error => console.log(error));
+    };
+
+    const login = localStorage.getItem("isLoggedIn");
+
+    if (redirect) {
+        //TODO: redirect to home page
+    }
+    if (login) {
+        //TODO: redirect to home page
+    }
+    return (
+        <Grid container component="main" className={classes.root}>
+            <CssBaseline />
+            <Grid item xs={false} sm={4} md={7} className={classes.image} />
+            <Grid
+                item
+                xs={12}
+                sm={8}
+                md={5}
+                component={Paper}
+                elevation={6}
+                square
             >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
+                <div className={classes.paper}>
+                    <img src={logo} width={60}></img>
+                    <form
+                        className={classes.form}
+                        noValidate
+                        onSubmit={onSubmitHandler}
+                    >
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                            onChange={e => setemail(e.target.value)}
+                        />
+                        <TextField
+                            variant="standard"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            onChange={e => setpassword(e.target.value)}
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox value="remember" color="primary" />
+                            }
+                            label="Remember me"
+                        />
+                        <p>{msg}</p>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            className="submit"
+                        >
+                            Sign In
+                        </Button>
+                        <Grid container>
+                            <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+                                </Link>
+                            </Grid>
+                            <Grid item>
+                                <Link href="/signup" variant="body2">
+                                    {"Don't have an account? Sign Up"}
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
             </Grid>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
-  );
-}
-
-if (document.getElementById('login')) {
-  ReactDOM.render(<Login />, document.getElementById('login'));
+        </Grid>
+    );
+};
+export default Login;
+if (document.getElementById("login")) {
+    ReactDOM.render(<Login />, document.getElementById("login"));
 }

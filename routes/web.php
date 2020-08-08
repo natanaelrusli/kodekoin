@@ -25,3 +25,6 @@ Route::view('/login', 'login');
 Route::view('/signup', 'signup');
 Route::view('/dashboard', 'dashboard');
 Route::view('/', 'app');
+// Route::get('{reactRoutes}', function () {
+//     return view('app'); // your start view
+// })->where('reactRoutes', '^((?!api).)*$'); // except 'api' word
