@@ -19,7 +19,7 @@ import "./css/signup.css";
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant="body2" color="textSecondary" align="center" style={{ color: 'white', }}>
             {"Copyright © "}
             Kode Koin
             {" " + new Date().getFullYear()}
@@ -29,8 +29,36 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        height: "100vh",
+        backgroundColor: "#222222 !important",
+        width: "100%",
+        '& label.Mui-focused': {
+                color: '#FF4646',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#FF4646',
+        },
+        '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: '#FF4646',
+        },
+        '&:hover fieldset': {
+            borderColor: '#FF4646',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#FF4646',
+        },
+        '&.MuiButton-label': {
+            color: 'white',
+        },
+        '&.MuiTypography' : {
+            color: "white",
+        }
+        },
+    },
     paper: {
-        marginTop: theme.spacing(8),
+        paddingTop: "15%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
@@ -45,7 +73,11 @@ const useStyles = makeStyles(theme => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2)
-    }
+    },
+    submit: {
+        backgroundColor: '#FF4646',
+        margin: theme.spacing(3, 0, 2),
+    },
 }));
 
 const Signup = () => {
@@ -90,8 +122,7 @@ const Signup = () => {
     // }, [onSubmitHandler]);
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
+        <Container component="main" maxWidth="xs" className={classes.root}>
             <div className={classes.paper}>
                 <img src={logo} width={80} className="mb-3"></img>
                 <h1 className="signup-text">Sign Up</h1>
@@ -101,19 +132,6 @@ const Signup = () => {
                     onSubmit={onSubmitHandler}
                 >
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <TextField
-                                autoComplete="phone"
-                                name="phone"
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="phone"
-                                label="Phone"
-                                autoFocus
-                                onChange={e => setphone(e.target.value)}
-                            />
-                        </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -151,6 +169,19 @@ const Signup = () => {
                                 onChange={e => setpassword(e.target.value)}
                             />
                         </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                autoComplete="phone"
+                                name="phone"
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="phone"
+                                label="Phone"
+                                autoFocus
+                                onChange={e => setphone(e.target.value)}
+                            />
+                        </Grid>
                     </Grid>
                     <p>{msg}</p>
                     <Button
@@ -159,12 +190,13 @@ const Signup = () => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        style={{ backgroundColor: '#FF4646' }}
                     >
                         Sign Up
                     </Button>
                     <Grid container justify="center">
                         <Grid item>
-                            <Link href="/login" variant="body2">
+                            <Link href="/login" style={{ color: '#FF4646' }}>
                                 Already have an account? Sign in
                             </Link>
                         </Grid>

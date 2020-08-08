@@ -13,7 +13,7 @@ import Signup from "./Signup";
 
 const Home = props => {
     return (
-        <div className="Home" style={{ height: "100%" }}>
+        <div className="Home" style={{ height: "100vh", backgroundColor: "#2E2E2E" }}>
             <Navbar></Navbar>
             <div className="container-fluid">
                 <div className="row">
