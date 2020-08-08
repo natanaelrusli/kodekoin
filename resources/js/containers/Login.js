@@ -63,16 +63,55 @@ const useStyles = makeStyles(theme => ({
 
 function function1() {}
 
-const Login = () => {
+const Login = e => {
     const classes = useStyles();
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setemail] = useState("");
+    const [password, setpassword] = useState("");
+    const [msg, setmsg] = useState("");
+    const [redirect, setredirect] = useState(false);
 
-    //All code inside this use effect will run when the component refreshed
-    useEffect(() => {
-        // alert("Component Mounted");
-    }, []);
+    const onSubmitHandler = e => {
+        e.preventDefault();
+        axios
+            .post("http://localhost:8000/api/login", {
+                email: email,
+                password: password
+            })
+            .then(response => {
+                console.log(response);
+                if (response.data.status === 200) {
+                    localStorage.setItem("isLoggedIn", true);
+                    localStorage.setItem(
+                        "userData",
+                        JSON.stringify(response.data.data)
+                    );
+                    setredirect(true);
+                    setmsg(response.data.message);
+                    console.log(response.data.message);
+                    setTimeout(() => {
+                        setmsg("");
+                    }, 5000);
+                }
 
+                if (response.data.status === "failed") {
+                    setmsg(response.data.message);
+                    console.log(response.data.message);
+                    setTimeout(() => {
+                        setmsg("");
+                    }, 5000);
+                }
+            })
+            .catch(error => console.log(error));
+    };
+
+    const login = localStorage.getItem("isLoggedIn");
+
+    if (redirect) {
+        //TODO: redirect to home page
+    }
+    if (login) {
+        //TODO: redirect to home page
+    }
     return (
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
@@ -88,7 +127,11 @@ const Login = () => {
             >
                 <div className={classes.paper}>
                     <img src={logo} width={60}></img>
-                    <form className={classes.form} noValidate>
+                    <form
+                        className={classes.form}
+                        noValidate
+                        onSubmit={onSubmitHandler}
+                    >
                         <TextField
                             variant="standard"
                             margin="normal"
@@ -99,7 +142,7 @@ const Login = () => {
                             name="email"
                             autoComplete="email"
                             autoFocus
-                            onChange={function1}
+                            onChange={e => setemail(e.target.value)}
                         />
                         <TextField
                             variant="standard"
@@ -111,6 +154,7 @@ const Login = () => {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={e => setpassword(e.target.value)}
                         />
                         <FormControlLabel
                             control={
@@ -118,6 +162,7 @@ const Login = () => {
                             }
                             label="Remember me"
                         />
+                        <p>{msg}</p>
                         <Button
                             type="submit"
                             fullWidth

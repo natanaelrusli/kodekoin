@@ -111,9 +111,7 @@ const Signup = () => {
                                 id="phone"
                                 label="Phone"
                                 autoFocus
-                                onChange={e => {
-                                    setphone(e.target.value);
-                                }}
+                                onChange={e => setphone(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -125,9 +123,7 @@ const Signup = () => {
                                 label="Name"
                                 name="name"
                                 autoComplete="name"
-                                onChange={e => {
-                                    setname(e.target.value);
-                                }}
+                                onChange={e => setname(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -139,9 +135,7 @@ const Signup = () => {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
-                                onChange={e => {
-                                    setemail(e.target.value);
-                                }}
+                                onChange={e => setemail(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -154,9 +148,7 @@ const Signup = () => {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                onChange={e => {
-                                    setpassword(e.target.value);
-                                }}
+                                onChange={e => setpassword(e.target.value)}
                             />
                         </Grid>
                     </Grid>
