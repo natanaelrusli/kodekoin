@@ -20,6 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import {mainListItems} from '../components/ProfileListItems';
+import { spacing } from '@material-ui/system';
 import Orders from '../components/Orders';
 import Profile from '../components/Profile';
 import ChangePassword from '../components/ChangePassword';
@@ -202,6 +203,7 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+
             {/* Recent Deposits */}
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={classes.paper}>
@@ -211,7 +213,15 @@ export default function Dashboard() {
                 }
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+
+          {/* Recent Orders */}
+          <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <ChangePassword/>
+              </Paper>
+          </Grid>
+
+            {/* Change Password */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 {orders.map(order =>(
@@ -220,13 +230,9 @@ export default function Dashboard() {
                 }
               </Paper>
             </Grid>
-            {/* Change Password */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <ChangePassword/>
-              </Paper>
-            </Grid>
           </Grid>
+
+
           <Box pt={4}>
             <Copyright />
           </Box>
