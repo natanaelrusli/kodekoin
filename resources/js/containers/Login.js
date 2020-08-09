@@ -29,7 +29,30 @@ function Copyright() {
 const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
-        backgroundColor: "#2E2E2E"
+        backgroundColor: "#222222 !important",
+            '& label.Mui-focused': {
+                    color: '#FF4646',
+            },
+            '& .MuiInput-underline:after': {
+                borderBottomColor: '#FF4646',
+            },
+            '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#FF4646',
+            },
+            '&:hover fieldset': {
+                borderColor: '#FF4646',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: '#FF4646',
+            },
+            '&.MuiButton-label': {
+                color: 'white',
+            },
+            '&.MuiTypography' : {
+                color: "white",
+            }
+          },
     },
     image: {
         backgroundImage: 'url("../../images/BG.png")',
@@ -45,19 +68,21 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(8, 4),
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
     },
     avatar: {
         margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main
     },
     form: {
         width: "100%", // Fix IE 11 issue.
         marginTop: theme.spacing(1)
     },
+    formContainer: {
+        backgroundColor: "#222222",
+    },
     submit: {
         backgroundColor: theme.palette.grey[600],
-        margin: theme.spacing(3, 0, 2)
+        margin: theme.spacing(3, 0, 2),
     }
 }));
 
@@ -114,7 +139,6 @@ const Login = e => {
     }
     return (
         <Grid container component="main" className={classes.root}>
-            <CssBaseline />
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid
                 item
@@ -124,6 +148,7 @@ const Login = e => {
                 component={Paper}
                 elevation={6}
                 square
+                className={classes.formContainer}
             >
                 <div className={classes.paper}>
                     <img src={logo} width={60}></img>
@@ -133,7 +158,7 @@ const Login = e => {
                         onSubmit={onSubmitHandler}
                     >
                         <TextField
-                            variant="standard"
+                            variant="outlined"
                             margin="normal"
                             required
                             fullWidth
@@ -142,10 +167,11 @@ const Login = e => {
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            aria-required="true"
                             onChange={e => setemail(e.target.value)}
                         />
                         <TextField
-                            variant="standard"
+                            variant="outlined"
                             margin="normal"
                             required
                             fullWidth
@@ -154,33 +180,29 @@ const Login = e => {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            aria-required="true"
                             onChange={e => setpassword(e.target.value)}
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox value="remember" color="primary" />
-                            }
-                            label="Remember me"
                         />
                         <p>{msg}</p>
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
+                            style={{ backgroundColor: '#FF4646', }}
                             color="primary"
                             className={classes.submit}
                             className="submit"
                         >
                             Sign In
                         </Button>
-                        <Grid container>
+                        <Grid container style={{marginTop: "10px"}}>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link href="#" variant="body2" style={{ color: 'white', }}>
                                     Forgot password?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/signup" variant="body2">
+                                <Link href="/signup" variant="body2" style={{ color: 'white', }}>
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>

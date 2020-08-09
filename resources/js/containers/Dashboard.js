@@ -20,14 +20,15 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "../components/ProfileListItems";
+import { spacing } from "@material-ui/system";
 import Orders from "../components/Orders";
 import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
-import "./css/navstyle.css";
+import Navbar from "../components/TopNavbar";
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant="body2" style={{ color: "white" }} align="center">
             {"Copyright © Kode Koin "}
             {new Date().getFullYear()}
             {"."}
@@ -39,7 +40,9 @@ const drawerWidth = 230;
 
 const useStyles = makeStyles(theme => ({
     root: {
-        display: "flex"
+        display: "flex",
+        flexDirection: "column",
+        height: "100%"
     },
     toolbar: {
         paddingRight: 24 // keep right padding when drawer closed
@@ -52,7 +55,8 @@ const useStyles = makeStyles(theme => ({
         ...theme.mixins.toolbar
     },
     appBar: {
-        zIndex: theme.zIndex.drawer + 1,
+        zIndex: 1,
+        backgroundColor: "black",
         transition: theme.transitions.create(["width", "margin"], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen
@@ -95,11 +99,9 @@ const useStyles = makeStyles(theme => ({
             width: theme.spacing(9)
         }
     },
-    appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
-        height: "100vh",
-        overflow: "auto"
+        backgroundColor: "#222222"
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -110,7 +112,7 @@ const useStyles = makeStyles(theme => ({
         display: "flex",
         overflow: "auto",
         flexDirection: "column",
-        backgroundColor: "#F7F7F7"
+        backgroundColor: "#f2f2f2 !important"
     },
     fixedHeight: {
         height: 240
@@ -122,7 +124,6 @@ export default function Dashboard() {
     const [users, setUsers] = useState([]);
     const [open, setOpen] = useState(false);
     const [orders, setOrders] = useState([]);
-    const [selectMenu, setselectMenu] = useState("profile");
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
 
@@ -164,72 +165,9 @@ export default function Dashboard() {
     if (!login) {
         // redirect to login page
     }
-
     return (
-        <div className={classes.root} style={{ backgroundColor: "#222222" }}>
-            <CssBaseline />
-            <AppBar
-                position="absolute"
-                className={clsx(classes.appBar, open && classes.appBarShift)}
-                style={{ background: "#2E2E2E", color: "#FF4646" }}
-            >
-                <Toolbar className={classes.toolbar}>
-                    {/* <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-          >
-            <MenuIcon />
-          </IconButton> */}
-                    {users.map(user => (
-                        <Typography
-                            component="h1"
-                            variant="h6"
-                            color="inherit"
-                            noWrap
-                            className={classes.title}
-                        >
-                            Hi, {user.firstName}!
-                        </Typography>
-                    ))}
-
-                    <Button
-                        color="inherit"
-                        href="/"
-                        style={{ color: "white" }}
-                        className="navbutton"
-                    >
-                        Home
-                    </Button>
-                    <Button
-                        color="inherit"
-                        style={{ color: "white" }}
-                        className="navbutton"
-                        onClick={logoutHandler}
-                    >
-                        Logout
-                    </Button>
-                </Toolbar>
-            </AppBar>
-
-            {/* <Drawer
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-        }}
-        open={open}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <List>
-            {mainListItems}
-        </List>
-      </Drawer> */}
+        <div className={classes.root}>
+            <Navbar></Navbar>
 
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -247,7 +185,15 @@ export default function Dashboard() {
                                 ))}
                             </Paper>
                         </Grid>
+
                         {/* Recent Orders */}
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <ChangePassword />
+                            </Paper>
+                        </Grid>
+
+                        {/* Change Password */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 {orders.map(order => (
@@ -258,13 +204,8 @@ export default function Dashboard() {
                                 ))}
                             </Paper>
                         </Grid>
-                        {/* Change Password */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                                <ChangePassword />
-                            </Paper>
-                        </Grid>
                     </Grid>
+
                     <Box pt={4}>
                         <Copyright />
                     </Box>

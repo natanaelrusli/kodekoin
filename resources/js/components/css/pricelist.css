@@ -117,6 +117,7 @@
 
 .red-border{
     border-color: var(--base-red)!important;
+    border-width: 5px;
 }
 
 .payment-methods img{
@@ -206,6 +207,7 @@
 
 .button-color-outline{
     border-color: var(--base-red) !important;
+    border-width: 2px;
     color: var(--base-red);
 }
 
@@ -230,8 +232,8 @@
 
 .choose{
     transition: ease-in 0.2s !important;
-    background-color : var(--base-red) !important;
     box-shadow: inset 10px 4px 10px rgba(0, 0, 0, 0.7);
+    background-color: var(--base-red) !important;
 }
 
 .choose h3{
