@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     paper: {
-        paddingTop: "15%",
+        paddingTop: "7%",
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
@@ -122,13 +122,12 @@ const Signup = () => {
     // }, [onSubmitHandler]);
 
     return (
-        <Container component="main" maxWidth="xs" className={classes.root}>
+        <Container component="main" maxWidth="xs" className={classes.root} style={{ backgroundColor: '#222222' }}>
             <div className={classes.paper}>
                 <img src={logo} width={80} className="mb-3"></img>
                 <h1 className="signup-text">Sign Up</h1>
                 <form
                     className={classes.form}
-                    noValidate
                     onSubmit={onSubmitHandler}
                 >
                     <Grid container spacing={2}>
@@ -141,6 +140,7 @@ const Signup = () => {
                                 label="Name"
                                 name="name"
                                 autoComplete="name"
+                                autoFocus
                                 onChange={e => setname(e.target.value)}
                             />
                         </Grid>
@@ -178,12 +178,11 @@ const Signup = () => {
                                 fullWidth
                                 id="phone"
                                 label="Phone"
-                                autoFocus
                                 onChange={e => setphone(e.target.value)}
                             />
                         </Grid>
                     </Grid>
-                    <p>{msg}</p>
+                    {/* <p style={{ color: 'white' }}>{msg}</p> */}
                     <Button
                         type="submit"
                         fullWidth
@@ -203,7 +202,7 @@ const Signup = () => {
                     </Grid>
                 </form>
             </div>
-            <Box mt={5}>
+            <Box mt={5} mb={5}>
                 <Copyright />
             </Box>
         </Container>

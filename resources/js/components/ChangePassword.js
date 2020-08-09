@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import './css/component.css';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -40,15 +41,15 @@ export default function ChangePassword() {
       <Form>
         <Form.Group controlId="formBasicEmail" className="mt-3">
             <Form.Label>Current Password</Form.Label>
-            <Form.Control type="password" placeholder="Current Password"/>
+            <Form.Control type="password" placeholder="Current Password" className="red-glow"/>
         </Form.Group>
         <Form.Group controlId="formBasicEmail" className="mt-3">
             <Form.Label>New Password</Form.Label>
-            <Form.Control type="password" placeholder="New Password" />
+            <Form.Control type="password" placeholder="New Password"className="red-glow" />
         </Form.Group>
         <Form.Group controlId="formBasicEmail" className="mt-3">
             <Form.Label>Repeat New Password</Form.Label>
-            <Form.Control type="password" placeholder="Repeat New Password" />
+            <Form.Control type="password" placeholder="Repeat New Password" className="red-glow"/>
         </Form.Group>
         <Button variant="primary" type="submit" className={classes.submit}>
             Change Password

@@ -21,6 +21,7 @@ const PriceList = () => {
         375000,
         495000
     ]);
+    
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
     //To store payment method chosen by the user

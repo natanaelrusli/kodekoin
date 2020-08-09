@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import ReactDOM from "react-dom";
 import logo from "../images/logoimg.png";
 import "./css/Login.css";
@@ -30,15 +30,13 @@ const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
         backgroundColor: "#222222 !important",
-            '& label.Mui-focused': {
-                    color: '#FF4646',
-            },
-            '& .MuiInput-underline:after': {
-                borderBottomColor: '#FF4646',
-            },
-            '& .MuiOutlinedInput-root': {
+        '& .MuiInput-underline:after': {
+            borderBottomColor: '#FF4646',
+        },
+        '& .MuiOutlinedInput-root': {
             '& fieldset': {
                 borderColor: '#FF4646',
+                color: '#FF4646',
             },
             '&:hover fieldset': {
                 borderColor: '#FF4646',
@@ -57,10 +55,6 @@ const useStyles = makeStyles(theme => ({
     image: {
         backgroundImage: 'url("../../images/BG.png")',
         backgroundRepeat: "no-repeat",
-        backgroundColor:
-            theme.palette.type === "light"
-                ? theme.palette.grey[50]
-                : theme.palette.grey[900],
         backgroundSize: "cover",
         backgroundPosition: "center"
     },
@@ -154,7 +148,6 @@ const Login = e => {
                     <img src={logo} width={60}></img>
                     <form
                         className={classes.form}
-                        noValidate
                         onSubmit={onSubmitHandler}
                     >
                         <TextField
@@ -167,7 +160,6 @@ const Login = e => {
                             name="email"
                             autoComplete="email"
                             autoFocus
-                            aria-required="true"
                             onChange={e => setemail(e.target.value)}
                         />
                         <TextField
@@ -183,7 +175,7 @@ const Login = e => {
                             aria-required="true"
                             onChange={e => setpassword(e.target.value)}
                         />
-                        <p>{msg}</p>
+                        {/* <p>{msg}</p> */}
                         <Button
                             type="submit"
                             fullWidth
