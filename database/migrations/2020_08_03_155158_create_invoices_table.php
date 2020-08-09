@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->string('id_invoice');
             $table->string('id_user');
+            $table->string('id_external');
             $table->string('email');
             $table->integer('amount')->default(0);
             $table->string('status');

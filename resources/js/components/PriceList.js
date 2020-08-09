@@ -8,6 +8,7 @@ import GopayLogo from "../images/gopay-logo.png";
 import OvoLogo from "../images/ovo-logo.png";
 import DanaLogo from "../images/dana-logo.png";
 import logo from "../images/logoimg.png";
+import x from "../xendit";
 
 const PriceList = () => {
     //Items is for list of denom shown in the page
@@ -35,15 +36,53 @@ const PriceList = () => {
     const handleShowLogin = () => setShowLogin(true);
 
     const login = localStorage.getItem("isLoggedIn");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    const { Invoice } = x;
+    const i = new Invoice({});
 
     function sendPayment() {
         //Sending payment data to back end
         alert("Send Payment " + method + " " + price);
 
+        (async function() {
+            try {
+                let invoice = await i.createInvoice({
+                    externalID:
+                        Date.now().toString() + "+" + userData.first_name,
+                    payerEmail: userData.email,
+                    description: "RF Cash",
+                    amount: price
+                });
+                console.log(Date.now().toString());
+                axios
+                    .post("http://localhost:8000/api/invoice", {
+                        id_invoice: invoice.id,
+                        id_user: invoice.user_id,
+                        external_id: invoice.external_id,
+                        email: invoice.payer_email,
+                        amount: invoice.amount,
+                        status: invoice.status,
+                        description: invoice.description,
+                        invoice_url: invoice.invoice_url,
+                        expiry_date: invoice.expiry_date
+                    })
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(error => console.log(error));
+                console.log("created invoice", invoice);
+            } catch (e) {
+                console.error(e);
+            }
+        })().catch(e => {
+            console.error(e);
+        });
         // Reset all states after sending data to back end
         setMethod(false);
         setPrice(false);
     }
+    useEffect(() => {}, []);
 
     return (
         <div>
