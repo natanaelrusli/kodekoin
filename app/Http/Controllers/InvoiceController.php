@@ -36,14 +36,15 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         Invoice::create([
-            'id_invoice' => $request->get('id_invoice'),
-            'id_user' => $request->get('id_user'),
-            'email' => $request->get('email'),
-            'amount' => $request->get('amount'),
-            'status' => $request->get('status'),
-            'description' => $request->get('description'),
-            'invoice_url' => $request->get('invoice_url'),
-            'expiry_date' => $request->get('expiry_date')
+            'id_invoice' => $request->id_invoice,
+            'id_user' => $request->id_user,
+            'id_external' => $request->external_id,
+            'email' => $request->email,
+            'amount' => $request->amount,
+            'status' => $request->status,
+            'description' => $request->description,
+            'invoice_url' => $request->invoice_url,
+            'expiry_date' => $request->expiry_date
         ]);
         return response()->json('Invoice Added Successfully');
     }
