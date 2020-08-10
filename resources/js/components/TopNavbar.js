@@ -1,10 +1,4 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams
-} from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -14,6 +8,8 @@ import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
 
 function NavbarComponent() {
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
     const useStyles = makeStyles(theme => ({
         nav: {
             boxShadow: "1px 3px 1px rgb(0,0,0,0.4)",
@@ -31,9 +27,17 @@ function NavbarComponent() {
 
     const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
+
     const logout = () => {
         localStorage.clear();
-        window.location.reload(false);
+        if (window.location.href.includes("dashboard")) {
+            console.log("Berhasil Logout");
+            history.push("/");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
+        } else {
+            window.location.reload(false);
+        }
     };
 
     return (

@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import logo from "../images/logoimg.png";
 import ForgotPassword from "../components/ForgotPassword";
 import "./css/Login.css";
-
+import { BrowserRouter, Redirect } from "react-router-dom";
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -30,27 +30,27 @@ const useStyles = makeStyles(theme => ({
     root: {
         height: "100vh",
         backgroundColor: "#222222 !important",
-        '& .MuiInput-underline:after': {
-            borderBottomColor: '#FF4646',
+        "& .MuiInput-underline:after": {
+            borderBottomColor: "#FF4646"
         },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#FF4646',
-                color: '#FF4646',
+        "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+                borderColor: "#FF4646",
+                color: "#FF4646"
             },
-            '&:hover fieldset': {
-                borderColor: '#FF4646',
+            "&:hover fieldset": {
+                borderColor: "#FF4646"
             },
-            '&.Mui-focused fieldset': {
-                borderColor: '#FF4646',
+            "&.Mui-focused fieldset": {
+                borderColor: "#FF4646"
             },
-            '&.MuiButton-label': {
-                color: 'white',
+            "&.MuiButton-label": {
+                color: "white"
             },
-            '&.MuiTypography' : {
-                color: "white",
+            "&.MuiTypography": {
+                color: "white"
             }
-          },
+        }
     },
     image: {
         backgroundImage: 'url("../../images/BG.png")',
@@ -62,21 +62,21 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(8, 4),
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "center"
     },
     avatar: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(1)
     },
     form: {
         width: "100%", // Fix IE 11 issue.
         marginTop: theme.spacing(1)
     },
     formContainer: {
-        backgroundColor: "#222222",
+        backgroundColor: "#222222"
     },
     submit: {
         backgroundColor: theme.palette.grey[600],
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(3, 0, 2)
     }
 }));
 
@@ -87,6 +87,8 @@ const Login = e => {
     const [password, setpassword] = useState("");
     const [msg, setmsg] = useState("");
     const [redirect, setredirect] = useState(false);
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
 
     const triggerChangeComponent = () => {
         setChangeComponent(!changeComponent);
@@ -131,13 +133,12 @@ const Login = e => {
     };
 
     const login = localStorage.getItem("isLoggedIn");
+    if (redirect || login == "true") {
+        history.push("/");
+        let pathUrl = window.location.href;
+        window.location.href = pathUrl;
+    }
 
-    if (redirect) {
-        //TODO: redirect to home page
-    }
-    if (login) {
-        //TODO: redirect to home page
-    }
     return (
         <Grid container component="main" className={classes.root}>
             {changeComponent && <ForgotPassword changePassword = {changePassword} triggerChangeComponent = {triggerChangeComponent}></ForgotPassword>}
