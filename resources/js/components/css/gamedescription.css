@@ -6,6 +6,10 @@
     src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
   }
 
+.description {
+    display: flex;
+}
+
 .gamelogo{
     width: 150px;
 }
@@ -16,6 +20,9 @@
 }
 
 @media only screen and (min-width: 360px) {
+    .description{
+        flex-direction: column;
+    }
     .gamelogo{
         width: 160px;
         margin-top: -10px;
@@ -28,10 +35,12 @@
 }
 
 @media only screen and (min-width: 600px) {
+    .description{
+        flex-direction: row;
+    }
     .gamelogo{
-        width: 60px;
-        margin-top: -10px;
-        margin-right: 5px;
+        width: 90px;
+        margin-top: 7px;
     }
     .gametitle{
         font-size: 1.2rem;
@@ -51,6 +60,7 @@
 
 @media only screen and (min-width: 1024px) {
     .gamelogo{
+        margin-top: 10px;
         width: 150px;
         margin-right: 15px;
     }
