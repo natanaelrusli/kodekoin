@@ -19,7 +19,12 @@ import "./css/signup.css";
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="textSecondary" align="center" style={{ color: 'white', }}>
+        <Typography
+            variant="body2"
+            color="textSecondary"
+            align="center"
+            style={{ color: "white" }}
+        >
             {"Copyright © "}
             Kode Koin
             {" " + new Date().getFullYear()}
@@ -33,29 +38,29 @@ const useStyles = makeStyles(theme => ({
         height: "100vh",
         backgroundColor: "#222222 !important",
         width: "100%",
-        '& label.Mui-focused': {
-                color: '#FF4646',
+        "& label.Mui-focused": {
+            color: "#FF4646"
         },
-        '& .MuiInput-underline:after': {
-            borderBottomColor: '#FF4646',
+        "& .MuiInput-underline:after": {
+            borderBottomColor: "#FF4646"
         },
-        '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: '#FF4646',
-        },
-        '&:hover fieldset': {
-            borderColor: '#FF4646',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: '#FF4646',
-        },
-        '&.MuiButton-label': {
-            color: 'white',
-        },
-        '&.MuiTypography' : {
-            color: "white",
+        "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+                borderColor: "#FF4646"
+            },
+            "&:hover fieldset": {
+                borderColor: "#FF4646"
+            },
+            "&.Mui-focused fieldset": {
+                borderColor: "#FF4646"
+            },
+            "&.MuiButton-label": {
+                color: "white"
+            },
+            "&.MuiTypography": {
+                color: "white"
+            }
         }
-        },
     },
     paper: {
         paddingTop: "7%",
@@ -75,9 +80,9 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2)
     },
     submit: {
-        backgroundColor: '#FF4646',
-        margin: theme.spacing(3, 0, 2),
-    },
+        backgroundColor: "#FF4646",
+        margin: theme.spacing(3, 0, 2)
+    }
 }));
 
 const Signup = () => {
@@ -87,6 +92,8 @@ const Signup = () => {
     const [name, setname] = useState("");
     const [password, setpassword] = useState("");
     const [msg, setmsg] = useState("");
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
 
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -105,6 +112,38 @@ const Signup = () => {
                     setTimeout(() => {
                         setmsg("");
                     }, 5000);
+                    axios
+                        .post("http://localhost:8000/api/login", {
+                            email: email,
+                            password: password
+                        })
+                        .then(response => {
+                            console.log(response);
+                            if (response.data.status === 200) {
+                                localStorage.setItem("isLoggedIn", true);
+                                localStorage.setItem(
+                                    "userData",
+                                    JSON.stringify(response.data.data)
+                                );
+                                setmsg(response.data.message);
+                                console.log(response.data.message);
+                                setTimeout(() => {
+                                    setmsg("");
+                                }, 5000);
+                                history.push("/");
+                                let pathUrl = window.location.href;
+                                window.location.href = pathUrl;
+                            }
+
+                            if (response.data.status === "failed") {
+                                setmsg(response.data.message);
+                                console.log(response.data.message);
+                                setTimeout(() => {
+                                    setmsg("");
+                                }, 5000);
+                            }
+                        })
+                        .catch(error => console.log(error));
                 }
 
                 if (response.data.status === "failed") {
@@ -122,14 +161,16 @@ const Signup = () => {
     // }, [onSubmitHandler]);
 
     return (
-        <Container component="main" maxWidth="xs" className={classes.root} style={{ backgroundColor: '#222222' }}>
+        <Container
+            component="main"
+            maxWidth="xs"
+            className={classes.root}
+            style={{ backgroundColor: "#222222" }}
+        >
             <div className={classes.paper}>
                 <img src={logo} width={80} className="mb-3"></img>
                 <h1 className="signup-text">Sign Up</h1>
-                <form
-                    className={classes.form}
-                    onSubmit={onSubmitHandler}
-                >
+                <form className={classes.form} onSubmit={onSubmitHandler}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -189,13 +230,13 @@ const Signup = () => {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        style={{ backgroundColor: '#FF4646' }}
+                        style={{ backgroundColor: "#FF4646" }}
                     >
                         Sign Up
                     </Button>
                     <Grid container justify="center">
                         <Grid item>
-                            <Link href="/login" style={{ color: '#FF4646' }}>
+                            <Link href="/login" style={{ color: "#FF4646" }}>
                                 Already have an account? Sign in
                             </Link>
                         </Grid>
