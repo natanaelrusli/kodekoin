@@ -244,3 +244,13 @@
 .choose:hover{
     cursor: pointer;
 }
+
+.method__inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.method__inner img {
+    height: 100%;
+    flex: 0.1;
+}

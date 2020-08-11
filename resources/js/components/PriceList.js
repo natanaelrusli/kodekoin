@@ -79,6 +79,7 @@ const PriceList = () => {
         })().catch(e => {
             console.error(e);
         });
+
         // Reset all states after sending data to back end
         setMethod(false);
         setPrice(false);
@@ -179,7 +180,7 @@ const PriceList = () => {
                                     : "mb-3 p-3 method"
                             }
                         >
-                            <div className="row p-3">
+                            <div className="row p-3 method__inner">
                                 <img src={GopayLogo}></img>
                                 <h3>
                                     {price == false
@@ -207,7 +208,7 @@ const PriceList = () => {
                                     : "mb-3 p-3 method"
                             }
                         >
-                            <div className="row p-3">
+                            <div className="row p-3 method__inner">
                                 <img src={BcaLogo}></img>
                                 <h3>
                                     {price == false
@@ -235,7 +236,7 @@ const PriceList = () => {
                                     : "mb-3 p-3 method"
                             }
                         >
-                            <div className="row p-3">
+                            <div className="row p-3 method__inner">
                                 <img src={OvoLogo}></img>
                                 <h3>
                                     {price == false
@@ -263,7 +264,7 @@ const PriceList = () => {
                                     : "mb-3 p-3 method"
                             }
                         >
-                            <div className="row p-3">
+                            <div className="row p-3 method__inner">
                                 <img src={DanaLogo}></img>
                                 <h3>
                                     {price == false
