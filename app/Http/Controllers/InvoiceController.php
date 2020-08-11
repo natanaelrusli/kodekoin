@@ -96,4 +96,13 @@ class InvoiceController extends Controller
         $invoice->delete();
         return response()->json('Invoice Deleted Successfully');
     }
+
+    public function showhistory($email)
+    {
+        $invoices = Invoice::where('email', $email)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        return response()->json($invoices);
+    }
 }

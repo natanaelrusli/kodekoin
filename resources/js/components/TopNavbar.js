@@ -27,10 +27,32 @@ function NavbarComponent() {
 
     const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (login == "true") {
+        axios
+            .get(`http://localhost:8000/api/invhistory/${userData.email}`)
+            .then(response => {
+                if (response.status === 200) {
+                    localStorage.setItem(
+                        "invoices",
+                        JSON.stringify(response.data)
+                    );
+                    console.log("success retrieve invoice");
+                }
+                // console.log(response);
 
+                if (response.data.status === "failed") {
+                    console.log(response.data.message);
+                }
+            })
+            .catch(error => console.log(error));
+    } else {
+        console.log("invoice failed to retrieve");
+    }
     const logout = () => {
         localStorage.clear();
         if (window.location.href.includes("dashboard")) {
+            localStorage.clear();
             console.log("Berhasil Logout");
             history.push("/");
             let pathUrl = window.location.href;

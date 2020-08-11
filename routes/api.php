@@ -23,4 +23,5 @@ Route::get("user/{email}", "UserController@userDetail");
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get("invhistory/{email}", "InvoiceController@showhistory");
 Route::resource('invoice', 'InvoiceController');

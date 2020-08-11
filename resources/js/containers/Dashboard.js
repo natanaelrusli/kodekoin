@@ -117,11 +117,10 @@ export default function Dashboard() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
     const [open, setOpen] = useState(false);
-    const [orders, setOrders] = useState([]);
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
 
-    console.log(userData);
+    // console.log(userData);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -133,32 +132,48 @@ export default function Dashboard() {
         setselectMenu(item);
     };
 
-    const logoutHandler = () => {
-        localStorage.clear();
-        window.location.reload(false);
-    };
-
     useEffect(() => {
-        setUsers([
-            {
-                firstName: userData != null ? userData.first_name : "Testing",
-                lastName: userData != null ? userData.last_name : "Test",
-                email: userData != null ? userData.email : "Testing@test.com"
-            }
-        ]),
-            setOrders([
+        if (login == "true") {
+            axios
+                .get(`http://localhost:8000/api/invhistory/${userData.email}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        localStorage.setItem(
+                            "invoices",
+                            JSON.stringify(response.data)
+                        );
+                        console.log("success retrieve invoice");
+                    }
+                    // console.log(response);
+
+                    if (response.data.status === "failed") {
+                        console.log(response.data.message);
+                    }
+                })
+                .catch(error => console.log(error));
+            setUsers([
                 {
-                    date: "20 Juli 2020",
-                    ammount: 20000
+                    firstName:
+                        userData != null ? userData.first_name : "Testing",
+                    lastName: userData != null ? userData.last_name : "Test",
+                    email:
+                        userData != null ? userData.email : "Testing@test.com"
                 }
             ]);
+        }
     }, []);
 
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    if (!login) {
-        // redirect to login page
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
+
+    if (!(login == "true")) {
+        history.push("/login");
+        let pathUrl = window.location.href;
+        window.location.href = pathUrl;
     }
+
     return (
         <div className={classes.root}>
             <Navbar></Navbar>
@@ -190,12 +205,7 @@ export default function Dashboard() {
                         {/* Change Password */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                {orders.map(order => (
-                                    <Orders
-                                        name={order.date}
-                                        ammount={order.ammount}
-                                    />
-                                ))}
+                                <Orders />
                             </Paper>
                         </Grid>
                     </Grid>

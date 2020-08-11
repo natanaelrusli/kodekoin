@@ -105,6 +105,28 @@ const Login = e => {
                         "userData",
                         JSON.stringify(response.data.data)
                     );
+                    const userData = JSON.parse(
+                        localStorage.getItem("userData")
+                    );
+                    axios
+                        .get(
+                            `http://localhost:8000/api/invhistory/${userData.email}`
+                        )
+                        .then(response => {
+                            if (response.status === 200) {
+                                localStorage.setItem(
+                                    "invoices",
+                                    JSON.stringify(response.data)
+                                );
+                                console.log("success retrieve invoice");
+                            }
+                            // console.log(response);
+
+                            if (response.data.status === "failed") {
+                                console.log(response.data.message);
+                            }
+                        })
+                        .catch(error => console.log(error));
                     setredirect(true);
                     setmsg(response.data.message);
                     console.log(response.data.message);
