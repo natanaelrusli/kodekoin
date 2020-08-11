@@ -24,31 +24,9 @@ function NavbarComponent() {
             }
         }
     }));
-
-    const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    if (login == "true") {
-        axios
-            .get(`http://localhost:8000/api/invhistory/${userData.email}`)
-            .then(response => {
-                if (response.status === 200) {
-                    localStorage.setItem(
-                        "invoices",
-                        JSON.stringify(response.data)
-                    );
-                    console.log("success retrieve invoice");
-                }
-                // console.log(response);
+    const classes = useStyles();
 
-                if (response.data.status === "failed") {
-                    console.log(response.data.message);
-                }
-            })
-            .catch(error => console.log(error));
-    } else {
-        console.log("invoice failed to retrieve");
-    }
     const logout = () => {
         localStorage.clear();
         if (window.location.href.includes("dashboard")) {
@@ -83,12 +61,34 @@ function NavbarComponent() {
                 {login ? (
                     <Nav className="mr-sm-2">
                         {/* showing name from session in here */}
-                        <Button href="/dashboard" className={classes.navbutton}>
-                            Profile
-                        </Button>
-                        <Button onClick={logout} className={classes.navbutton}>
-                            Logout
-                        </Button>
+                        {!window.location.href.includes("dashboard") ? (
+                            <div>
+                                <Button
+                                    href="/dashboard"
+                                    className={classes.navbutton}
+                                >
+                                    Profile
+                                </Button>
+                                <Button
+                                    onClick={logout}
+                                    className={classes.navbutton}
+                                >
+                                    Logout
+                                </Button>
+                            </div>
+                        ) : (
+                            <div>
+                                <Button href="/" className={classes.navbutton}>
+                                    Home
+                                </Button>
+                                <Button
+                                    onClick={logout}
+                                    className={classes.navbutton}
+                                >
+                                    Logout
+                                </Button>
+                            </div>
+                        )}
                     </Nav>
                 ) : (
                     <Nav className="mr-sm-2">

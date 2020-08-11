@@ -92,11 +92,11 @@ const Login = e => {
 
     const triggerChangeComponent = () => {
         setChangeComponent(!changeComponent);
-    }
+    };
 
     const changePassword = () => {
         console.log("Change Password");
-    }
+    };
 
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -113,28 +113,6 @@ const Login = e => {
                         "userData",
                         JSON.stringify(response.data.data)
                     );
-                    const userData = JSON.parse(
-                        localStorage.getItem("userData")
-                    );
-                    axios
-                        .get(
-                            `http://localhost:8000/api/invhistory/${userData.email}`
-                        )
-                        .then(response => {
-                            if (response.status === 200) {
-                                localStorage.setItem(
-                                    "invoices",
-                                    JSON.stringify(response.data)
-                                );
-                                console.log("success retrieve invoice");
-                            }
-                            // console.log(response);
-
-                            if (response.data.status === "failed") {
-                                console.log(response.data.message);
-                            }
-                        })
-                        .catch(error => console.log(error));
                     setredirect(true);
                     setmsg(response.data.message);
                     console.log(response.data.message);
@@ -163,79 +141,100 @@ const Login = e => {
 
     return (
         <Grid container component="main" className={classes.root}>
-            {changeComponent && <ForgotPassword changePassword = {changePassword} triggerChangeComponent = {triggerChangeComponent}></ForgotPassword>}
-            {!changeComponent && <React.Fragment>
-                <Grid item xs={false} sm={4} md={7} className={classes.image} />
-                <Grid
-                    item
-                    xs={12}
-                    sm={8}
-                    md={5}
-                    component={Paper}
-                    elevation={6}
-                    square
-                    className={classes.formContainer}
-                >
-                    <div className={classes.paper}>
-                        <img src={logo} width={60}></img>
-                        <form
-                            className={classes.form}
-                            onSubmit={onSubmitHandler}
-                        >
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                onChange={e => setemail(e.target.value)}
-                            />
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                                aria-required="true"
-                                onChange={e => setpassword(e.target.value)}
-                            />
-                            {/* <p>{msg}</p> */}
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                style={{ backgroundColor: '#FF4646', }}
-                                color="primary"
-                                className={classes.submit}
-                                className="submit"
+            {changeComponent && (
+                <ForgotPassword
+                    changePassword={changePassword}
+                    triggerChangeComponent={triggerChangeComponent}
+                ></ForgotPassword>
+            )}
+            {!changeComponent && (
+                <React.Fragment>
+                    <Grid
+                        item
+                        xs={false}
+                        sm={4}
+                        md={7}
+                        className={classes.image}
+                    />
+                    <Grid
+                        item
+                        xs={12}
+                        sm={8}
+                        md={5}
+                        component={Paper}
+                        elevation={6}
+                        square
+                        className={classes.formContainer}
+                    >
+                        <div className={classes.paper}>
+                            <img src={logo} width={60}></img>
+                            <form
+                                className={classes.form}
+                                onSubmit={onSubmitHandler}
                             >
-                                Sign In
-                            </Button>
-                            <Grid container style={{marginTop: "10px"}}>
-                                <Grid item xs>
-                                    <Link  onClick={triggerChangeComponent} href="#" variant="body2" style={{ color: 'white', }}>
-                                        Forgot password?
-                                    </Link>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    onChange={e => setemail(e.target.value)}
+                                />
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    aria-required="true"
+                                    onChange={e => setpassword(e.target.value)}
+                                />
+                                {/* <p>{msg}</p> */}
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    style={{ backgroundColor: "#FF4646" }}
+                                    color="primary"
+                                    className={classes.submit}
+                                    className="submit"
+                                >
+                                    Sign In
+                                </Button>
+                                <Grid container style={{ marginTop: "10px" }}>
+                                    <Grid item xs>
+                                        <Link
+                                            onClick={triggerChangeComponent}
+                                            href="#"
+                                            variant="body2"
+                                            style={{ color: "white" }}
+                                        >
+                                            Forgot password?
+                                        </Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Link
+                                            href="/signup"
+                                            variant="body2"
+                                            style={{ color: "white" }}
+                                        >
+                                            {"Don't have an account? Sign Up"}
+                                        </Link>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <Link href="/signup" variant="body2" style={{ color: 'white', }}>
-                                        {"Don't have an account? Sign Up"}
-                                    </Link>
-                                </Grid>
-                            </Grid>
-                        </form>
-                    </div>
-                </Grid>
-            </React.Fragment>
-            }
+                            </form>
+                        </div>
+                    </Grid>
+                </React.Fragment>
+            )}
         </Grid>
     );
 };

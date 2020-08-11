@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "./css/Home.css";
 import ReactDOM from "react-dom";
 import Navbar from "../components/TopNavbar";
@@ -12,8 +12,35 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 const Home = props => {
+    const login = localStorage.getItem("isLoggedIn");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const invoices = JSON.parse(localStorage.getItem("invoices"));
+    useEffect(() => {
+        if (login == "true" && invoices == null) {
+            axios
+                .get(`http://localhost:8000/api/invhistory/${userData.email}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        localStorage.setItem(
+                            "invoices",
+                            JSON.stringify(response.data)
+                        );
+                        console.log("success retrieve invoice");
+                    }
+                    // console.log(response);
+
+                    if (response.data.status === "failed") {
+                        console.log(response.data.message);
+                    }
+                })
+                .catch(error => console.log(error));
+        }
+    }, []);
     return (
-        <div className="Home" style={{ height: "100vh", backgroundColor: "#2E2E2E" }}>
+        <div
+            className="Home"
+            style={{ height: "100vh", backgroundColor: "#2E2E2E" }}
+        >
             <Navbar></Navbar>
             <div className="container-fluid">
                 <div className="row">

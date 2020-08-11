@@ -84,7 +84,6 @@ const PriceList = () => {
         setMethod(false);
         setPrice(false);
     }
-    useEffect(() => console.log(window.location.href), []);
 
     return (
         <div>

@@ -40,7 +40,6 @@ const Orders = () => {
     for (let index = 0; index < invoices.length; index++) {
         order.push(invoices[index]);
     }
-    console.log(order);
 
     return (
         <React.Fragment>
