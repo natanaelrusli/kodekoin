@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/orders.css";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,15 +11,6 @@ import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
 import Title from "./Title";
 import Moment from "moment";
-
-// Generate Order Data
-function createData(id, id_invoice, date, product, status, amount, clickAble) {
-    return { id, id_invoice, date, product, status, amount, clickAble };
-}
-
-// const rows = [
-//     createData(0, "16 Mar, 2020", "GOPAY", "RF Gratis Main", 125000, false)
-// ];
 
 function preventDefault(event) {
     event.preventDefault();
@@ -46,30 +37,6 @@ const useStyles = makeStyles(theme => ({
 export default function Orders() {
     const classes = useStyles();
     const statusOrder = "PENDING";
-    let order = [];
-    const invoices = JSON.parse(localStorage.getItem("invoices"));
-    let rows = [];
-    console.log(invoices.length);
-    for (let index = 0; index < invoices.length; index++) {
-        rows.push(
-            createData(
-                invoices[index].id,
-                invoices[index].id_invoice,
-                invoices[index].created_at,
-                invoices[index].description,
-                invoices[index].status,
-                invoices[index].amount,
-                String(invoices[index].status).includes(statusOrder)
-                    ? true
-                    : false
-            )
-        );
-    }
-    // console.log(rows);
-    // for (let index = 0; index < invoices.length; index++) {
-    //     order.push(invoices[index]);
-    // }
-
     return (
         <React.Fragment>
             <h3 className={classes.title}>Order History</h3>
@@ -86,16 +53,18 @@ export default function Orders() {
                 </TableHead>
 
                 <TableBody>
-                    {rows.map(row => (
-                        <TableRow key={row.id}>
+                    {JSON.parse(localStorage.getItem("invoices")).map(inv => (
+                        <TableRow key={inv.id}>
                             <TableCell>
-                                {Moment(row.date).format("D MMMM, YYYY H:mm")}
+                                {Moment(inv.created_at).format(
+                                    "D MMMM, YYYY H:mm"
+                                )}
                             </TableCell>
-                            <TableCell>{row.product}</TableCell>
-                            <TableCell>{row.status}</TableCell>
+                            <TableCell>{inv.description}</TableCell>
+                            <TableCell>{inv.status}</TableCell>
                             <TableCell>
                                 <CurrencyFormat
-                                    value={row.amount}
+                                    value={inv.amount}
                                     displayType={"text"}
                                     thousandSeparator={true}
                                     prefix={"IDR "}
@@ -112,12 +81,14 @@ export default function Orders() {
                                 </Button>
                                 <Button
                                     variant={
-                                        row.clickAble == true
+                                        String(inv.status).includes(statusOrder)
                                             ? "success"
                                             : "secondary"
                                     }
                                     disabled={
-                                        row.clickAble == true ? false : true
+                                        String(inv.status).includes(statusOrder)
+                                            ? false
+                                            : true
                                     }
                                     onClick={() => payOrder(row)}
                                     size="sm"
@@ -126,12 +97,14 @@ export default function Orders() {
                                 </Button>
                                 <Button
                                     variant={
-                                        row.clickAble == true
+                                        String(inv.status).includes(statusOrder)
                                             ? "danger"
                                             : "secondary"
                                     }
                                     disabled={
-                                        row.clickAble == true ? false : true
+                                        String(inv.status).includes(statusOrder)
+                                            ? false
+                                            : true
                                     }
                                     onClick={() => cancelOrder(row)}
                                     size="sm"

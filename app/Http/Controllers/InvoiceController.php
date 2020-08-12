@@ -78,10 +78,13 @@ class InvoiceController extends Controller
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(Request $request, $id)
     {
-        Invoice::where('id', $invoice->id)
-            ->update($request->all());
+        // Invoice::where('id', $id)
+        //     ->update($request->all());
+        $model = Invoice::find($id);
+        $model->status = $request->status;
+        $model->save();
         return response()->json($request);
     }
 

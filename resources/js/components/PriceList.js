@@ -38,6 +38,8 @@ const PriceList = () => {
 
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
 
     const { Invoice } = x;
     const i = new Invoice({});
@@ -69,10 +71,32 @@ const PriceList = () => {
                         expiry_date: invoice.expiry_date
                     })
                     .then(response => {
-                        console.log(response);
+                        console.log("created invoice", response);
                     })
                     .catch(error => console.log(error));
-                console.log("created invoice", invoice);
+                let abcd = await axios
+                    .get(
+                        `http://localhost:8000/api/invhistory/${userData.email}`
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            localStorage.setItem(
+                                "invoices",
+                                JSON.stringify(res.data)
+                            );
+                            console.log("success retrieve invoice");
+                        }
+                        // console.log(res);
+
+                        if (res.data.status === "failed") {
+                            console.log(res.data.message);
+                        }
+                    })
+                    .catch(error => console.log(error));
+                console.log(abcd);
+                history.push("/dashboard");
+                let pathUrl = window.location.href;
+                window.location.href = pathUrl;
             } catch (e) {
                 console.error(e);
             }

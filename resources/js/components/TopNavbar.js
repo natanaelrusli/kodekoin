@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -6,10 +6,9 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
+import x from "../xendit";
 
 function NavbarComponent() {
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
     const useStyles = makeStyles(theme => ({
         nav: {
             boxShadow: "1px 3px 1px rgb(0,0,0,0.4)",
@@ -24,8 +23,82 @@ function NavbarComponent() {
             }
         }
     }));
-    const login = localStorage.getItem("isLoggedIn");
+
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
     const classes = useStyles();
+    const login = localStorage.getItem("isLoggedIn");
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const invoices = JSON.parse(localStorage.getItem("invoices"));
+    const { Invoice } = x;
+    const i = new Invoice({});
+
+    const getDataFromDB = () => {
+        axios
+            .get(`http://localhost:8000/api/invhistory/${userData.email}`)
+            .then(response => {
+                if (response.status === 200) {
+                    localStorage.setItem(
+                        "invoices",
+                        JSON.stringify(response.data)
+                    );
+                    console.log("success retrieve invoice");
+                }
+                // console.log(response);
+
+                if (response.data.status === "failed") {
+                    console.log(response.data.message);
+                }
+            })
+            .catch(error => console.log(error));
+    };
+
+    const updateInvoce = () => {
+        (async function() {
+            try {
+                console.log("testing1");
+                const retrievedInvoice = await i.getAllInvoices();
+                console.log("all ", retrievedInvoice);
+                for (let index = 0; index < retrievedInvoice.length; index++) {
+                    for (
+                        let y = invoices.length - 1;
+                        y > invoices.length - 10;
+                        y--
+                    ) {
+                        console.log("testing2");
+                        if (
+                            retrievedInvoice[index].id == invoices[y].id_invoice
+                        ) {
+                            axios
+                                .put(
+                                    `http://localhost:8000/api/invoice/${invoices[y].id}`,
+                                    {
+                                        status: retrievedInvoice[index].status
+                                    }
+                                )
+                                .then(response => {
+                                    console.log("testing" + y);
+                                    console.log(response);
+                                })
+                                .catch(error => console.log(error));
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        })();
+    };
+
+    if (login == "true" && invoices == null) {
+        getDataFromDB();
+    }
+    if (login == "true" && invoices != null) {
+        updateInvoce();
+        getDataFromDB();
+        console.log(invoices[2].id_invoice);
+    }
+    useEffect(() => {}, []);
 
     const logout = () => {
         localStorage.clear();
