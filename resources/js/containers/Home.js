@@ -10,12 +10,15 @@ import MediaQuery, { useMediaQuery } from "react-responsive";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
+import x from "../xendit";
 
 const Home = props => {
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
-    const invoices = JSON.parse(localStorage.getItem("invoices"));
+    const { Invoice } = x;
+    const i = new Invoice({});
     useEffect(() => {
+        const invoices = JSON.parse(localStorage.getItem("invoices"));
         if (login == "true" && invoices == null) {
             axios
                 .get(`http://localhost:8000/api/invhistory/${userData.email}`)
@@ -34,6 +37,20 @@ const Home = props => {
                     }
                 })
                 .catch(error => console.log(error));
+        }
+        if (login == "true" && invoices != null) {
+            (async function() {
+                try {
+                    // const retrievedInvoice = await i.getInvoice({
+                    //     invoiceID: invoices[2].id_invoice
+                    // });
+                    const retrievedInvoice = await i.getAllInvoices();
+                    console.log("retrieved invoice", retrievedInvoice);
+                } catch (e) {
+                    console.error(e);
+                }
+            })();
+            console.log(invoices[2].id_invoice);
         }
     }, []);
     return (
