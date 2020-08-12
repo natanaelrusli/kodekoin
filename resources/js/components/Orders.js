@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
-import './css/orders.css';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import CurrencyFormat from 'react-currency-format';
-import Button from 'react-bootstrap/Button';
-import Title from './Title';
+import React, { useState } from "react";
+import "./css/orders.css";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import CurrencyFormat from "react-currency-format";
+import Button from "react-bootstrap/Button";
+import Title from "./Title";
 import Moment from "moment";
 
 // Generate Order Data
-function createData(id, date, product, paymentMethod, amount, cancelAble) {
-  return { id, date, product, paymentMethod, amount, cancelAble};
+function createData(id, id_invoice, date, product, status, amount, clickAble) {
+    return { id, id_invoice, date, product, status, amount, clickAble };
 }
 
-const rows = [
-  createData(0, '16 Mar, 2020', 'GOPAY', 'RF Gratis Main',125000, false),
-];
+// const rows = [
+//     createData(0, "16 Mar, 2020", "GOPAY", "RF Gratis Main", 125000, false)
+// ];
 
 function preventDefault(event) {
     event.preventDefault();
 }
-function cancelOrder(){
-  alert("CANCEL ORDER");
+function cancelOrder(order) {
+    alert(order.id_invoice);
 }
-
+function detailOrder(order) {
+    alert(order.id_invoice);
+}
+function payOrder(order) {
+    alert(order.id_invoice);
+}
 const useStyles = makeStyles(theme => ({
     seeMore: {
         marginTop: theme.spacing(3)
@@ -40,17 +45,30 @@ const useStyles = makeStyles(theme => ({
 
 export default function Orders() {
     const classes = useStyles();
-    
-    const Orders = () => {
-      const classes = useStyles();
-      let order = [];
-    }
-
+    const statusOrder = "PENDING";
+    let order = [];
     const invoices = JSON.parse(localStorage.getItem("invoices"));
-
+    let rows = [];
+    console.log(invoices.length);
     for (let index = 0; index < invoices.length; index++) {
-        order.push(invoices[index]);
+        rows.push(
+            createData(
+                invoices[index].id,
+                invoices[index].id_invoice,
+                invoices[index].created_at,
+                invoices[index].description,
+                invoices[index].status,
+                invoices[index].amount,
+                String(invoices[index].status).includes(statusOrder)
+                    ? true
+                    : false
+            )
+        );
     }
+    // console.log(rows);
+    // for (let index = 0; index < invoices.length; index++) {
+    //     order.push(invoices[index]);
+    // }
 
     return (
         <React.Fragment>
@@ -68,18 +86,16 @@ export default function Orders() {
                 </TableHead>
 
                 <TableBody>
-                    {order.map(ord => (
-                        <TableRow key={ord.id}>
+                    {rows.map(row => (
+                        <TableRow key={row.id}>
                             <TableCell>
-                                {Moment(ord.created_at).format(
-                                    "D MMMM, YYYY H:mm"
-                                )}
+                                {Moment(row.date).format("D MMMM, YYYY H:mm")}
                             </TableCell>
-                            <TableCell>{ord.description}</TableCell>
-                            <TableCell>{ord.status}</TableCell>
-                            <TableCell align="right">
+                            <TableCell>{row.product}</TableCell>
+                            <TableCell>{row.status}</TableCell>
+                            <TableCell>
                                 <CurrencyFormat
-                                    value={ord.amount}
+                                    value={row.amount}
                                     displayType={"text"}
                                     thousandSeparator={true}
                                     prefix={"IDR "}
@@ -87,12 +103,41 @@ export default function Orders() {
                                 />
                             </TableCell>
                             <TableCell align="right">
-                              <Button 
-                                variant={row.cancelAble == true ? "danger" : "secondary"} 
-                                disabled={row.cancelAble == true ? false : true}
-                                onClick={cancelOrder}
-                                size="sm">Cancel
-                              </Button>
+                                <Button
+                                    variant={"info"}
+                                    onClick={() => detailOrder(row)}
+                                    size="sm"
+                                >
+                                    Detail
+                                </Button>
+                                <Button
+                                    variant={
+                                        row.clickAble == true
+                                            ? "success"
+                                            : "secondary"
+                                    }
+                                    disabled={
+                                        row.clickAble == true ? false : true
+                                    }
+                                    onClick={() => payOrder(row)}
+                                    size="sm"
+                                >
+                                    Pay
+                                </Button>
+                                <Button
+                                    variant={
+                                        row.clickAble == true
+                                            ? "danger"
+                                            : "secondary"
+                                    }
+                                    disabled={
+                                        row.clickAble == true ? false : true
+                                    }
+                                    onClick={() => cancelOrder(row)}
+                                    size="sm"
+                                >
+                                    Cancel
+                                </Button>
                             </TableCell>
                         </TableRow>
                     ))}
@@ -103,6 +148,6 @@ export default function Orders() {
           See more orders
         </Link>
       </div> */}
-      </React.Fragment>
+        </React.Fragment>
     );
-};
+}
