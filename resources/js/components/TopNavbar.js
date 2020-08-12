@@ -24,13 +24,13 @@ function NavbarComponent() {
             }
         }
     }));
-
-    const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
+    const classes = useStyles();
 
     const logout = () => {
         localStorage.clear();
         if (window.location.href.includes("dashboard")) {
+            localStorage.clear();
             console.log("Berhasil Logout");
             history.push("/");
             let pathUrl = window.location.href;
@@ -61,12 +61,34 @@ function NavbarComponent() {
                 {login ? (
                     <Nav className="mr-sm-2">
                         {/* showing name from session in here */}
-                        <Button href="/dashboard" className={classes.navbutton}>
-                            Profile
-                        </Button>
-                        <Button onClick={logout} className={classes.navbutton}>
-                            Logout
-                        </Button>
+                        {!window.location.href.includes("dashboard") ? (
+                            <div>
+                                <Button
+                                    href="/dashboard"
+                                    className={classes.navbutton}
+                                >
+                                    Profile
+                                </Button>
+                                <Button
+                                    onClick={logout}
+                                    className={classes.navbutton}
+                                >
+                                    Logout
+                                </Button>
+                            </div>
+                        ) : (
+                            <div>
+                                <Button href="/" className={classes.navbutton}>
+                                    Home
+                                </Button>
+                                <Button
+                                    onClick={logout}
+                                    className={classes.navbutton}
+                                >
+                                    Logout
+                                </Button>
+                            </div>
+                        )}
                     </Nav>
                 ) : (
                     <Nav className="mr-sm-2">

@@ -21,20 +21,20 @@ const rows = [
 ];
 
 function preventDefault(event) {
-  event.preventDefault();
+    event.preventDefault();
 }
 function cancelOrder(){
   alert("CANCEL ORDER");
 }
 
-const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
+const useStyles = makeStyles(theme => ({
+    seeMore: {
+        marginTop: theme.spacing(3)
+    },
 
-  title: {
-    color: '#FF4646',
-  },
+    title: {
+        color: "#FF4646"
+    }
 }));
 
 export default function Orders() {
@@ -75,12 +75,53 @@ export default function Orders() {
           ))}
         </TableBody>
 
-      </Table>
-      {/* <div className={classes.seeMore}>
+    for (let index = 0; index < invoices.length; index++) {
+        order.push(invoices[index]);
+    }
+
+    return (
+        <React.Fragment>
+            <h3 className={classes.title}>Order History</h3>
+
+            <Table size="small">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Date</TableCell>
+                        <TableCell>Product</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell align="right">Sale Amount</TableCell>
+                    </TableRow>
+                </TableHead>
+
+                <TableBody>
+                    {order.map(ord => (
+                        <TableRow key={ord.id}>
+                            <TableCell>
+                                {Moment(ord.created_at).format(
+                                    "D MMMM, YYYY H:mm"
+                                )}
+                            </TableCell>
+                            <TableCell>{ord.description}</TableCell>
+                            <TableCell>{ord.status}</TableCell>
+                            <TableCell align="right">
+                                <CurrencyFormat
+                                    value={ord.amount}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"IDR "}
+                                    renderText={value => <div>{value}</div>}
+                                />
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+            {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
           See more orders
         </Link>
       </div> */}
-    </React.Fragment>
-  );
-}
+        </React.Fragment>
+    );
+};
+export default Orders;
