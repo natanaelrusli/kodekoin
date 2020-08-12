@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './css/orders.css';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -7,19 +8,23 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import CurrencyFormat from 'react-currency-format';
+import Button from 'react-bootstrap/Button';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, product, paymentMethod, amount) {
-  return { id, date, product, paymentMethod, amount };
+function createData(id, date, product, paymentMethod, amount, cancelAble) {
+  return { id, date, product, paymentMethod, amount, cancelAble};
 }
 
 const rows = [
-  createData(0, '16 Mar, 2020', 'GOPAY', 'RF Gratis Main',125000),
+  createData(0, '16 Mar, 2020', 'GOPAY', 'RF Gratis Main',125000, false),
 ];
 
 function preventDefault(event) {
   event.preventDefault();
+}
+function cancelOrder(){
+  alert("CANCEL ORDER");
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Orders() {
   const classes = useStyles();
+  
   return (
     <React.Fragment>
       <h3 className={classes.title}>Order History</h3>
@@ -45,7 +51,8 @@ export default function Orders() {
             <TableCell>Date</TableCell>
             <TableCell>Product</TableCell>
             <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Sale Amount</TableCell>
+            <TableCell align="right">Action</TableCell>
           </TableRow>
         </TableHead>
 
@@ -55,7 +62,15 @@ export default function Orders() {
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
               <TableCell>{row.product}</TableCell>
-              <TableCell align="right"><CurrencyFormat value={row.amount} displayType={'text'} thousandSeparator={true} prefix={'IDR '} renderText={value => <div>{value}</div>} /></TableCell>
+              <TableCell><CurrencyFormat value={row.amount} displayType={'text'} thousandSeparator={true} prefix={'IDR '} renderText={value => <div>{value}</div>} /></TableCell>
+              <TableCell align="right">
+                <Button 
+                  variant={row.cancelAble == true ? "danger" : "secondary"} 
+                  disabled={row.cancelAble == true ? false : true}
+                  onClick={cancelOrder}
+                  size="sm">Cancel
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

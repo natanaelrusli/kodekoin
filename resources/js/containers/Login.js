@@ -199,7 +199,7 @@ const Login = e => {
                             </Button>
                             <Grid container style={{marginTop: "10px"}}>
                                 <Grid item xs>
-                                    <Link  onClick={triggerChangeComponent} href="#" variant="body2" style={{ color: 'white', }}>
+                                    <Link  onClick={triggerChangeComponent} variant="body2" style={{ color: 'white', }} className="link">
                                         Forgot password?
                                     </Link>
                                 </Grid>
