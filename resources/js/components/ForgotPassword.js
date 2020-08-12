@@ -47,7 +47,6 @@ const useStyles = makeStyles(theme => ({
     },
     form: {
         width: "100%", // Fix IE 11 issue.
-        marginTop: theme.spacing(1)
     },
     formContainer: {
         backgroundColor: "#222222",
@@ -99,7 +98,7 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            style={{ backgroundColor: '#FF4646', }}
+                            style={{ backgroundColor: '#FF4646' }}
                             color="primary"
                             className={classes.submit}
                             className="submit"
@@ -109,7 +108,7 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                         </Button>
                         <Grid container style={{marginTop: "10px"}}>
                             <Grid item xs>
-                                <Link  onClick={triggerChangeComponent} href="#" variant="body2" style={{ color: 'white' }}>
+                                <Link  onClick={triggerChangeComponent} variant="body2" style={{ color: 'white' }} className="link">
                                     Back
                                 </Link>
                             </Grid>

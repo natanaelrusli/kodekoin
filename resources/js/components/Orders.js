@@ -1,24 +1,31 @@
-import React, { useState, useEffect } from "react";
-import Link from "@material-ui/core/Link";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import CurrencyFormat from "react-currency-format";
-import Title from "./Title";
+import React, { useState } from 'react';
+import './css/orders.css';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import CurrencyFormat from 'react-currency-format';
+import Button from 'react-bootstrap/Button';
+import Title from './Title';
 import Moment from "moment";
 
 // Generate Order Data
-function createData(id, date, product, paymentMethod, amount) {
-    return { id, date, product, paymentMethod, amount };
+function createData(id, date, product, paymentMethod, amount, cancelAble) {
+  return { id, date, product, paymentMethod, amount, cancelAble};
 }
 
-const rows = [createData(0, "16 Mar, 2020", "GOPAY", "RF Gratis Main", 125000)];
+const rows = [
+  createData(0, '16 Mar, 2020', 'GOPAY', 'RF Gratis Main',125000, false),
+];
 
 function preventDefault(event) {
     event.preventDefault();
+}
+function cancelOrder(){
+  alert("CANCEL ORDER");
 }
 
 const useStyles = makeStyles(theme => ({
@@ -31,9 +38,13 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const Orders = () => {
+export default function Orders() {
     const classes = useStyles();
-    let order = [];
+    
+    const Orders = () => {
+      const classes = useStyles();
+      let order = [];
+    }
 
     const invoices = JSON.parse(localStorage.getItem("invoices"));
 
@@ -51,7 +62,8 @@ const Orders = () => {
                         <TableCell>Date</TableCell>
                         <TableCell>Product</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell align="right">Sale Amount</TableCell>
+                        <TableCell>Sale Ammount</TableCell>
+                        <TableCell align="right">Action</TableCell>
                     </TableRow>
                 </TableHead>
 
@@ -74,6 +86,14 @@ const Orders = () => {
                                     renderText={value => <div>{value}</div>}
                                 />
                             </TableCell>
+                            <TableCell align="right">
+                              <Button 
+                                variant={row.cancelAble == true ? "danger" : "secondary"} 
+                                disabled={row.cancelAble == true ? false : true}
+                                onClick={cancelOrder}
+                                size="sm">Cancel
+                              </Button>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -83,7 +103,6 @@ const Orders = () => {
           See more orders
         </Link>
       </div> */}
-        </React.Fragment>
+      </React.Fragment>
     );
 };
-export default Orders;

@@ -21,3 +21,7 @@
 .MuiInputBase-input {
   color: white !important;
 }
+
+.link:hover {
+  cursor: pointer;
+}
