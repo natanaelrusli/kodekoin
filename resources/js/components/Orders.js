@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import CurrencyFormat from 'react-currency-format';
 import Button from 'react-bootstrap/Button';
 import Title from './Title';
+import Moment from "moment";
 
 // Generate Order Data
 function createData(id, date, product, paymentMethod, amount, cancelAble) {
@@ -38,42 +39,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Orders() {
-  const classes = useStyles();
-  
-  return (
-    <React.Fragment>
-      <h3 className={classes.title}>Order History</h3>
-      
-      <Table size="small">
-        
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Product</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell>Sale Amount</TableCell>
-            <TableCell align="right">Action</TableCell>
-          </TableRow>
-        </TableHead>
+    const classes = useStyles();
+    
+    const Orders = () => {
+      const classes = useStyles();
+      let order = [];
+    }
 
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell>{row.product}</TableCell>
-              <TableCell><CurrencyFormat value={row.amount} displayType={'text'} thousandSeparator={true} prefix={'IDR '} renderText={value => <div>{value}</div>} /></TableCell>
-              <TableCell align="right">
-                <Button 
-                  variant={row.cancelAble == true ? "danger" : "secondary"} 
-                  disabled={row.cancelAble == true ? false : true}
-                  onClick={cancelOrder}
-                  size="sm">Cancel
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+    const invoices = JSON.parse(localStorage.getItem("invoices"));
 
     for (let index = 0; index < invoices.length; index++) {
         order.push(invoices[index]);
@@ -89,7 +62,8 @@ export default function Orders() {
                         <TableCell>Date</TableCell>
                         <TableCell>Product</TableCell>
                         <TableCell>Status</TableCell>
-                        <TableCell align="right">Sale Amount</TableCell>
+                        <TableCell>Sale Ammount</TableCell>
+                        <TableCell align="right">Action</TableCell>
                     </TableRow>
                 </TableHead>
 
@@ -112,6 +86,14 @@ export default function Orders() {
                                     renderText={value => <div>{value}</div>}
                                 />
                             </TableCell>
+                            <TableCell align="right">
+                              <Button 
+                                variant={row.cancelAble == true ? "danger" : "secondary"} 
+                                disabled={row.cancelAble == true ? false : true}
+                                onClick={cancelOrder}
+                                size="sm">Cancel
+                              </Button>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -121,7 +103,6 @@ export default function Orders() {
           See more orders
         </Link>
       </div> */}
-        </React.Fragment>
+      </React.Fragment>
     );
 };
-export default Orders;

@@ -172,18 +172,63 @@ const Login = e => {
                                 className={classes.form}
                                 onSubmit={onSubmitHandler}
                             >
-                                Sign In
-                            </Button>
-                            <Grid container style={{marginTop: "10px"}}>
-                                <Grid item xs>
-                                    <Link  onClick={triggerChangeComponent} variant="body2" style={{ color: 'white', }} className="link">
-                                        Forgot password?
-                                    </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="/signup" variant="body2" style={{ color: 'white', }}>
-                                        {"Don't have an account? Sign Up"}
-                                    </Link>
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    onChange={e => setemail(e.target.value)}
+                                />
+                                <TextField
+                                    variant="outlined"
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    aria-required="true"
+                                    onChange={e => setpassword(e.target.value)}
+                                />
+                                {/* <p>{msg}</p> */}
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    style={{ backgroundColor: "#FF4646" }}
+                                    color="primary"
+                                    className={classes.submit}
+                                    className="submit"
+                                >
+                                    Sign In
+                                </Button>
+                                <Grid container style={{ marginTop: "10px" }}>
+                                    <Grid item xs>
+                                        <Link
+                                            onClick={triggerChangeComponent}
+                                            href="#"
+                                            variant="body2"
+                                            style={{ color: "white" }}
+                                        >
+                                            Forgot password?
+                                        </Link>
+                                    </Grid>
+                                    <Grid item>
+                                        <Link
+                                            href="/signup"
+                                            variant="body2"
+                                            style={{ color: "white" }}
+                                        >
+                                            {"Don't have an account? Sign Up"}
+                                        </Link>
+                                    </Grid>
                                 </Grid>
                             </form>
                         </div>
