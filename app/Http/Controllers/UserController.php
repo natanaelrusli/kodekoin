@@ -106,4 +106,11 @@ class UserController extends Controller
             return $user;
         }
     }
+    public function resetPassword(Request $request)
+    {
+        $user = User::where("email", $request->email)->first();
+        $user->password = md5($request->password);
+        $user->save();
+        return response()->json($request);
+    }
 }
