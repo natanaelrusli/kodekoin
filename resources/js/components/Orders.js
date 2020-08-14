@@ -73,6 +73,7 @@ export default function Orders() {
                             </TableCell>
                             <TableCell align="right">
                                 <Button
+                                    className="mx-2"
                                     variant={"info"}
                                     onClick={() => detailOrder(row)}
                                     size="sm"
@@ -80,6 +81,7 @@ export default function Orders() {
                                     Detail
                                 </Button>
                                 <Button
+                                    className="mx-2"
                                     variant={
                                         String(inv.status).includes(statusOrder)
                                             ? "success"
@@ -96,6 +98,7 @@ export default function Orders() {
                                     Pay
                                 </Button>
                                 <Button
+                                    className="mx-2"
                                     variant={
                                         String(inv.status).includes(statusOrder)
                                             ? "danger"
