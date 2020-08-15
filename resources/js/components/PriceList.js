@@ -3,11 +3,6 @@ import Card from "@material-ui/core/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./css/pricelist.css";
-import BcaLogo from "../images/bca-logo.png";
-import GopayLogo from "../images/gopay-logo.png";
-import OvoLogo from "../images/ovo-logo.png";
-import DanaLogo from "../images/dana-logo.png";
-import logo from "../images/logoimg.png";
 import x from "../xendit";
 
 const PriceList = () => {
@@ -22,6 +17,12 @@ const PriceList = () => {
         375000,
         495000
     ]);
+
+    // List of all payment method
+    // Should adapt with xendit requirements
+    const [paymentMethods, setPaymentMethods] = useState([
+        'gopay', 'bca', 'ovo', 'dana'
+    ])
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
@@ -120,7 +121,7 @@ const PriceList = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        <img src={logo} width="40"></img>
+                        <img src={"../images/logoimg.png"} width={40}></img>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -143,7 +144,7 @@ const PriceList = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        <img src={logo} width="40"></img>
+                        <img src={"../images/logoimg.png"} width={40}></img>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Silahkan Login terlebih dahulu</Modal.Body>
@@ -187,117 +188,36 @@ const PriceList = () => {
                 </div>
 
                 <div className="payment-methods">
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod()
-                                : () => setMethod("gopay")
-                        }
-                    >
-                        <Card
-                            className={
+                    {paymentMethods.map(paymentMethod => (
+                        
+                        <a
+                            onClick={
                                 price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "gopay"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
+                                    ? () => setMethod()
+                                    : () => setMethod(paymentMethod)
                             }
                         >
-                            <div className="row p-3 method__inner">
-                                <img src={GopayLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("bca")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "bca"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={BcaLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("ovo")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "ovo"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={OvoLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("dana")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "dana"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={DanaLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
+                            <Card
+                                className={
+                                    price == false
+                                        ? "mb-3 p-3 method-inactive"
+                                        : method == paymentMethod
+                                        ? "mb-3 p-3 choose"
+                                        : "mb-3 p-3 method"
+                                }
+                            >
+                                <div className="row p-3 method__inner">
+                                    <img src={"../images/" + paymentMethod + ".png"}></img>
+                                    <h3>
+                                        {price == false
+                                            ? "-"
+                                            : "IDR " +
+                                            new Intl.NumberFormat().format(price)}
+                                    </h3>
+                                </div>
+                            </Card>
+                        </a>
+                    ))}
                 </div>
             </Card>
 

@@ -58,7 +58,7 @@ function NavbarComponent() {
             try {
                 console.log("testing1");
                 const retrievedInvoice = await i.getAllInvoices();
-                console.log("all ", retrievedInvoice);
+                console.log("all", retrievedInvoice);
                 for (let index = 0; index < retrievedInvoice.length; index++) {
                     for (
                         let y = invoices.length - 1;
@@ -96,7 +96,7 @@ function NavbarComponent() {
     if (login == "true" && invoices != null) {
         updateInvoce();
         getDataFromDB();
-        console.log(invoices[2].id_invoice);
+        // console.log(invoices[2].id_invoice);
     }
     useEffect(() => {}, []);
 
