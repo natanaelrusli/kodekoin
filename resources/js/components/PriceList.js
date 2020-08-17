@@ -8,7 +8,7 @@ import GopayLogo from "../images/gopay-logo.png";
 import OvoLogo from "../images/ovo-logo.png";
 import DanaLogo from "../images/dana-logo.png";
 import logo from "../images/logoimg.png";
-import x from "../xendit";
+import { createInvoice } from "./DataFunctions";
 
 const PriceList = () => {
     //Items is for list of denom shown in the page
@@ -38,72 +38,18 @@ const PriceList = () => {
 
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
-
-    const { Invoice } = x;
-    const i = new Invoice({});
 
     function sendPayment() {
         //Sending payment data to back end
         alert("Send Payment " + method + " " + price);
 
-        (async function() {
-            try {
-                let invoice = await i.createInvoice({
-                    externalID:
-                        Date.now().toString() + "+" + userData.first_name,
-                    payerEmail: userData.email,
-                    description: "RF Cash",
-                    amount: price
-                });
-                console.log(Date.now().toString());
-                axios
-                    .post("http://localhost:8000/api/invoice", {
-                        id_invoice: invoice.id,
-                        id_user: invoice.user_id,
-                        external_id: invoice.external_id,
-                        email: invoice.payer_email,
-                        amount: invoice.amount,
-                        status: invoice.status,
-                        description: invoice.description,
-                        invoice_url: invoice.invoice_url,
-                        expiry_date: invoice.expiry_date
-                    })
-                    .then(response => {
-                        console.log("created invoice", response);
-                    })
-                    .catch(error => console.log(error));
-                let abcd = await axios
-                    .get(
-                        `http://localhost:8000/api/invhistory/${userData.email}`
-                    )
-                    .then(res => {
-                        if (res.status === 200) {
-                            localStorage.setItem(
-                                "invoices",
-                                JSON.stringify(res.data)
-                            );
-                            console.log("success retrieve invoice");
-                        }
-                        // console.log(res);
-
-                        if (res.data.status === "failed") {
-                            console.log(res.data.message);
-                        }
-                    })
-                    .catch(error => console.log(error));
-                console.log(abcd);
-                history.push("/dashboard");
-                let pathUrl = window.location.href;
-                window.location.href = pathUrl;
-            } catch (e) {
-                console.error(e);
-            }
-        })().catch(e => {
-            console.error(e);
-        });
-
+        createInvoice(
+            userData.first_name,
+            userData.email,
+            "RF Cash",
+            price,
+            method
+        );
         // Reset all states after sending data to back end
         setMethod(false);
         setPrice(false);
@@ -191,14 +137,14 @@ const PriceList = () => {
                         onClick={
                             price == false
                                 ? () => setMethod()
-                                : () => setMethod("gopay")
+                                : () => setMethod("GOPAY")
                         }
                     >
                         <Card
                             className={
                                 price == false
                                     ? "mb-3 p-3 method-inactive"
-                                    : method == "gopay"
+                                    : method == "GOPAY"
                                     ? "mb-3 p-3 choose"
                                     : "mb-3 p-3 method"
                             }
@@ -219,14 +165,14 @@ const PriceList = () => {
                         onClick={
                             price == false
                                 ? () => setMethod("")
-                                : () => setMethod("bca")
+                                : () => setMethod("BCA")
                         }
                     >
                         <Card
                             className={
                                 price == false
                                     ? "mb-3 p-3 method-inactive"
-                                    : method == "bca"
+                                    : method == "BCA"
                                     ? "mb-3 p-3 choose"
                                     : "mb-3 p-3 method"
                             }
@@ -247,14 +193,14 @@ const PriceList = () => {
                         onClick={
                             price == false
                                 ? () => setMethod("")
-                                : () => setMethod("ovo")
+                                : () => setMethod("OVO")
                         }
                     >
                         <Card
                             className={
                                 price == false
                                     ? "mb-3 p-3 method-inactive"
-                                    : method == "ovo"
+                                    : method == "OVO"
                                     ? "mb-3 p-3 choose"
                                     : "mb-3 p-3 method"
                             }
@@ -275,14 +221,14 @@ const PriceList = () => {
                         onClick={
                             price == false
                                 ? () => setMethod("")
-                                : () => setMethod("dana")
+                                : () => setMethod("DANA")
                         }
                     >
                         <Card
                             className={
                                 price == false
                                     ? "mb-3 p-3 method-inactive"
-                                    : method == "dana"
+                                    : method == "DANA"
                                     ? "mb-3 p-3 choose"
                                     : "mb-3 p-3 method"
                             }

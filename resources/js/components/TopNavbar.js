@@ -6,7 +6,7 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
-import x from "../xendit";
+import { updateInvoice, getInvoiceByEmail } from "./DataFunctions";
 
 function NavbarComponent() {
     const useStyles = makeStyles(theme => ({
@@ -28,77 +28,19 @@ function NavbarComponent() {
     let history = createHistory();
     const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const invoices = JSON.parse(localStorage.getItem("invoices"));
-    const { Invoice } = x;
-    const i = new Invoice({});
 
-    const getDataFromDB = () => {
-        axios
-            .get(`http://localhost:8000/api/invhistory/${userData.email}`)
-            .then(response => {
-                if (response.status === 200) {
-                    localStorage.setItem(
-                        "invoices",
-                        JSON.stringify(response.data)
-                    );
-                    console.log("success retrieve invoice");
-                }
-                // console.log(response);
-
-                if (response.data.status === "failed") {
-                    console.log(response.data.message);
-                }
-            })
-            .catch(error => console.log(error));
-    };
-
-    const updateInvoce = () => {
-        (async function() {
-            try {
-                console.log("testing1");
-                const retrievedInvoice = await i.getAllInvoices();
-                console.log("all ", retrievedInvoice);
-                for (let index = 0; index < retrievedInvoice.length; index++) {
-                    for (
-                        let y = invoices.length - 1;
-                        y > invoices.length - 10;
-                        y--
-                    ) {
-                        console.log("testing2");
-                        if (
-                            retrievedInvoice[index].id == invoices[y].id_invoice
-                        ) {
-                            axios
-                                .put(
-                                    `http://localhost:8000/api/invoice/${invoices[y].id}`,
-                                    {
-                                        status: retrievedInvoice[index].status
-                                    }
-                                )
-                                .then(response => {
-                                    console.log("testing" + y);
-                                    console.log(response);
-                                })
-                                .catch(error => console.log(error));
-                        }
-                    }
-                }
-            } catch (e) {
-                console.error(e);
-            }
-        })();
-    };
-
-    if (login == "true" && invoices == null) {
-        getDataFromDB();
-    }
-    if (login == "true" && invoices != null) {
-        updateInvoce();
-        getDataFromDB();
-        console.log(invoices[2].id_invoice);
-    }
-    useEffect(() => {}, []);
+    // const userData = JSON.parse(localStorage.getItem("userData"));
+    // const invoices = JSON.parse(localStorage.getItem("invoices"));
+    // getInvoiceByEmail(userData.email);
+    // updateInvoice(invoices);
+    // if (login == "true" && invoices == null) {
+    //     getInvoiceByEmail(userData.email);
+    // }
+    // if (login == "true" && invoices != null) {
+    //     updateInvoice(invoices);
+    //     getInvoiceByEmail(userData.email);
+    //     console.log(invoices[2].id_invoice);
+    // }
 
     const logout = () => {
         localStorage.clear();
