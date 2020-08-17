@@ -60,7 +60,7 @@ export default function Orders() {
                     <TableBody>
                         <TableRow>
                             <TableCell colSpan="5" align="center">
-                                Loading
+                                Fetching data {/* Loading component here*/}
                             </TableCell>
                         </TableRow>
                     </TableBody>
@@ -86,20 +86,20 @@ export default function Orders() {
                                 </TableCell>
                                 <TableCell align="right">
                                     <Button
-                                        className="mx-2"
-                                        variant={"info"}
+                                        className="mx-1"
+                                        variant={"outline-info"}
                                         onClick={() => detailOrder(row)}
                                         size="sm"
                                     >
                                         Detail
                                     </Button>
                                     <Button
-                                        className="mx-2"
+                                        className="mx-1"
                                         variant={
                                             String(inv.status).includes(
                                                 statusOrder
                                             )
-                                                ? "success"
+                                                ? "outline-success"
                                                 : "secondary"
                                         }
                                         disabled={
@@ -115,12 +115,12 @@ export default function Orders() {
                                         Pay
                                     </Button>
                                     <Button
-                                        className="mx-2"
+                                        className="mx-1"
                                         variant={
                                             String(inv.status).includes(
                                                 statusOrder
                                             )
-                                                ? "danger"
+                                                ? "outline-danger"
                                                 : "secondary"
                                         }
                                         disabled={
@@ -130,12 +130,7 @@ export default function Orders() {
                                                 ? false
                                                 : true
                                         }
-                                        onClick={() =>
-                                            cancelOrder(
-                                                inv.id_invoice,
-                                                setProccess
-                                            )
-                                        }
+                                        onClick={() => cancelOrder(row)}
                                         size="sm"
                                     >
                                         Cancel

@@ -23,6 +23,15 @@ const PriceList = () => {
         495000
     ]);
 
+    // List of all payment method
+    // Should adapt with xendit requirements
+    const [paymentMethods, setPaymentMethods] = useState([
+        "gopay",
+        "bca",
+        "ovo",
+        "dana"
+    ]);
+
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
     //To store payment method chosen by the user
@@ -66,7 +75,7 @@ const PriceList = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        <img src={logo} width="40"></img>
+                        <img src={"../images/logoimg.png"} width={40}></img>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -89,7 +98,7 @@ const PriceList = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        <img src={logo} width="40"></img>
+                        <img src={"../images/logoimg.png"} width={40}></img>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Silahkan Login terlebih dahulu</Modal.Body>
@@ -133,117 +142,43 @@ const PriceList = () => {
                 </div>
 
                 <div className="payment-methods">
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod()
-                                : () => setMethod("GOPAY")
-                        }
-                    >
-                        <Card
-                            className={
+                    {paymentMethods.map(paymentMethod => (
+                        <a
+                            onClick={
                                 price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "GOPAY"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
+                                    ? () => setMethod()
+                                    : () => setMethod(paymentMethod)
                             }
                         >
-                            <div className="row p-3 method__inner">
-                                <img src={GopayLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("BCA")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "BCA"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={BcaLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("OVO")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "OVO"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={OvoLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
-
-                    <a
-                        onClick={
-                            price == false
-                                ? () => setMethod("")
-                                : () => setMethod("DANA")
-                        }
-                    >
-                        <Card
-                            className={
-                                price == false
-                                    ? "mb-3 p-3 method-inactive"
-                                    : method == "DANA"
-                                    ? "mb-3 p-3 choose"
-                                    : "mb-3 p-3 method"
-                            }
-                        >
-                            <div className="row p-3 method__inner">
-                                <img src={DanaLogo}></img>
-                                <h3>
-                                    {price == false
-                                        ? "-"
-                                        : "IDR " +
-                                          new Intl.NumberFormat().format(price)}
-                                </h3>
-                            </div>
-                        </Card>
-                    </a>
+                            <Card
+                                className={
+                                    price == false
+                                        ? "mb-3 p-3 method-inactive"
+                                        : method == paymentMethod.toUpperCase()
+                                        ? "mb-3 p-3 choose"
+                                        : "mb-3 p-3 method"
+                                }
+                            >
+                                <div className="row p-3 method__inner">
+                                    <img
+                                        src={
+                                            "../images/" +
+                                            paymentMethod +
+                                            ".png"
+                                        }
+                                    ></img>
+                                    <h3>
+                                        {price == false
+                                            ? "-"
+                                            : "IDR " +
+                                              new Intl.NumberFormat().format(
+                                                  price
+                                              )}
+                                    </h3>
+                                </div>
+                            </Card>
+                        </a>
+                    ))}
                 </div>
             </Card>
 
