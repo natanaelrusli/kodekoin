@@ -53,7 +53,7 @@ function MethodDropdown({choosePrice, methods, title, setMethod, chooseMethod}) 
                                             <img src={require("../images/" + Object.values({method}) + ".png")} style={{width: '50px', height: '50px'}}></img>
                                         </div>
 
-                                        <Typography style={{ margin:'auto' }}>
+                                        <Typography style={{ margin:'auto', color: '#2E2E2E' }}>
                                             {isNaN(choosePrice) ? "-" : "IDR " +
                                                 new Intl.NumberFormat().format(choosePrice)
                                             }
