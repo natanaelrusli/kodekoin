@@ -19,7 +19,7 @@ import Orders from "../components/Orders";
 import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
 import Navbar from "../components/TopNavbar";
-
+import { getInvoiceByEmail, updateInvoice } from "../components/DataFunctions";
 function Copyright() {
     return (
         <Typography variant="body2" style={{ color: "white" }} align="center">
@@ -121,7 +121,6 @@ export default function Dashboard() {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     // console.log(userData);
-
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -178,14 +177,14 @@ export default function Dashboard() {
                             </Paper>
                         </Grid>
 
-                        {/* Recent Orders */}
+                        {/* Change Password */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <ChangePassword />
                             </Paper>
                         </Grid>
 
-                        {/* Change Password */}
+                        {/* Recent Orders */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <Orders />

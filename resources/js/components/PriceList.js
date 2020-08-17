@@ -208,39 +208,6 @@ const PriceList = () => {
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={ewallet} setMethod = {setMethod} title="E-Wallet"></MethodDropdown>
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={virtualAccount} setMethod = {setMethod} title="Virtual Account"></MethodDropdown>
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={merchant} setMethod = {setMethod} title="Merchant"></MethodDropdown>
-
-                {/* <div className="payment-methods">
-                    {paymentMethods.map(paymentMethod => (
-                        
-                        <a
-                            onClick={
-                                price == false
-                                    ? () => setMethod()
-                                    : () => setMethod(paymentMethod)
-                            }
-                        >
-                            <Card
-                                className={
-                                    price == false
-                                        ? "mb-3 p-3 method-inactive"
-                                        : method == paymentMethod
-                                        ? "mb-3 p-3 choose"
-                                        : "mb-3 p-3 method"
-                                }
-                            >
-                                <div className="row p-3 method__inner">
-                                    <img src={"../images/" + paymentMethod + ".png"}></img>
-                                    <h3>
-                                        {price == false
-                                            ? "-"
-                                            : "IDR " +
-                                            new Intl.NumberFormat().format(price)}
-                                    </h3>
-                                </div>
-                            </Card>
-                        </a>
-                    ))}
-                </div> */}
             </Card>
 
             {/* Checkout button */}

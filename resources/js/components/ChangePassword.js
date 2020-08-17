@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/component.css";
+import { changePassHandler } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -39,60 +40,22 @@ const ChangePassword = () => {
     const [passwordConfNew, setPasswordConfNew] = useState("");
     const [message, setMessage] = useState("");
     const classes = useStyles();
-
     const passDB = ""; //password from database
-
-    const changePassHandler = () => {
-        if (passwordOld == passDb) {
-            console.log("tahap 1 ok");
-            if (passwordNew == passDB) {
-                console.log("pass tidak boleh sama seperti sebelumnya");
-                setMessage("pass tidak boleh sama seperti sebelumnya");
-            } else {
-                if (passwordNew == passwordConfNew) {
-                    console.log("pass ok");
-                    // call update function changepass
-                    axios
-                        .post("http://localhost:8000/api/resetpass", {
-                            email: sessionStorage.data, //get email from session
-                            password: passwordNew
-                        })
-                        .then(response => {
-                            console.log(response);
-                            if (response.data.status === 200) {
-                                // setredirect(true);
-                                // ganti password berhasil
-                                setmsg(response.data.message);
-                                console.log(response.data.message);
-                                setTimeout(() => {
-                                    setmsg("");
-                                }, 5000);
-                            }
-
-                            if (response.data.status === "failed") {
-                                setmsg(response.data.message);
-                                console.log(response.data.message);
-                                setTimeout(() => {
-                                    setmsg("");
-                                }, 5000);
-                            }
-                        })
-                        .catch(error => console.log(error));
-                } else {
-                    console.log("pass tidak sama");
-                    setMessage("pass tidak sama");
-                }
-            }
-        } else {
-            console.log("pass lama tidak sama");
-            setMessage("pass lama tidak sama");
-        }
-    };
 
     return (
         <React.Fragment>
             <h3 className={classes.title}>Change Password</h3>
-            <Form onSubmit={changePassHandler}>
+            <Form
+                onSubmit={() =>
+                    changePassHandler(
+                        passDB,
+                        passwordOld,
+                        passwordNew,
+                        passwordConfNew,
+                        setMessage
+                    )
+                }
+            >
                 <Form.Group controlId="formBasicEmail" className="mt-3">
                     <Form.Label>Current Password</Form.Label>
                     <Form.Control
