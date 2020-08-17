@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Card from "@material-ui/core/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import MethodDropdown from "./MethodDropdown";
 import "./css/pricelist.css";
 import x from "../xendit";
+import { stringify } from "querystring";
 
 const PriceList = () => {
     //Items is for list of denom shown in the page
@@ -20,14 +22,23 @@ const PriceList = () => {
 
     // List of all payment method
     // Should adapt with xendit requirements
-    const [paymentMethods, setPaymentMethods] = useState([
-        'gopay', 'bca', 'ovo', 'dana'
+    const [virtualAccount, setVirtualAccount] = useState([
+        'bca', 'bri', 'bni', 'mandiri', 'permata'
+    ])
+    
+    const [ewallet, setEwallet] = useState([
+        'linkaja', 'ovo', 'dana'
+    ])
+    
+    const [merchant, setMerchant] = useState([
+        'alfamart', 'indomaret'
     ])
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
     //To store payment method chosen by the user
     const [method, setMethod] = useState(false);
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -44,6 +55,11 @@ const PriceList = () => {
 
     const { Invoice } = x;
     const i = new Invoice({});
+
+    const changeMethod = (value) => {
+        setMethod(value);
+        console.log(method);
+    };
 
     function sendPayment() {
         //Sending payment data to back end
@@ -156,7 +172,7 @@ const PriceList = () => {
             </Modal>
 
             {/* Denom card */}
-            <Card className="p-3 mb-5 shadow dark-grey-bg">
+            <Card className="p-3 mb-3 shadow dark-grey-bg">
                 <div className="denom-header">
                     <h1>Pilih Denominasi</h1>
                     <p>* Dalam Rupiah (IDR)</p>
@@ -171,6 +187,7 @@ const PriceList = () => {
                                     : "button-color-outline"
                             }
                             onClick={() => setPrice(item)}
+                            key = {item}
                         >
                             {new Intl.NumberFormat().format(item)}
                         </Button>
@@ -181,13 +198,17 @@ const PriceList = () => {
             {/* Payment method card */}
             <Card
                 style={{ width: "100%" }}
-                className="p-3 mb-5 shadow dark-grey-bg"
+                className="pr-3 pt-3 mb-5 shadow dark-grey-bg"
             >
-                <div className="denom-header mb-3">
+                <div className="denom-header mb-3 ml-3">
                     <h1>Pilih Metode Pembayaran</h1>
                 </div>
 
-                <div className="payment-methods">
+                <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={ewallet} setMethod = {setMethod} title="E-Wallet"></MethodDropdown>
+                <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={virtualAccount} setMethod = {setMethod} title="Virtual Account"></MethodDropdown>
+                <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={merchant} setMethod = {setMethod} title="Merchant"></MethodDropdown>
+
+                {/* <div className="payment-methods">
                     {paymentMethods.map(paymentMethod => (
                         
                         <a
@@ -218,7 +239,7 @@ const PriceList = () => {
                             </Card>
                         </a>
                     ))}
-                </div>
+                </div> */}
             </Card>
 
             {/* Checkout button */}
