@@ -11,12 +11,19 @@ import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
 import Title from "./Title";
 import Moment from "moment";
-import { getInvoiceByEmail, cancelOrder, updateInvoice } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
 }
-
+function cancelOrder(order) {
+    alert(order.id_invoice);
+}
+function detailOrder(order) {
+    alert(order.id_invoice);
+}
+function payOrder(order) {
+    alert(order.id_invoice);
+}
 const useStyles = makeStyles(theme => ({
     seeMore: {
         marginTop: theme.spacing(3)
@@ -30,18 +37,6 @@ const useStyles = makeStyles(theme => ({
 export default function Orders() {
     const classes = useStyles();
     const statusOrder = "PENDING";
-    const user = JSON.parse(localStorage.getItem("userData"));
-    let invoices = JSON.parse(localStorage.getItem("invoices"));
-    const [loadingData, setLoadingData] = useState(true);
-    const [proccess, setProccess] = useState(true);
-
-    if (proccess) {
-        updateInvoice(invoices);
-        console.log("useeeffffff");
-        getInvoiceByEmail(user.email, setLoadingData);
-        invoices = JSON.parse(localStorage.getItem("invoices"));
-    }
-
     return (
         <React.Fragment>
             <h3 className={classes.title}>Order History</h3>
@@ -56,90 +51,73 @@ export default function Orders() {
                         <TableCell align="right">Action</TableCell>
                     </TableRow>
                 </TableHead>
-                {loadingData ? (
-                    <TableBody>
-                        <TableRow>
-                            <TableCell colSpan="5" align="center">
-                                Fetching data {/* Loading component here*/}
+
+                <TableBody>
+                    {JSON.parse(localStorage.getItem("invoices")).map(inv => (
+                        <TableRow key={inv.id}>
+                            <TableCell>
+                                {Moment(inv.created_at).format(
+                                    "D MMMM, YYYY H:mm"
+                                )}
+                            </TableCell>
+                            <TableCell>{inv.description}</TableCell>
+                            <TableCell>{inv.status}</TableCell>
+                            <TableCell>
+                                <CurrencyFormat
+                                    value={inv.amount}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"IDR "}
+                                    renderText={value => <div>{value}</div>}
+                                />
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button
+                                    className="mx-1"
+                                    variant={"outline-info"}
+                                    onClick={() => detailOrder(row)}
+                                    size="sm"
+                                >
+                                    Detail
+                                </Button>
+                                <Button
+                                    className="mx-1"
+                                    variant={
+                                        String(inv.status).includes(statusOrder)
+                                            ? "outline-success"
+                                            : "secondary"
+                                    }
+                                    disabled={
+                                        String(inv.status).includes(statusOrder)
+                                            ? false
+                                            : true
+                                    }
+                                    onClick={() => payOrder(row)}
+                                    size="sm"
+                                >
+                                    Pay
+                                </Button>
+                                <Button
+                                    className="mx-1"
+                                    variant={
+                                        String(inv.status).includes(statusOrder)
+                                            ? "outline-danger"
+                                            : "secondary"
+                                    }
+                                    disabled={
+                                        String(inv.status).includes(statusOrder)
+                                            ? false
+                                            : true
+                                    }
+                                    onClick={() => cancelOrder(row)}
+                                    size="sm"
+                                >
+                                    Cancel
+                                </Button>
                             </TableCell>
                         </TableRow>
-                    </TableBody>
-                ) : (
-                    <TableBody>
-                        {invoices.map(inv => (
-                            <TableRow key={inv.id}>
-                                <TableCell>
-                                    {Moment(inv.created_at).format(
-                                        "D MMMM, YYYY H:mm"
-                                    )}
-                                </TableCell>
-                                <TableCell>{inv.description}</TableCell>
-                                <TableCell>{inv.status}</TableCell>
-                                <TableCell>
-                                    <CurrencyFormat
-                                        value={inv.amount}
-                                        displayType={"text"}
-                                        thousandSeparator={true}
-                                        prefix={"IDR "}
-                                        renderText={value => <div>{value}</div>}
-                                    />
-                                </TableCell>
-                                <TableCell align="right">
-                                    <Button
-                                        className="mx-1"
-                                        variant={"outline-info"}
-                                        onClick={() => detailOrder(row)}
-                                        size="sm"
-                                    >
-                                        Detail
-                                    </Button>
-                                    <Button
-                                        className="mx-1"
-                                        variant={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? "outline-success"
-                                                : "secondary"
-                                        }
-                                        disabled={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? false
-                                                : true
-                                        }
-                                        onClick={() => payOrder(row)}
-                                        size="sm"
-                                    >
-                                        Pay
-                                    </Button>
-                                    <Button
-                                        className="mx-1"
-                                        variant={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? "outline-danger"
-                                                : "secondary"
-                                        }
-                                        disabled={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? false
-                                                : true
-                                        }
-                                        onClick={() => cancelOrder(row)}
-                                        size="sm"
-                                    >
-                                        Cancel
-                                    </Button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                )}
+                    ))}
+                </TableBody>
             </Table>
             {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>

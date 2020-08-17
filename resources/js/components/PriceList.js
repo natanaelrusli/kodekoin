@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import MethodDropdown from "./MethodDropdown";
 import "./css/pricelist.css";
 import x from "../xendit";
-import { createInvoice } from "./DataFunctions";
+import { stringify } from "querystring";
 
 const PriceList = () => {
     //Items is for list of denom shown in the page
@@ -50,6 +50,11 @@ const PriceList = () => {
 
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
+
+    const { Invoice } = x;
+    const i = new Invoice({});
 
     const changeMethod = (value) => {
         setMethod(value);
@@ -60,13 +65,62 @@ const PriceList = () => {
         //Sending payment data to back end
         alert("Send Payment " + method + " " + price);
 
-        createInvoice(
-            userData.first_name,
-            userData.email,
-            "RF Cash",
-            price,
-            method
-        );
+        (async function() {
+            try {
+                let invoice = await i.createInvoice({
+                    externalID:
+                        Date.now().toString() + "+" + userData.first_name,
+                    payerEmail: userData.email,
+                    description: "RF Cash",
+                    amount: price
+                });
+                console.log(Date.now().toString());
+                axios
+                    .post("http://localhost:8000/api/invoice", {
+                        id_invoice: invoice.id,
+                        id_user: invoice.user_id,
+                        external_id: invoice.external_id,
+                        email: invoice.payer_email,
+                        amount: invoice.amount,
+                        status: invoice.status,
+                        description: invoice.description,
+                        invoice_url: invoice.invoice_url,
+                        expiry_date: invoice.expiry_date
+                    })
+                    .then(response => {
+                        console.log("created invoice", response);
+                    })
+                    .catch(error => console.log(error));
+                let abcd = await axios
+                    .get(
+                        `http://localhost:8000/api/invhistory/${userData.email}`
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            localStorage.setItem(
+                                "invoices",
+                                JSON.stringify(res.data)
+                            );
+                            console.log("success retrieve invoice");
+                        }
+                        // console.log(res);
+
+                        if (res.data.status === "failed") {
+                            console.log(res.data.message);
+                        }
+                    })
+                    .catch(error => console.log(error));
+                console.log(abcd);
+                history.push("/dashboard");
+                let pathUrl = window.location.href;
+                window.location.href = pathUrl;
+            } catch (e) {
+                console.error(e);
+            }
+        })().catch(e => {
+            console.error(e);
+        });
+
         // Reset all states after sending data to back end
         setMethod(false);
         setPrice(false);
@@ -153,7 +207,39 @@ const PriceList = () => {
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={ewallet} setMethod = {setMethod} title="E-Wallet"></MethodDropdown>
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={virtualAccount} setMethod = {setMethod} title="Virtual Account"></MethodDropdown>
                 <MethodDropdown chooseMethod={method} choosePrice={parseInt(price)} methods={merchant} setMethod = {setMethod} title="Merchant"></MethodDropdown>
-                
+
+                {/* <div className="payment-methods">
+                    {paymentMethods.map(paymentMethod => (
+                        
+                        <a
+                            onClick={
+                                price == false
+                                    ? () => setMethod()
+                                    : () => setMethod(paymentMethod)
+                            }
+                        >
+                            <Card
+                                className={
+                                    price == false
+                                        ? "mb-3 p-3 method-inactive"
+                                        : method == paymentMethod
+                                        ? "mb-3 p-3 choose"
+                                        : "mb-3 p-3 method"
+                                }
+                            >
+                                <div className="row p-3 method__inner">
+                                    <img src={"../images/" + paymentMethod + ".png"}></img>
+                                    <h3>
+                                        {price == false
+                                            ? "-"
+                                            : "IDR " +
+                                            new Intl.NumberFormat().format(price)}
+                                    </h3>
+                                </div>
+                            </Card>
+                        </a>
+                    ))}
+                </div> */}
             </Card>
 
             {/* Checkout button */}
