@@ -195,7 +195,7 @@ export default function Dashboard() {
                                         <h3 className={classes.titleOrder}>
                                             Order History
                                         </h3>
-                                        <p>Loading Data</p>
+                                        <p>Loading Data...</p>
                                     </div>
                                 ) : (
                                     <Orders />

@@ -31,9 +31,16 @@ const PriceList = () => {
         "permata"
     ]);
 
-    const [ewallet, setEwallet] = useState(["linkaja", "ovo", "dana"]);
+    const [ewallet, setEwallet] = useState([
+        "ovo", 
+        "linkaja",
+        "dana"
+    ]);
 
-    const [merchant, setMerchant] = useState(["alfamart", "indomaret"]);
+    const [merchant, setMerchant] = useState([
+        "alfamart", 
+        "indomaret",
+    ]);
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
@@ -76,6 +83,7 @@ const PriceList = () => {
         // Reset all states after sending data to back end
         setMethod(false);
         setPrice(false);
+        // window.location.reload(false);
     }
 
     return (

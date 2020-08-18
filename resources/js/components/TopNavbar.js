@@ -63,7 +63,8 @@ function NavbarComponent() {
                                     Logout
                                 </Button>
                             </div>
-                        ) : (
+                        ) : 
+                        (
                             <div>
                                 <Button href="/" className={classes.navbutton}>
                                     Home
@@ -78,14 +79,16 @@ function NavbarComponent() {
                         )}
                     </Nav>
                 ) : (
-                    <Nav className="mr-sm-2">
-                        <Button href="/login" className={classes.navbutton}>
-                            Login
-                        </Button>
-                        <Button href="/signup" className={classes.navbutton}>
-                            Signup
-                        </Button>
-                    </Nav>
+                    <div>
+                        <Nav className="mr-sm-2">
+                            <Button href="/login" className={classes.navbutton}>
+                                Login
+                            </Button>
+                            <Button href="/signup" className={classes.navbutton}>
+                                Signup
+                            </Button>
+                        </Nav>
+                    </div>
                 )}
             </Navbar.Collapse>
         </Navbar>

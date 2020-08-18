@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./css/orders.css";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,14 +8,45 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
-import Title from "./Title";
 import Modal from "react-bootstrap/Modal";
 import Moment from "moment";
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import { cancelOrder } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
 }
+
+const styles = (theme) => ({
+    root: {
+      margin: 0,
+      padding: theme.spacing(2),
+    },
+    closeButton: {
+      position: 'absolute',
+      right: theme.spacing(1),
+      top: theme.spacing(1),
+      color: theme.palette.grey[500],
+   },
+});
+
+const DialogContent = makeStyles((theme) => ({
+root: {
+    padding: theme.spacing(2),
+},
+}))(MuiDialogContent);
+
+const DialogActions = makeStyles((theme) => ({
+    root: {
+      margin: 0,
+      padding: theme.spacing(1),
+    },
+}))(MuiDialogActions);
 
 const useStyles = makeStyles(theme => ({
     seeMore: {
@@ -33,9 +63,16 @@ export default function Orders() {
     const statusOrder = "PENDING";
     const invoices = JSON.parse(localStorage.getItem("invoices"));
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const [detailText, setdetailText] = useState({});
     const detailOrder = i => {
         setdetailText({
@@ -50,7 +87,27 @@ export default function Orders() {
 
     return (
         <React.Fragment>
-            {/* Notification Detail */}
+            {/* Order detail dialog */}
+            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+                    <Typography>
+                        Order Details
+                    </Typography>
+                </DialogTitle>
+                <DialogContent dividers>
+                    {/* Put the details here */}
+                    <p className="dialogText">
+                        {'Invoice Line 1\nInvoice line 2\nInvoice line3'}
+                    </p>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} variant={"outline-danger"}>
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* Notification Detail
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -70,7 +127,7 @@ export default function Orders() {
                         Close
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
             <h3 className={classes.title}>Order History</h3>
 
@@ -109,7 +166,7 @@ export default function Orders() {
                                     variant={"outline-info"}
                                     onClick={() => {
                                         detailOrder(inv);
-                                        handleShow();
+                                        handleOpen();
                                     }}
                                     size="sm"
                                 >

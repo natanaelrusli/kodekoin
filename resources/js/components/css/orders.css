@@ -1,0 +1,7 @@
+.dialogText {
+    white-space: pre-wrap;
+}
+
+.dialogTitle {
+    align-self: flex-start;
+}
