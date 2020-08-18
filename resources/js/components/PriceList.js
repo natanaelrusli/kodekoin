@@ -3,11 +3,6 @@ import Card from "@material-ui/core/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./css/pricelist.css";
-import BcaLogo from "../images/bca-logo.png";
-import GopayLogo from "../images/gopay-logo.png";
-import OvoLogo from "../images/ovo-logo.png";
-import DanaLogo from "../images/dana-logo.png";
-import logo from "../images/logoimg.png";
 import { createInvoice } from "./DataFunctions";
 
 const PriceList = () => {
@@ -41,6 +36,9 @@ const PriceList = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [showProccess, setShowProccess] = useState(false);
+    const handleCloseProccess = () => setShowProccess(true);
+
     const [showLogin, setShowLogin] = useState(false);
     const handleCloseLogin = () => setShowLogin(false);
     const handleShowLogin = () => setShowLogin(true);
@@ -50,14 +48,14 @@ const PriceList = () => {
 
     function sendPayment() {
         //Sending payment data to back end
-        alert("Send Payment " + method + " " + price);
-
+        // alert("Send Payment " + String(method).toUpperCase() + " " + price);
         createInvoice(
             userData.first_name,
             userData.email,
             "RF Cash",
             price,
-            method
+            String(method).toUpperCase(),
+            setShowProccess
         );
         // Reset all states after sending data to back end
         setMethod(false);
@@ -109,6 +107,26 @@ const PriceList = () => {
                 </Modal.Footer>
             </Modal>
 
+            {/* Notification Proccess */}
+            <Modal
+                show={showProccess}
+                onHide={handleCloseProccess}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <img src={"../images/logoimg.png"} width={40}></img>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Pesanan sedang diproses</Modal.Body>
+                {/* <Modal.Footer>
+                    <Button variant="secondary" onClick={handleProccess}>
+                        Close
+                    </Button>
+                </Modal.Footer> */}
+            </Modal>
+
             {/* Denom card */}
             <Card className="p-3 mb-5 shadow dark-grey-bg">
                 <div className="denom-header">
@@ -154,7 +172,7 @@ const PriceList = () => {
                                 className={
                                     price == false
                                         ? "mb-3 p-3 method-inactive"
-                                        : method == paymentMethod.toUpperCase()
+                                        : method == paymentMethod
                                         ? "mb-3 p-3 choose"
                                         : "mb-3 p-3 method"
                                 }

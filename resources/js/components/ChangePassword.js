@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/component.css";
-import { changePassHandler } from "./DataFunctions";
+import { changePassHandler, passFromDB } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -40,8 +40,13 @@ const ChangePassword = () => {
     const [passwordConfNew, setPasswordConfNew] = useState("");
     const [message, setMessage] = useState("");
     const classes = useStyles();
-    const passDB = ""; //password from database
-
+    const [passDB, setPassDB] = useState("");
+    useEffect(() => {
+        setPassDB(
+            passFromDB(JSON.parse(localStorage.getItem("userData")).email)
+        );
+        // console.log("aaa", passDB);
+    }, []);
     return (
         <React.Fragment>
             <h3 className={classes.title}>Change Password</h3>

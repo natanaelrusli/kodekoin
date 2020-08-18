@@ -38,7 +38,7 @@ export default function Orders() {
     if (proccess) {
         updateInvoice(invoices);
         console.log("useeeffffff");
-        getInvoiceByEmail(user.email, setLoadingData);
+        getInvoiceByEmail(user.email, setLoadingData, setProccess);
         invoices = JSON.parse(localStorage.getItem("invoices"));
     }
 

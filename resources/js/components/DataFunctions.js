@@ -149,15 +149,18 @@
 import x from "../xendit";
 const { Invoice: Invoice } = x,
     i = new Invoice({});
-export const createInvoice = async (e, o, a, t, s) => {
-    (0, require("history").createBrowserHistory)(),
+
+const createHistory = require("history").createBrowserHistory;
+
+export const createInvoice = async (e, o, a, t, s, p) => {
+    p(true),
         await i
             .createInvoice({
                 externalID: Date.now().toString() + "+" + e + "+" + a,
                 payerEmail: o,
                 description: a,
                 amount: t,
-                shouldSendEmail: !0,
+                shouldSendEmail: !1,
                 paymentMethods: [s]
             })
             .then(e => {
@@ -169,7 +172,7 @@ export const createInvoice = async (e, o, a, t, s) => {
                             external_id: e.external_id,
                             email: e.payer_email,
                             amount: e.amount,
-                            bank: e.available_banks.bank_code,
+                            bank: e.available_banks[0].bank_code,
                             status: e.status,
                             description: e.description,
                             invoice_url: e.invoice_url,
@@ -177,12 +180,16 @@ export const createInvoice = async (e, o, a, t, s) => {
                         })
                         .then(e => {
                             console.log("created invoice", e);
+                            p(false);
+                            createHistory().push("/dashboard");
+                            let pathUrl = window.location.href;
+                            window.location.href = pathUrl;
                         })
                         .catch(e => console.log(e));
             });
 };
 export const getUserData = () => {};
-export const getInvoiceByEmail = (e, o) => {
+export const getInvoiceByEmail = (e, o, p) => {
     axios
         .get(`http://localhost:8000/api/invhistory/${e}`)
         .then(e => {
@@ -191,6 +198,7 @@ export const getInvoiceByEmail = (e, o) => {
                 console.log("success retrieve invoice"),
                 o(!1)),
                 "failed" === e.data.status && console.log(e.data.message);
+            p(false);
         })
         .catch(e => console.log(e));
 };
@@ -220,6 +228,20 @@ export const cancelOrder = (e, o) => {
                     e
                 )
             );
+};
+export const passFromDB = async e => {
+    let pass = await axios
+        .get(`http://localhost:8000/api/pass/${e}`)
+        .then(e => {
+            console.log(e),
+                200 === e.status &&
+                    (sessionStorage.setItem("pass", e.data),
+                    console.log(e.statusText)),
+                "failed" === e.status && console.log(e.statusText);
+            return e;
+        })
+        .catch(e => console.log(e));
+    return pass;
 };
 export const changePassHandler = (e, o, a, t, s) => {
     o == e
@@ -252,4 +274,16 @@ export const changePassHandler = (e, o, a, t, s) => {
                     .catch(e => console.log(e)))
               : (console.log("pass tidak sama"), s("pass tidak sama")))
         : (console.log("pass lama tidak sama"), s("pass lama tidak sama"));
+};
+export const logoutHandler = () => {
+    localStorage.clear();
+    if (window.location.href.includes("dashboard")) {
+        localStorage.clear();
+        console.log("Berhasil Logout");
+        createHistory().push("/");
+        let pathUrl = window.location.href;
+        window.location.href = pathUrl;
+    } else {
+        window.location.reload(false);
+    }
 };

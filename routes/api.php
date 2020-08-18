@@ -18,6 +18,7 @@ Route::post("signup", "UserController@userSignUp");
 Route::post("resetpass", "UserController@resetPassword");
 Route::post("login", "UserController@userLogin");
 Route::get("user/{email}", "UserController@userDetail");
+Route::get("pass/{email}", "UserController@userPass");
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

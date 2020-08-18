@@ -6,7 +6,7 @@ import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
-import { updateInvoice, getInvoiceByEmail } from "./DataFunctions";
+import { logoutHandler } from "./DataFunctions";
 
 function NavbarComponent() {
     const useStyles = makeStyles(theme => ({
@@ -24,36 +24,8 @@ function NavbarComponent() {
         }
     }));
 
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
     const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
-
-    // const userData = JSON.parse(localStorage.getItem("userData"));
-    // const invoices = JSON.parse(localStorage.getItem("invoices"));
-    // getInvoiceByEmail(userData.email);
-    // updateInvoice(invoices);
-    // if (login == "true" && invoices == null) {
-    //     getInvoiceByEmail(userData.email);
-    // }
-    // if (login == "true" && invoices != null) {
-    //     updateInvoice(invoices);
-    //     getInvoiceByEmail(userData.email);
-    //     console.log(invoices[2].id_invoice);
-    // }
-
-    const logout = () => {
-        localStorage.clear();
-        if (window.location.href.includes("dashboard")) {
-            localStorage.clear();
-            console.log("Berhasil Logout");
-            history.push("/");
-            let pathUrl = window.location.href;
-            window.location.href = pathUrl;
-        } else {
-            window.location.reload(false);
-        }
-    };
 
     return (
         <Navbar expand="sm" className={classes.nav}>
@@ -97,7 +69,7 @@ function NavbarComponent() {
                                     Home
                                 </Button>
                                 <Button
-                                    onClick={logout}
+                                    onClick={logoutHandler}
                                     className={classes.navbutton}
                                 >
                                     Logout

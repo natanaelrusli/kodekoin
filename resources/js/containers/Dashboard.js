@@ -131,8 +131,17 @@ export default function Dashboard() {
         setselectMenu(item);
     };
 
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
+
     useEffect(() => {
-        if (login == "true") {
+        if (!(login == "true")) {
+            history.push("/login");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
+        } else {
             setUsers([
                 {
                     firstName:
@@ -144,17 +153,6 @@ export default function Dashboard() {
             ]);
         }
     }, []);
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
-
-    if (!(login == "true")) {
-        history.push("/login");
-        let pathUrl = window.location.href;
-        window.location.href = pathUrl;
-    }
 
     return (
         <div className={classes.root}>
