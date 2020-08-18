@@ -1,0 +1,100 @@
+:root{
+    --base-red : #FF4646;
+    --dark-grey : #2E2E2E;
+    --white : #FFFFFF
+}
+
+.payment-methods img{
+    width: 7%;
+}
+
+@media only screen and (max-width: 600px) {
+    .payment-methods img{
+        padding-left: 10px;
+        width: 20%;
+    }
+  }
+
+.payment-methods h3{
+    margin: auto;
+    font-size: 1.1rem;
+    color: var(--base-red);
+}
+
+.method{
+    transition: ease-in 0.2s !important;
+    background-color: white !important;
+    cursor: pointer;
+}
+
+.method-inactive{
+    background-color: white !important;
+}
+
+.choose{
+    transition: ease-in 0.2s !important;
+    background-color: var(--base-red) !important;
+}
+
+.choose h3{
+    transition: ease-in 0.2s !important;
+    color: white;
+}
+
+.choose:hover{
+    cursor: pointer;
+}
+
+.method__inner{
+    width: 100%;
+    display: flex;
+}
+
+.method__img {
+    margin: 10px;
+}
+
+.choose{
+    background-color: #FF4646;
+}
+
+.accordion {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.accordion__button {
+    transition: ease-in 0.2s !important;
+    flex-basis: 45%;
+    margin: 5px 5px;
+    padding: 10px;
+    background-color: white;
+    border: solid var(--base-red) 2px;
+    border-radius: 4px;
+    color: var(--base-red);
+    cursor: pointer;
+}
+
+.accordion__button__disable {
+    transition: ease-in 0.2s !important;
+    flex-basis: 45%;
+    margin: 5px 5px;
+    padding: 10px;
+    background-color: transparent;
+    border: solid var(--base-red) 2px;
+    border-radius: 4px;
+    color: var(--base-red);
+    opacity: 40%;
+}
+
+@media only screen and (max-width: 624px) {
+    .accordion__button {
+        flex-direction: column;
+    }
+}
+
+.accordion__button:hover {
+    transition: ease-in 0.2s !important;
+    color: white;
+    background-color: var(--base-red);
+}
