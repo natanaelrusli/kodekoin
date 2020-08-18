@@ -58,9 +58,10 @@ class InvoiceController extends Controller
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($id)
     {
-        return response()->json($invoice);
+        $url = Invoice::findOrFail($id);
+        return response()->json($url);
     }
 
     /**

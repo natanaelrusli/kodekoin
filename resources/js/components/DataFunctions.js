@@ -202,22 +202,23 @@ export const createInvoice = async (e, o, a, t, s, p) => {
             });
 };
 export const getUserData = () => {};
-export const getInvoiceByEmail = (e, o, p) => {
-    axios
+const getInvoiceByEmail = async (e, l) => {
+    await axios
         .get(`http://localhost:8000/api/invhistory/${e}`)
-        .then(e => {
-            200 === e.status &&
+        .then(
+            e =>
+                200 === e.status &&
                 (localStorage.setItem("invoices", JSON.stringify(e.data)),
                 console.log("success retrieve invoice"),
-                o(!1)),
-                "failed" === e.data.status && console.log(e.data.message);
-            p(false);
-        })
+                l(!1),
+                "failed" === e.data.status && console.log(e.data.message))
+        )
         .catch(e => console.log(e));
 };
-export const updateInvoice = async e => {
+export const updateInvoice = async (e, a, b) => {
     try {
-        const o = await i.getAllInvoices();
+        const o = await i.getAllInvoices({ limit: 100 });
+        console.log(o);
         for (let a = 0; a < o.length; a++)
             for (let t = 0; t < e.length - 1; t++)
                 o[a].id == e[t].id_invoice &&
@@ -226,21 +227,31 @@ export const updateInvoice = async e => {
                             status: o[a].status
                         })
                         .catch(e => console.log(e));
+        getInvoiceByEmail(a, b);
     } catch (e) {
         console.error(e);
     }
 };
-export const cancelOrder = (e, o) => {
-    o(!1),
-        i
-            .expireInvoice({ invoiceID: e })
-            .then(
-                e => (
-                    window.location.reload(!1),
-                    console.log("expired invoice", r),
-                    e
-                )
-            );
+export const cancelOrder = e => {
+    i.expireInvoice({ invoiceID: e }).then(e => {
+        console.log("expired invoice", e);
+        createHistory().push("/");
+        let pathUrl = window.location.href;
+        window.location.href = pathUrl;
+        e;
+    });
+};
+export const detailOrder = e => {};
+export const payOrder = e => {
+    axios
+        .get(`http://localhost:8000/api/invoice/${e}`)
+        .then(e => {
+            console.log(e.data.invoice_url);
+            createHistory().push(e.data.invoice_url);
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
+        })
+        .catch(e => console.log(e));
 };
 export const changePassHandler = (o, a, t, s) => {
     if (a == t && a != o) {
