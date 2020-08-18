@@ -172,7 +172,16 @@ export const createInvoice = async (e, o, a, t, s, p) => {
                             external_id: e.external_id,
                             email: e.payer_email,
                             amount: e.amount,
-                            bank: e.available_banks[0].bank_code,
+                            bank: e.available_banks[0]
+                                ? e.available_banks[0].bank_code
+                                : null,
+                            ewallet: e.available_ewallets[0]
+                                ? e.available_ewallets[0].ewallet_name
+                                : null,
+                            retail: e.available_retail_outlets
+                                ? e.available_retail_outlets[0]
+                                      .retail_outlet_name
+                                : null,
                             status: e.status,
                             description: e.description,
                             invoice_url: e.invoice_url,
@@ -186,6 +195,10 @@ export const createInvoice = async (e, o, a, t, s, p) => {
                             window.location.href = pathUrl;
                         })
                         .catch(e => console.log(e));
+            })
+            .catch(e => {
+                p(false);
+                console.log(e);
             });
 };
 export const getUserData = () => {};
@@ -229,61 +242,37 @@ export const cancelOrder = (e, o) => {
                 )
             );
 };
-export const passFromDB = async e => {
-    let pass = await axios
-        .get(`http://localhost:8000/api/pass/${e}`)
-        .then(e => {
-            console.log(e),
-                200 === e.status &&
-                    (sessionStorage.setItem("pass", e.data),
-                    console.log(e.statusText)),
-                "failed" === e.status && console.log(e.statusText);
-            return e;
-        })
-        .catch(e => console.log(e));
-    return pass;
-};
-export const changePassHandler = (e, o, a, t, s) => {
-    o == e
-        ? (console.log("tahap 1 ok"),
-          a == e
-              ? (console.log("pass tidak boleh sama seperti sebelumnya"),
-                s("pass tidak boleh sama seperti sebelumnya"))
-              : a == t
-              ? (console.log("pass ok"),
-                axios
-                    .post("http://localhost:8000/api/resetpass", {
-                        email: sessionStorage.data,
-                        password: a
-                    })
-                    .then(e => {
-                        console.log(e),
-                            200 === e.data.status &&
-                                (s(e.data.message),
-                                console.log(e.data.message),
-                                setTimeout(() => {
-                                    s("");
-                                }, 5e3)),
-                            "failed" === e.data.status &&
-                                (s(e.data.message),
-                                console.log(e.data.message),
-                                setTimeout(() => {
-                                    s("");
-                                }, 5e3));
-                    })
-                    .catch(e => console.log(e)))
-              : (console.log("pass tidak sama"), s("pass tidak sama")))
-        : (console.log("pass lama tidak sama"), s("pass lama tidak sama"));
+export const changePassHandler = (o, a, t, s) => {
+    if (a == t && a != o) {
+        axios
+            .post("http://localhost:8000/api/resetpass", {
+                email: JSON.parse(localStorage.getItem("userData")).email,
+                passold: o,
+                passnew: a
+            })
+            .then(e => {
+                console.log(e),
+                    200 === e.data.status &&
+                        (s(e.data.message),
+                        console.log(e.data.message),
+                        setTimeout(() => {
+                            window.location.reload(!1);
+                            s("");
+                        }, 5e3)),
+                    "failed" === e.data.status &&
+                        (s(e.data.message),
+                        console.log(e.data.message),
+                        setTimeout(() => {
+                            s("");
+                        }, 5e3));
+            })
+            .catch(e => console.log(e));
+    } else s("password doesn't match");
 };
 export const logoutHandler = () => {
-    localStorage.clear();
-    if (window.location.href.includes("dashboard")) {
-        localStorage.clear();
-        console.log("Berhasil Logout");
-        createHistory().push("/");
-        let pathUrl = window.location.href;
-        window.location.href = pathUrl;
-    } else {
-        window.location.reload(false);
-    }
+    if ((localStorage.clear(), window.location.href.includes("dashboard"))) {
+        console.log("Berhasil Logout"), createHistory().push("/");
+        let o = window.location.href;
+        window.location.href = o;
+    } else window.location.reload(!1);
 };

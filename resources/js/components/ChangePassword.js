@@ -40,26 +40,20 @@ const ChangePassword = () => {
     const [passwordConfNew, setPasswordConfNew] = useState("");
     const [message, setMessage] = useState("");
     const classes = useStyles();
-    const [passDB, setPassDB] = useState("");
-    useEffect(() => {
-        setPassDB(
-            passFromDB(JSON.parse(localStorage.getItem("userData")).email)
-        );
-        // console.log("aaa", passDB);
-    }, []);
+
     return (
         <React.Fragment>
             <h3 className={classes.title}>Change Password</h3>
             <Form
-                onSubmit={() =>
+                onSubmit={e => {
+                    preventDefault(e);
                     changePassHandler(
-                        passDB,
                         passwordOld,
                         passwordNew,
                         passwordConfNew,
                         setMessage
-                    )
-                }
+                    );
+                }}
             >
                 <Form.Group controlId="formBasicEmail" className="mt-3">
                     <Form.Label>Current Password</Form.Label>

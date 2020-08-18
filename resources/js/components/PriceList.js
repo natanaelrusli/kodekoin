@@ -6,6 +6,7 @@ import MethodDropdown from "./MethodDropdown";
 import "./css/pricelist.css";
 import { createInvoice } from "./DataFunctions";
 import { stringify } from "querystring";
+import { inArray } from "jquery";
 
 const PriceList = () => {
     //Items is for list of denom shown in the page
@@ -135,11 +136,6 @@ const PriceList = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Pesanan sedang diproses</Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleProccess}>
-                        Close
-                    </Button>
-                </Modal.Footer> */}
             </Modal>
 
             {/* Denom card */}
