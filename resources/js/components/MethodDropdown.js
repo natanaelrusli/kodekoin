@@ -33,7 +33,7 @@ function MethodDropdown({choosePrice, methods, title, setMethod, chooseMethod}) 
         <div className='container__accordion'>
             <Accordion square className={classes.root} disabled = {isNaN(choosePrice) ? true : false}>
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
+                    expandIcon={<ExpandMoreIcon color="error"/>}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
@@ -53,7 +53,7 @@ function MethodDropdown({choosePrice, methods, title, setMethod, chooseMethod}) 
                                             <img src={require("../images/" + Object.values({method}) + ".png")} style={{width: '50px', height: '50px'}}></img>
                                         </div>
 
-                                        <Typography style={{ margin:'auto', color: '#2E2E2E' }}>
+                                        <Typography style={{ margin:'auto', color: '#2E2E2E', fontWeight: 'bold' }}>
                                             {isNaN(choosePrice) ? "-" : "IDR " +
                                                 new Intl.NumberFormat().format(choosePrice)
                                             }

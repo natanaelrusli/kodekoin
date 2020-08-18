@@ -28,7 +28,6 @@ function Copyright() {
             {"Copyright © "}
             Kode Koin
             {" " + new Date().getFullYear()}
-            {"."}
         </Typography>
     );
 }

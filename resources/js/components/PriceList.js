@@ -182,6 +182,7 @@ const PriceList = () => {
                     {items.map(item => (
                         <Button
                             variant="secondary-outline"
+                            style={{ fontWeight: 'bold' }}
                             className={
                                 price == item
                                     ? "orange-button"
