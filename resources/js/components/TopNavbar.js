@@ -57,7 +57,7 @@ function NavbarComponent() {
                                     Profile
                                 </Button>
                                 <Button
-                                    onClick={logout}
+                                    onClick={logoutHandler}
                                     className={classes.navbutton}
                                 >
                                     Logout

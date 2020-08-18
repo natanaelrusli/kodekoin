@@ -56,9 +56,6 @@ const PriceList = () => {
     const createHistory = require("history").createBrowserHistory;
     let history = createHistory();
 
-    const { Invoice } = x;
-    const i = new Invoice({});
-
     const changeMethod = value => {
         setMethod(value);
         console.log(method);
