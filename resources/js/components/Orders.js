@@ -10,14 +10,9 @@ import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
 import Title from "./Title";
+import Modal from "react-bootstrap/Modal";
 import Moment from "moment";
-import {
-    getInvoiceByEmail,
-    cancelOrder,
-    payOrder,
-    detailOrder,
-    updateInvoice
-} from "./DataFunctions";
+import { cancelOrder } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -38,8 +33,45 @@ export default function Orders() {
     const statusOrder = "PENDING";
     const invoices = JSON.parse(localStorage.getItem("invoices"));
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [detailText, setdetailText] = useState({});
+    const detailOrder = i => {
+        setdetailText({
+            desc: i.description,
+            amn: "Amount : IDR " + i.amount,
+            exp:
+                "Expiry Date : " +
+                Moment(i.expiry_date).format("D MMMM, YYYY H:mm"),
+            stt: "Status : " + i.status
+        });
+    };
+
     return (
         <React.Fragment>
+            {/* Notification Detail */}
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <img src={"../images/logoimg.png"} width={40}></img>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{detailText.desc}</Modal.Body>
+                <Modal.Body>{detailText.amn}</Modal.Body>
+                <Modal.Body>{detailText.stt}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <h3 className={classes.title}>Order History</h3>
 
             <Table size="small">
@@ -75,7 +107,10 @@ export default function Orders() {
                                 <Button
                                     className="mx-1"
                                     variant={"outline-info"}
-                                    onClick={() => detailOrder(inv.id_invoice)}
+                                    onClick={() => {
+                                        detailOrder(inv);
+                                        handleShow();
+                                    }}
                                     size="sm"
                                 >
                                     Detail
