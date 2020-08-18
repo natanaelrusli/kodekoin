@@ -10,8 +10,9 @@ import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
 import Title from "./Title";
+import Modal from "react-bootstrap/Modal";
 import Moment from "moment";
-import { getInvoiceByEmail, cancelOrder, updateInvoice } from "./DataFunctions";
+import { cancelOrder } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -30,20 +31,47 @@ const useStyles = makeStyles(theme => ({
 export default function Orders() {
     const classes = useStyles();
     const statusOrder = "PENDING";
-    const user = JSON.parse(localStorage.getItem("userData"));
-    let invoices = JSON.parse(localStorage.getItem("invoices"));
-    const [loadingData, setLoadingData] = useState(true);
-    const [proccess, setProccess] = useState(true);
+    const invoices = JSON.parse(localStorage.getItem("invoices"));
 
-    if (proccess) {
-        updateInvoice(invoices);
-        console.log("useeeffffff");
-        getInvoiceByEmail(user.email, setLoadingData);
-        invoices = JSON.parse(localStorage.getItem("invoices"));
-    }
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [detailText, setdetailText] = useState({});
+    const detailOrder = i => {
+        setdetailText({
+            desc: i.description,
+            amn: "Amount : IDR " + i.amount,
+            exp:
+                "Expiry Date : " +
+                Moment(i.expiry_date).format("D MMMM, YYYY H:mm"),
+            stt: "Status : " + i.status
+        });
+    };
 
     return (
         <React.Fragment>
+            {/* Notification Detail */}
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <img src={"../images/logoimg.png"} width={40}></img>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{detailText.desc}</Modal.Body>
+                <Modal.Body>{detailText.amn}</Modal.Body>
+                <Modal.Body>{detailText.stt}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <h3 className={classes.title}>Order History</h3>
 
             <Table size="small">
@@ -56,50 +84,45 @@ export default function Orders() {
                         <TableCell align="right">Action</TableCell>
                     </TableRow>
                 </TableHead>
-                {loadingData ? (
-                    <TableBody>
-                        <TableRow>
-                            <TableCell colSpan="5" align="center">
-                                Loading
+                <TableBody>
+                    {invoices.map(inv => (
+                        <TableRow key={inv.id}>
+                            <TableCell>
+                                {Moment(inv.created_at).format(
+                                    "D MMMM, YYYY H:mm"
+                                )}
                             </TableCell>
-                        </TableRow>
-                    </TableBody>
-                ) : (
-                    <TableBody>
-                        {invoices.map(inv => (
-                            <TableRow key={inv.id}>
-                                <TableCell>
-                                    {Moment(inv.created_at).format(
-                                        "D MMMM, YYYY H:mm"
-                                    )}
-                                </TableCell>
-                                <TableCell>{inv.description}</TableCell>
-                                <TableCell>{inv.status}</TableCell>
-                                <TableCell>
-                                    <CurrencyFormat
-                                        value={inv.amount}
-                                        displayType={"text"}
-                                        thousandSeparator={true}
-                                        prefix={"IDR "}
-                                        renderText={value => <div>{value}</div>}
-                                    />
-                                </TableCell>
-                                <TableCell align="right">
+                            <TableCell>{inv.description}</TableCell>
+                            <TableCell>{inv.status}</TableCell>
+                            <TableCell>
+                                <CurrencyFormat
+                                    value={inv.amount}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"IDR "}
+                                    renderText={value => <div>{value}</div>}
+                                />
+                            </TableCell>
+                            <TableCell align="right">
+                                <Button
+                                    className="mx-1"
+                                    variant={"outline-info"}
+                                    onClick={() => {
+                                        detailOrder(inv);
+                                        handleShow();
+                                    }}
+                                    size="sm"
+                                >
+                                    Detail
+                                </Button>
+                                <a href={inv.invoice_url} target="_blank">
                                     <Button
-                                        className="mx-2"
-                                        variant={"info"}
-                                        onClick={() => detailOrder(row)}
-                                        size="sm"
-                                    >
-                                        Detail
-                                    </Button>
-                                    <Button
-                                        className="mx-2"
+                                        className="mx-1"
                                         variant={
                                             String(inv.status).includes(
                                                 statusOrder
                                             )
-                                                ? "success"
+                                                ? "outline-success"
                                                 : "secondary"
                                         }
                                         disabled={
@@ -109,42 +132,33 @@ export default function Orders() {
                                                 ? false
                                                 : true
                                         }
-                                        onClick={() => payOrder(row)}
+                                        // onClick={() => payOrder(inv.id)}
                                         size="sm"
                                     >
                                         Pay
                                     </Button>
-                                    <Button
-                                        className="mx-2"
-                                        variant={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? "danger"
-                                                : "secondary"
-                                        }
-                                        disabled={
-                                            String(inv.status).includes(
-                                                statusOrder
-                                            )
-                                                ? false
-                                                : true
-                                        }
-                                        onClick={() =>
-                                            cancelOrder(
-                                                inv.id_invoice,
-                                                setProccess
-                                            )
-                                        }
-                                        size="sm"
-                                    >
-                                        Cancel
-                                    </Button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                )}
+                                </a>
+                                <Button
+                                    className="mx-1"
+                                    variant={
+                                        String(inv.status).includes(statusOrder)
+                                            ? "outline-danger"
+                                            : "secondary"
+                                    }
+                                    disabled={
+                                        String(inv.status).includes(statusOrder)
+                                            ? false
+                                            : true
+                                    }
+                                    onClick={() => cancelOrder(inv.id_invoice)}
+                                    size="sm"
+                                >
+                                    Cancel
+                                </Button>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
             </Table>
             {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>

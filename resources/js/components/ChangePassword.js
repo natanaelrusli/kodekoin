@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/component.css";
-import { changePassHandler } from "./DataFunctions";
+import { changePassHandler, passFromDB } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -40,21 +40,20 @@ const ChangePassword = () => {
     const [passwordConfNew, setPasswordConfNew] = useState("");
     const [message, setMessage] = useState("");
     const classes = useStyles();
-    const passDB = ""; //password from database
 
     return (
         <React.Fragment>
             <h3 className={classes.title}>Change Password</h3>
             <Form
-                onSubmit={() =>
+                onSubmit={e => {
+                    preventDefault(e);
                     changePassHandler(
-                        passDB,
                         passwordOld,
                         passwordNew,
                         passwordConfNew,
                         setMessage
-                    )
-                }
+                    );
+                }}
             >
                 <Form.Group controlId="formBasicEmail" className="mt-3">
                     <Form.Label>Current Password</Form.Label>

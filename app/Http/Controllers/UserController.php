@@ -106,11 +106,22 @@ class UserController extends Controller
             return $user;
         }
     }
+
+    public function userPass($email)
+    {
+        $user = User::where("email", $email)->first();
+        return response()->json($user->password);
+    }
+
     public function resetPassword(Request $request)
     {
         $user = User::where("email", $request->email)->first();
-        $user->password = md5($request->password);
-        $user->save();
-        return response()->json($request);
+        if (md5($request->passold) == $user->password) {
+            $user->password = md5($request->passnew);
+            $user->save();
+            return response()->json(["status" => $this->status_code, "success" => true, "message" => "Reset password success!", "data" => $request]);
+        } else {
+            return response()->json(["status" => "failed", "success" => false, "message" => "Unable to reset password. Incorrect current password."]);
+        }
     }
 }

@@ -19,7 +19,7 @@ import Orders from "../components/Orders";
 import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
 import Navbar from "../components/TopNavbar";
-import { getInvoiceByEmail, updateInvoice } from "../components/DataFunctions";
+import { updateInvoice } from "../components/DataFunctions";
 function Copyright() {
     return (
         <Typography variant="body2" style={{ color: "white" }} align="center">
@@ -73,6 +73,9 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1
     },
+    titleOrder: {
+        color: "#FF4646"
+    },
     drawerPaper: {
         position: "relative",
         whiteSpace: "nowrap",
@@ -119,7 +122,8 @@ export default function Dashboard() {
     const [open, setOpen] = useState(false);
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
-
+    const invoices = JSON.parse(localStorage.getItem("invoices"));
+    const [loading, setLoading] = useState(true);
     // console.log(userData);
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -131,8 +135,18 @@ export default function Dashboard() {
         setselectMenu(item);
     };
 
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
+
     useEffect(() => {
-        if (login == "true") {
+        if (!(login == "true")) {
+            history.push("/login");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
+        } else {
+            updateInvoice(invoices, userData.email, setLoading);
             setUsers([
                 {
                     firstName:
@@ -144,17 +158,6 @@ export default function Dashboard() {
             ]);
         }
     }, []);
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
-
-    if (!(login == "true")) {
-        history.push("/login");
-        let pathUrl = window.location.href;
-        window.location.href = pathUrl;
-    }
 
     return (
         <div className={classes.root}>
@@ -187,7 +190,16 @@ export default function Dashboard() {
                         {/* Recent Orders */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <Orders />
+                                {loading ? (
+                                    <div>
+                                        <h3 className={classes.titleOrder}>
+                                            Order History
+                                        </h3>
+                                        <p>Loading Data</p>
+                                    </div>
+                                ) : (
+                                    <Orders />
+                                )}
                             </Paper>
                         </Grid>
                     </Grid>

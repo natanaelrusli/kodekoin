@@ -41,6 +41,9 @@ class InvoiceController extends Controller
             'id_external' => $request->external_id,
             'email' => $request->email,
             'amount' => $request->amount,
+            'bank' => $request->bank,
+            'retail' => $request->retail,
+            'ewallet' => $request->ewallet,
             'status' => $request->status,
             'description' => $request->description,
             'invoice_url' => $request->invoice_url,
@@ -55,9 +58,10 @@ class InvoiceController extends Controller
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($id)
     {
-        return response()->json($invoice);
+        $url = Invoice::findOrFail($id);
+        return response()->json($url);
     }
 
     /**
