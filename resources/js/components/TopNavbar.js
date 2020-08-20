@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
 import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
 import { logoutHandler } from "./DataFunctions";
@@ -11,9 +9,9 @@ import { logoutHandler } from "./DataFunctions";
 function NavbarComponent() {
     const useStyles = makeStyles(theme => ({
         nav: {
-            boxShadow: "1px 3px 1px rgb(0,0,0,0.4)",
+            boxShadow: "1px 1px 1px rgb(0,0,0,0.7)",
             backgroundColor: "#2E2E2E",
-            borderColor: "#FF4646"
+            borderColor: "#FF4646",
         },
 
         navbutton: {
@@ -28,7 +26,7 @@ function NavbarComponent() {
     const login = localStorage.getItem("isLoggedIn");
 
     return (
-        <Navbar expand="sm" className={classes.nav}>
+        <Navbar style={{position: "sticky", top: "-1px", zIndex: "1"}} expand="sm" className={classes.nav}>
             <Navbar.Brand href="/">
                 <img
                     src={logo}
