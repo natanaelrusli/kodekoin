@@ -151,6 +151,100 @@ const { Invoice: Invoice } = x,
     i = new Invoice({});
 
 const createHistory = require("history").createBrowserHistory;
+export const signUpHandler = (v, n, e, p, ph, s) => {
+    v.preventDefault();
+    axios
+        .post("http://localhost:8000/api/signup", {
+            name: n,
+            email: e,
+            phone: ph,
+            password: p
+        })
+        .then(response => {
+            console.log(response);
+            if (response.data.status === 200) {
+                s(response.data.message);
+                console.log(response.data.message);
+                setTimeout(() => {
+                    s("");
+                }, 5000);
+                axios
+                    .post("http://localhost:8000/api/login", {
+                        email: e,
+                        password: p
+                    })
+                    .then(response => {
+                        console.log(response);
+                        if (response.data.status === 200) {
+                            localStorage.setItem("isLoggedIn", true);
+                            localStorage.setItem(
+                                "userData",
+                                JSON.stringify(response.data.data)
+                            );
+                            s(response.data.message);
+                            console.log(response.data.message);
+                            setTimeout(() => {
+                                s("");
+                            }, 5000);
+                            createHistory().push("/");
+                            let pathUrl = window.location.href;
+                            window.location.href = pathUrl;
+                        }
+
+                        if (response.data.status === "failed") {
+                            s(response.data.message);
+                            console.log(response.data.message);
+                            setTimeout(() => {
+                                s("");
+                            }, 5000);
+                        }
+                    })
+                    .catch(error => console.log(error));
+            }
+
+            if (response.data.status === "failed") {
+                setmsg(response.data.message);
+                console.log(response.data.message);
+                setTimeout(() => {
+                    setmsg("");
+                }, 5000);
+            }
+        });
+};
+export const loginHandler = (v, e, p, m, s) => {
+    v.preventDefault();
+    axios
+        .post("http://localhost:8000/api/login", {
+            email: e,
+            password: p
+        })
+        .then(response => {
+            console.log(response);
+            if (response.data.status === 200) {
+                localStorage.setItem(
+                    "userData",
+                    JSON.stringify(response.data.data)
+                );
+                m(response.data.message);
+                console.log(response.data.message);
+                getInvoiceByEmail(e);
+                setTimeout(() => {
+                    localStorage.setItem("isLoggedIn", true);
+                    s(true);
+                    m("");
+                }, 5000);
+            }
+
+            if (response.data.status === "failed") {
+                m(response.data.message);
+                console.log(response.data.message);
+                setTimeout(() => {
+                    m("");
+                }, 5000);
+            }
+        })
+        .catch(error => console.log(error));
+};
 
 export const createInvoice = async (e, o, a, t, s, p) => {
     p(true),
@@ -201,20 +295,24 @@ export const createInvoice = async (e, o, a, t, s, p) => {
                 console.log(e);
             });
 };
+
 export const getUserData = () => {};
-const getInvoiceByEmail = async (e, l) => {
-    await axios
-        .get(`http://localhost:8000/api/invhistory/${e}`)
-        .then(
-            e =>
-                200 === e.status &&
-                (localStorage.setItem("invoices", JSON.stringify(e.data)),
-                console.log("success retrieve invoice"),
-                l(!1),
-                "failed" === e.data.status && console.log(e.data.message))
-        )
-        .catch(e => console.log(e));
+
+const getInvoiceByEmail = async (e, l = undefined) => {
+    console.log("sssss"),
+        await axios
+            .get(`http://localhost:8000/api/invhistory/${e}`)
+            .then(
+                e =>
+                    200 === e.status &&
+                    (localStorage.setItem("invoices", JSON.stringify(e.data)),
+                    console.log("success retrieve invoice"),
+                    l == undefined ? (l = undefined) : l(!1),
+                    "failed" === e.data.status && console.log(e.data.message))
+            )
+            .catch(e => console.log(e));
 };
+
 export const updateInvoice = async (e, a, b) => {
     try {
         const o = await i.getAllInvoices({ limit: 100 });

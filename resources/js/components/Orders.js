@@ -8,97 +8,95 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import Moment from "moment";
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 import { cancelOrder } from "./DataFunctions";
 
 function preventDefault(event) {
     event.preventDefault();
 }
+const Orders = () => {
+    const styles = theme => ({
+        root: {
+            margin: 0,
+            padding: theme.spacing(2)
+        },
+        closeButton: {
+            position: "absolute",
+            right: theme.spacing(1),
+            top: theme.spacing(1),
+            color: theme.palette.grey[500]
+        }
+    });
 
-const styles = (theme) => ({
-    root: {
-      margin: 0,
-      padding: theme.spacing(2),
-    },
-    closeButton: {
-      position: 'absolute',
-      right: theme.spacing(1),
-      top: theme.spacing(1),
-      color: theme.palette.grey[500],
-   },
-});
+    const DialogContent = makeStyles(theme => ({
+        root: {
+            padding: theme.spacing(2)
+        }
+    }))(MuiDialogContent);
 
-const DialogContent = makeStyles((theme) => ({
-root: {
-    padding: theme.spacing(2),
-},
-}))(MuiDialogContent);
+    const DialogActions = makeStyles(theme => ({
+        root: {
+            margin: 0,
+            padding: theme.spacing(1)
+        }
+    }))(MuiDialogActions);
 
-const DialogActions = makeStyles((theme) => ({
-    root: {
-      margin: 0,
-      padding: theme.spacing(1),
-    },
-}))(MuiDialogActions);
+    const useStyles = makeStyles(theme => ({
+        seeMore: {
+            marginTop: theme.spacing(3)
+        },
 
-const useStyles = makeStyles(theme => ({
-    seeMore: {
-        marginTop: theme.spacing(3)
-    },
+        title: {
+            color: "#FF4646"
+        }
+    }));
 
-    title: {
-        color: "#FF4646"
-    }
-}));
-
-export default function Orders() {
     const classes = useStyles();
     const statusOrder = "PENDING";
     const invoices = JSON.parse(localStorage.getItem("invoices"));
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
-    const handleOpen = () => {
+    const handleOpen = i => {
         setOpen(true);
+        detailOrder(i);
     };
     const handleClose = () => {
         setOpen(false);
     };
 
     const [show, setShow] = useState(false);
-    const [detailText, setdetailText] = useState({});
+    const [detailText, setdetailText] = useState("");
     const detailOrder = i => {
-        setdetailText({
-            desc: i.description,
-            amn: "Amount : IDR " + i.amount,
-            exp:
-                "Expiry Date : " +
+        setdetailText(
+            i.description,
+            "\nAmount : IDR " + i.amount,
+            "\nExpiry Date : " +
                 Moment(i.expiry_date).format("D MMMM, YYYY H:mm"),
-            stt: "Status : " + i.status
-        });
+            "\nStatus : " + i.status
+        );
     };
 
     return (
-        <React.Fragment>
+        <div>
             {/* Order detail dialog */}
-            <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+            <Dialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+            >
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    <Typography>
-                        Order Details
-                    </Typography>
+                    <Typography>Order Details</Typography>
                 </DialogTitle>
                 <DialogContent dividers>
                     {/* Put the details here */}
-                    <p className="dialogText">
-                        {'Invoice Line 1\nInvoice line 2\nInvoice line3'}
-                    </p>
+                    <p className="dialogText">{detailText}</p>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} variant={"outline-danger"}>
@@ -106,28 +104,6 @@ export default function Orders() {
                     </Button>
                 </DialogActions>
             </Dialog>
-
-            {/* Notification Detail
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>
-                        <img src={"../images/logoimg.png"} width={40}></img>
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{detailText.desc}</Modal.Body>
-                <Modal.Body>{detailText.amn}</Modal.Body>
-                <Modal.Body>{detailText.stt}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal> */}
 
             <h3 className={classes.title}>Order History</h3>
 
@@ -165,8 +141,7 @@ export default function Orders() {
                                     className="mx-1"
                                     variant={"outline-info"}
                                     onClick={() => {
-                                        detailOrder(inv);
-                                        handleOpen();
+                                        handleOpen(inv);
                                     }}
                                     size="sm"
                                 >
@@ -222,6 +197,7 @@ export default function Orders() {
           See more orders
         </Link>
       </div> */}
-        </React.Fragment>
+        </div>
     );
-}
+};
+export default Orders;

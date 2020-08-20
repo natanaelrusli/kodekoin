@@ -16,6 +16,7 @@ import ReactDOM from "react-dom";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import logo from "../images/logoimg.png";
 import "./css/signup.css";
+import { signUpHandler } from "../components/DataFunctions";
 
 function Copyright() {
     return (
@@ -91,73 +92,6 @@ const Signup = () => {
     const [name, setname] = useState("");
     const [password, setpassword] = useState("");
     const [msg, setmsg] = useState("");
-    const createHistory = require("history").createBrowserHistory;
-    let history = createHistory();
-
-    const onSubmitHandler = e => {
-        e.preventDefault();
-        axios
-            .post("http://localhost:8000/api/signup", {
-                name: name,
-                email: email,
-                phone: phone,
-                password: password
-            })
-            .then(response => {
-                console.log(response);
-                if (response.data.status === 200) {
-                    setmsg(response.data.message);
-                    console.log(response.data.message);
-                    setTimeout(() => {
-                        setmsg("");
-                    }, 5000);
-                    axios
-                        .post("http://localhost:8000/api/login", {
-                            email: email,
-                            password: password
-                        })
-                        .then(response => {
-                            console.log(response);
-                            if (response.data.status === 200) {
-                                localStorage.setItem("isLoggedIn", true);
-                                localStorage.setItem(
-                                    "userData",
-                                    JSON.stringify(response.data.data)
-                                );
-                                setmsg(response.data.message);
-                                console.log(response.data.message);
-                                setTimeout(() => {
-                                    setmsg("");
-                                }, 5000);
-                                history.push("/");
-                                let pathUrl = window.location.href;
-                                window.location.href = pathUrl;
-                            }
-
-                            if (response.data.status === "failed") {
-                                setmsg(response.data.message);
-                                console.log(response.data.message);
-                                setTimeout(() => {
-                                    setmsg("");
-                                }, 5000);
-                            }
-                        })
-                        .catch(error => console.log(error));
-                }
-
-                if (response.data.status === "failed") {
-                    setmsg(response.data.message);
-                    console.log(response.data.message);
-                    setTimeout(() => {
-                        setmsg("");
-                    }, 5000);
-                }
-            });
-    };
-
-    // useEffect(() => {
-    //     console.log(msg);
-    // }, [onSubmitHandler]);
 
     return (
         <Container
@@ -169,7 +103,12 @@ const Signup = () => {
             <div className={classes.paper}>
                 <img src={logo} width={80} className="mb-3"></img>
                 <h1 className="signup-text">Sign Up</h1>
-                <form className={classes.form} onSubmit={onSubmitHandler}>
+                <form
+                    className={classes.form}
+                    onSubmit={e =>
+                        signUpHandler(e, name, email, password, phone, setmsg)
+                    }
+                >
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField

@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import logo from "../images/logoimg.png";
 import ForgotPassword from "../components/ForgotPassword";
 import "./css/Login.css";
-import { BrowserRouter, Redirect } from "react-router-dom";
+import { loginHandler } from "../components/DataFunctions";
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -98,40 +98,6 @@ const Login = e => {
         console.log("Change Password");
     };
 
-    const onSubmitHandler = e => {
-        e.preventDefault();
-        axios
-            .post("http://localhost:8000/api/login", {
-                email: email,
-                password: password
-            })
-            .then(response => {
-                console.log(response);
-                if (response.data.status === 200) {
-                    localStorage.setItem("isLoggedIn", true);
-                    localStorage.setItem(
-                        "userData",
-                        JSON.stringify(response.data.data)
-                    );
-                    setredirect(true);
-                    setmsg(response.data.message);
-                    console.log(response.data.message);
-                    setTimeout(() => {
-                        setmsg("");
-                    }, 5000);
-                }
-
-                if (response.data.status === "failed") {
-                    setmsg(response.data.message);
-                    console.log(response.data.message);
-                    setTimeout(() => {
-                        setmsg("");
-                    }, 5000);
-                }
-            })
-            .catch(error => console.log(error));
-    };
-
     const login = localStorage.getItem("isLoggedIn");
     if (redirect || login == "true") {
         history.push("/");
@@ -170,7 +136,15 @@ const Login = e => {
                             <img src={logo} width={60}></img>
                             <form
                                 className={classes.form}
-                                onSubmit={onSubmitHandler}
+                                onSubmit={e =>
+                                    loginHandler(
+                                        e,
+                                        email,
+                                        password,
+                                        setmsg,
+                                        setredirect
+                                    )
+                                }
                             >
                                 <TextField
                                     variant="outlined"
