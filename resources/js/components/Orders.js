@@ -9,13 +9,9 @@ import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
 import Moment from "moment";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import Modal from "react-bootstrap/Modal";
 import { cancelOrder } from "./DataFunctions";
+import { method } from "lodash";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -33,19 +29,6 @@ const Orders = () => {
             color: theme.palette.grey[500]
         }
     });
-
-    const DialogContent = makeStyles(theme => ({
-        root: {
-            padding: theme.spacing(2)
-        }
-    }))(MuiDialogContent);
-
-    const DialogActions = makeStyles(theme => ({
-        root: {
-            margin: 0,
-            padding: theme.spacing(1)
-        }
-    }))(MuiDialogActions);
 
     const useStyles = makeStyles(theme => ({
         seeMore: {
@@ -65,6 +48,7 @@ const Orders = () => {
 
     const handleOpen = i => {
         setOpen(true);
+        console.log(invoices);
         detailOrder(i);
     };
     const handleClose = () => {
@@ -74,11 +58,36 @@ const Orders = () => {
     const [show, setShow] = useState(false);
     const [detailText, setdetailText] = useState("");
     const detailOrder = i => {
+        let methodshow = ""
+        // Set the date we're counting down to
+        let countDownDate = new Date(i.expiry_date).getTime();
+        let now = new Date().getTime();
+        let hours = 0
+        let minutes = 0
+        let seconds = 0
+        let days = 0
+        let countdowntime = i.expiry_date
+        let distance = 0;
+
+        var interval = setInterval(() => {
+            distance = countDownDate - now;
+        }, 1000);
+
+        if (i.retail != null) {
+            methodshow = i.retail
+        }
+        else if (i.bank != null) {
+            methodshow = i.bank
+        }
+        else if (i.ewallet != null) {
+            methodshow = i.ewallet
+        }
         setdetailText(
-            i.description,
-            "\nAmount : IDR " + i.amount,
+            i.description +
+            `\n` + "Payment method : " + methodshow +
+            `\nAmount : IDR ` + new Intl.NumberFormat().format(i.amount) +
             "\nExpiry Date : " +
-                Moment(i.expiry_date).format("D MMMM, YYYY H:mm"),
+                Moment(i.expiry_date).format("D MMMM, YYYY H:mm") +
             "\nStatus : " + i.status
         );
     };
@@ -86,48 +95,50 @@ const Orders = () => {
     return (
         <div>
             {/* Order detail dialog */}
-            <Dialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-            >
-                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    <Typography>Order Details</Typography>
-                </DialogTitle>
-                <DialogContent dividers>
-                    {/* Put the details here */}
-                    <p className="dialogText">{detailText}</p>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} variant={"outline-danger"}>
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
-
+            <Modal show={open} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal.Header><strong>Order Detail</strong></Modal.Header>
+                <Modal.Body>
+                    <p className='dialogText mb-1'>
+                        {
+                            detailText
+                        }
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="mx-1 my-1" variant={"danger"} onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+            
             <h3 className={classes.title}>Order History</h3>
 
             <Table size="small">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Product</TableCell>
-                        <TableCell>Status</TableCell>
-                        <TableCell>Sale Ammount</TableCell>
-                        <TableCell align="right">Action</TableCell>
+                        <TableCell><strong>Date</strong></TableCell>
+                        <TableCell><strong>Product</strong></TableCell>
+                        <TableCell><strong>Status</strong></TableCell>
+                        <TableCell><strong>Sale Amount</strong></TableCell>
+                        <TableCell align="right"><strong>Action</strong></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {invoices.map(inv => (
-                        <TableRow key={inv.id}>
-                            <TableCell>
+                        <TableRow key={inv.id} hover={true}>
+                            <TableCell className="dateColumn">
                                 {Moment(inv.created_at).format(
                                     "D MMMM, YYYY H:mm"
                                 )}
                             </TableCell>
-                            <TableCell>{inv.description}</TableCell>
-                            <TableCell>{inv.status}</TableCell>
+                            
+                            <TableCell className="productColumn">
+                                {inv.description}
+                            </TableCell>
+
                             <TableCell>
+                                {inv.status}
+                            </TableCell>
+
+                            <TableCell className="amountColumn">
                                 <CurrencyFormat
                                     value={inv.amount}
                                     displayType={"text"}
@@ -136,9 +147,10 @@ const Orders = () => {
                                     renderText={value => <div>{value}</div>}
                                 />
                             </TableCell>
-                            <TableCell align="right">
+                            
+                            <TableCell align="right" className="actionColumn">
                                 <Button
-                                    className="mx-1"
+                                    className="mx-1 actionButton"
                                     variant={"outline-info"}
                                     onClick={() => {
                                         handleOpen(inv);
@@ -149,7 +161,7 @@ const Orders = () => {
                                 </Button>
                                 <a href={inv.invoice_url} target="_blank">
                                     <Button
-                                        className="mx-1"
+                                        className="mx-1 actionButton"
                                         variant={
                                             String(inv.status).includes(
                                                 statusOrder
@@ -171,7 +183,7 @@ const Orders = () => {
                                     </Button>
                                 </a>
                                 <Button
-                                    className="mx-1"
+                                    className="mx-1 actionButton"
                                     variant={
                                         String(inv.status).includes(statusOrder)
                                             ? "outline-danger"

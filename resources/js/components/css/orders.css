@@ -5,3 +5,28 @@
 .dialogTitle {
     align-self: flex-start;
 }
+
+.actionColumn {
+    display: flex;
+}
+
+
+@media only screen and (max-width: 902px) {
+    .amountColumn {
+        min-width: 150px;
+    }
+
+    .dateColumn {
+        min-width: 150px;
+    }
+
+    .productColumn {
+        min-width: 120px;
+    }
+}
+
+.actionButton {
+    width: 80px;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
