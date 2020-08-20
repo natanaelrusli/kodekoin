@@ -176,6 +176,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
                     .then(response => {
                         console.log(response);
                         if (response.data.status === 200) {
+                            getInvoiceByEmail(e);
                             localStorage.setItem("isLoggedIn", true);
                             localStorage.setItem(
                                 "userData",
