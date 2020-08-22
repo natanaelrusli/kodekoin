@@ -6,13 +6,23 @@
 
 html, body {
   height: 100vh;
-  background-color: #2E2E2E;
+  background-color: #222222;
 }
 
 .Home{
   background-color: #222222;
-  height: auto !important;
-  height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .Home{
+    min-height: 100vh !important;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .Home{
+    height: 100% !important;
+  }
 }
 
 .Home .lander {

@@ -15,6 +15,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { css } from "@emotion/core";
+import PulseLoader from "react-spinners/PulseLoader";
 import Orders from "../components/Orders";
 import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
@@ -29,6 +31,14 @@ function Copyright() {
         </Typography>
     );
 }
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: white;
+  zindex: 1;
+  transition : 1s ease-in;
+`;
 
 const drawerWidth = 230;
 
@@ -113,6 +123,11 @@ const useStyles = makeStyles(theme => ({
     },
     fixedHeight: {
         height: 240
+    },
+    loadingAnimation: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
     }
 }));
 
@@ -195,7 +210,14 @@ export default function Dashboard() {
                                         <h3 className={classes.titleOrder}>
                                             Order History
                                         </h3>
-                                        <p>Loading Data...</p>
+                                        <div className={classes.loadingAnimation}>
+                                            <PulseLoader
+                                                css={override}
+                                                size={10}
+                                                color={"#FF4646"}
+                                                loading={loading}
+                                            />
+                                        </div>
                                     </div>
                                 ) : (
                                     <Orders />

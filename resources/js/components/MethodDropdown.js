@@ -43,8 +43,7 @@ function MethodDropdown({choosePrice, methods, title, setMethod, chooseMethod}) 
                     {
                         methods.map(method =>  (
                                 <div 
-                                    onClick={
-                                    () => {chooseMethod == false ? setMethod(method) : setMethod(false)}}
+                                    onClick={() => {setMethod(method)}}
                                     className={chooseMethod == method ? "accordion__button choose" : "accordion__button"} 
                                     key = {method}
                                 >
