@@ -9,7 +9,7 @@ import { logoutHandler } from "./DataFunctions";
 function NavbarComponent() {
     const useStyles = makeStyles(theme => ({
         nav: {
-            boxShadow: "1px 1px 1px rgb(0,0,0,0.7)",
+            boxShadow: "1px 1px 3px rgb(0,0,0,0.7)",
             backgroundColor: "#2E2E2E",
             borderColor: "#FF4646",
         },

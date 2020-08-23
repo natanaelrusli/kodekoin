@@ -175,8 +175,8 @@
 @media only screen and (min-width: 600px) {
     .checkoutbutton{
         margin-top: -20px;
-        width: 40% !important;
-        font-size: 1.2rem;
+        width: 30% !important;
+        font-size: 1.1rem;
     }
 }
 
@@ -191,7 +191,7 @@
 @media only screen and (min-width: 1080px) {
     .checkoutbutton{
         margin-top: -20px;
-        width: 20% !important;
+        width: 25% !important;
         font-size: 1.4rem;
     }
 }

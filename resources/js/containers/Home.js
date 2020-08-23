@@ -15,18 +15,18 @@ const Home = props => {
     return (
         <div
             className="Home"
-            style={{ height: "100vh", backgroundColor: "#2E2E2E" }}
+            style={{ height: "100%", backgroundColor: "#2E2E2E" }}
         >
             <Navbar></Navbar>
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-sm-5 mt-3">
+                <div className="row" style={{ height: '100%' }}>
+                    <div className="col-md-5 mt-3">
                         <MediaQuery minDeviceWidth={600}>
                             <HomeImage></HomeImage>
                         </MediaQuery>
                         <GameDesc></GameDesc>
                     </div>
-                    <div className="col-sm-7">
+                    <div className="col-md-7">
                         <div className="lander">
                             <PriceList></PriceList>
                         </div>

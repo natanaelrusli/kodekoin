@@ -8,11 +8,14 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { css } from "@emotion/core";
+import PulseLoader from "react-spinners/PulseLoader";
 import ReactDOM from "react-dom";
 import logo from "../images/logoimg.png";
 import ForgotPassword from "../components/ForgotPassword";
 import "./css/Login.css";
 import { loginHandler } from "../components/DataFunctions";
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -25,6 +28,14 @@ function Copyright() {
         </Typography>
     );
 }
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: white;
+  zindex: 1;
+  transition : 1s ease-in;
+`;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -81,6 +92,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Login = e => {
+    const [loading, setLoading] = useState(false);
     const [changeComponent, setChangeComponent] = useState(false);
     const classes = useStyles();
     const [email, setemail] = useState("");
@@ -99,7 +111,9 @@ const Login = e => {
     };
 
     const login = localStorage.getItem("isLoggedIn");
+
     if (redirect || login == "true") {
+        setLoading(false);
         history.push("/");
         let pathUrl = window.location.href;
         window.location.href = pathUrl;
@@ -179,9 +193,21 @@ const Login = e => {
                                     style={{ backgroundColor: "#FF4646" }}
                                     color="primary"
                                     className={classes.submit}
+                                    onClick={() => setLoading(true)}
                                     className="submit"
                                 >
-                                    Sign In
+                                    {email.length > 0 && password.length > 0 &&  loading == true ?
+                                        <PulseLoader
+                                            css={override}
+                                            size={10}
+                                            color={"white"}
+                                            loading={loading}
+                                        />
+                                        :
+                                        <Typography>
+                                            Login
+                                        </Typography>
+                                    }
                                 </Button>
                                 <Grid container style={{ marginTop: "10px" }}>
                                     <Grid item xs>

@@ -11,9 +11,11 @@ import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { css } from "@emotion/core";
 import Container from "@material-ui/core/Container";
 import ReactDOM from "react-dom";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import PulseLoader from "react-spinners/PulseLoader";
 import logo from "../images/logoimg.png";
 import "./css/signup.css";
 import { signUpHandler } from "../components/DataFunctions";
@@ -32,6 +34,14 @@ function Copyright() {
         </Typography>
     );
 }
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: white;
+  zindex: 1;
+  transition : 1s ease-in;
+`;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -87,6 +97,7 @@ const useStyles = makeStyles(theme => ({
 
 const Signup = () => {
     const classes = useStyles();
+    const [loading, setLoading] = useState(false);
     const [phone, setphone] = useState("");
     const [email, setemail] = useState("");
     const [name, setname] = useState("");
@@ -169,8 +180,20 @@ const Signup = () => {
                         color="primary"
                         className={classes.submit}
                         style={{ backgroundColor: "#FF4646" }}
+                        onClick={ ()=>setLoading(true) }
                     >
-                        Sign Up
+                         {email.length > 0 && password.length > 0 && name.length > 0 && phone.length > 0 && loading == true ?
+                            <PulseLoader
+                                css={override}
+                                size={10}
+                                color={"white"}
+                                loading={loading}
+                            />
+                            :
+                            <Typography>
+                                Login
+                            </Typography>
+                        } 
                     </Button>
                     <Grid container justify="center">
                         <Grid item>

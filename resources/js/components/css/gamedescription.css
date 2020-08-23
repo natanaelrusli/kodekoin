@@ -36,18 +36,21 @@
 
 @media only screen and (min-width: 600px) {
     .description{
-        flex-direction: row;
+        flex-direction: column;
     }
     .gamelogo{
         width: 90px;
         margin-top: 7px;
     }
     .gametitle{
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 }
 
 @media only screen and (min-width: 768px) {
+    .description {
+        flex-direction: row;
+    }
     .gamelogo{
         width: 100px;
         margin-top: 5px;

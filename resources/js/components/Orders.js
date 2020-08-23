@@ -82,6 +82,7 @@ const Orders = () => {
         else if (i.ewallet != null) {
             methodshow = i.ewallet
         }
+        
         setdetailText(
             i.description +
             `\n` + "Payment method : " + methodshow +
@@ -99,9 +100,7 @@ const Orders = () => {
                 <Modal.Header><strong>Order Detail</strong></Modal.Header>
                 <Modal.Body>
                     <p className='dialogText mb-1'>
-                        {
-                            detailText
-                        }
+                        {detailText}
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
@@ -167,7 +166,7 @@ const Orders = () => {
                                                 statusOrder
                                             )
                                                 ? "outline-success"
-                                                : "secondary"
+                                                : "outline-secondary"
                                         }
                                         disabled={
                                             String(inv.status).includes(
@@ -187,7 +186,7 @@ const Orders = () => {
                                     variant={
                                         String(inv.status).includes(statusOrder)
                                             ? "outline-danger"
-                                            : "secondary"
+                                            : "outline-secondary"
                                     }
                                     disabled={
                                         String(inv.status).includes(statusOrder)
