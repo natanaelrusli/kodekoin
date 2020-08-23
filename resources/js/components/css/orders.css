@@ -1,3 +1,11 @@
+:root{
+    --base-red : #FF4646;
+    --dark-grey : #2E2E2E;
+    --white : #FFFFFF;
+    --yellow : #ffd000;
+    --green : #219626;
+}
+
 .dialogText {
     white-space: pre-wrap;
 }
@@ -29,4 +37,39 @@
     width: 80px;
     margin-bottom: 5px;
     margin-top: 3px;
+}
+
+@keyframes iconAnimation {
+    0% {
+        stroke-dasharray: 0 1000; /* zero-length stroke, 
+                                    1000-length gap */
+    }
+    100% {
+        stroke-dasharray: 1000 0;/* 1000-length stroke, 
+                                    zero-length gap */
+    }
+}
+
+.statusIcon {
+    --stroke-dashoffset: 200;
+    stroke-dasharray: 0 1000;
+    position: absolute;
+    top: 15%;
+    left: 12%;
+    transition: ease-in 2s;
+    width: 70%;
+    height: 70%;
+    animation: iconAnimation 5s linear alternate infinite;
+}
+
+.red {
+    fill: var(--base-red);
+}
+
+.yellow {
+    fill: var(--yellow);
+}
+
+.green {
+    fill: var(--green);
 }
