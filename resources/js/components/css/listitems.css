@@ -1,0 +1,11 @@
+:root {
+    --red : #FF4646;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.red {
+    color: var(--red);
+}

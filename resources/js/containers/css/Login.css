@@ -25,3 +25,8 @@
 .link:hover {
   cursor: pointer;
 }
+
+.errorText {
+  color: var(--base-red);
+  margin-bottom: 15px;
+}

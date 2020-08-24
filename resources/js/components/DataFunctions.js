@@ -204,10 +204,10 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
             }
 
             if (response.data.status === "failed") {
-                setmsg(response.data.message);
+                s(response.data.message);
                 console.log(response.data.message);
                 setTimeout(() => {
-                    setmsg("");
+                    s("");
                 }, 5000);
             }
         });

@@ -99,6 +99,8 @@ const Login = e => {
     const [password, setpassword] = useState("");
     const [msg, setmsg] = useState("");
     const [redirect, setredirect] = useState(false);
+    const [erruser, setErruser] = useState(false);
+    const [errpass, setErrpass] = useState(false);
     const createHistory = require("history").createBrowserHistory;
     let history = createHistory();
 
@@ -117,6 +119,18 @@ const Login = e => {
         history.push("/");
         let pathUrl = window.location.href;
         window.location.href = pathUrl;
+    }
+
+    if ( msg == 'Unable to login. Incorrect password.' ) {
+        setLoading(false);
+        setmsg('');
+        setErrpass(true);
+    }
+
+    if ( msg == "Unable to login. Email doesn't exist." ) {
+        setLoading(false);
+        setmsg('');
+        setErruser(true);
     }
 
     return (
@@ -172,6 +186,9 @@ const Login = e => {
                                     autoFocus
                                     onChange={e => setemail(e.target.value)}
                                 />
+
+                                { erruser && <p className="errorText mb-1">User doesn't exists</p> }
+
                                 <TextField
                                     variant="outlined"
                                     margin="normal"
@@ -185,15 +202,17 @@ const Login = e => {
                                     aria-required="true"
                                     onChange={e => setpassword(e.target.value)}
                                 />
-                                {/* <p>{msg}</p> */}
+
+                                { errpass && <p className="errorText mb-1">Incorrect Password</p> }
+                                
                                 <Button
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    style={{ backgroundColor: "#FF4646" }}
+                                    style={{ backgroundColor: "#FF4646", marginTop: "10px", marginBottom: "2px" }}
                                     color="primary"
                                     className={classes.submit}
-                                    onClick={() => setLoading(true)}
+                                    onClick={() => {setLoading(true); setErruser(false); setErrpass(false)}}
                                     className="submit"
                                 >
                                     {email.length > 0 && password.length > 0 &&  loading == true ?

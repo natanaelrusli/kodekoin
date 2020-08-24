@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(3)
     },
     submit: {
-        margin: theme.spacing(3, 0, 2)
+        margin: theme.spacing(2, 0, 2)
     },
     submit: {
         backgroundColor: "#FF4646",
@@ -98,11 +98,39 @@ const useStyles = makeStyles(theme => ({
 const Signup = () => {
     const classes = useStyles();
     const [loading, setLoading] = useState(false);
+    const [erremail, setErremail] = useState(false);
+    const [emailFormErr, setEmailFormErr] = useState(false);
+    const [errpass, setErrpass] = useState(false);
+    const [errphone, setErrphone] = useState(false);
     const [phone, setphone] = useState("");
     const [email, setemail] = useState("");
     const [name, setname] = useState("");
     const [password, setpassword] = useState("");
-    const [msg, setmsg] = useState("");
+    const [msg, setMsg] = useState("");
+
+    if ( msg == 'Whoops! email already registered') {
+        setErremail(true);
+        setLoading(false);
+        setMsg('');
+    }
+
+    if ( msg == 'Email error') {
+        setEmailFormErr(true);
+        setLoading(false);
+        setMsg('');
+    }
+
+    if ( msg == 'Password error' ) {
+        setErrpass(true);
+        setLoading(false);
+        setMsg('');
+    }
+
+    if ( msg == 'Phone duplicate' ) {
+        setErrphone(true);
+        setLoading(false);
+        setMsg('');
+    }
 
     return (
         <Container
@@ -116,8 +144,14 @@ const Signup = () => {
                 <h1 className="signup-text">Sign Up</h1>
                 <form
                     className={classes.form}
-                    onSubmit={e =>
-                        signUpHandler(e, name, email, password, phone, setmsg)
+                    onSubmit={e =>{
+                        setLoading(true);
+                        setErremail(false);
+                        setErrpass(false);
+                        setEmailFormErr(false);
+                        setErrphone(false);
+                        signUpHandler(e, name, email, password, phone, setMsg);
+                        }
                     }
                 >
                     <Grid container spacing={2}>
@@ -134,6 +168,7 @@ const Signup = () => {
                                 onChange={e => setname(e.target.value)}
                             />
                         </Grid>
+                        
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -145,7 +180,11 @@ const Signup = () => {
                                 autoComplete="email"
                                 onChange={e => setemail(e.target.value)}
                             />
+                            { erremail && <p className="errorText mb-1">Email already registered</p> }
+                            { emailFormErr && <p className="errorText mb-1">Invalid Email</p> }
+
                         </Grid>
+
                         <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
@@ -158,10 +197,13 @@ const Signup = () => {
                                 autoComplete="current-password"
                                 onChange={e => setpassword(e.target.value)}
                             />
+                            { errpass && <p className="errorText mb-1">Password minimum 8 characters</p> }
+
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 autoComplete="phone"
+                                type="number"
                                 name="phone"
                                 variant="outlined"
                                 required
@@ -170,6 +212,7 @@ const Signup = () => {
                                 label="Phone"
                                 onChange={e => setphone(e.target.value)}
                             />
+                            { errphone && <p className="errorText mb-1">Phone number already registered</p> }
                         </Grid>
                     </Grid>
                     {/* <p style={{ color: 'white' }}>{msg}</p> */}
@@ -180,9 +223,11 @@ const Signup = () => {
                         color="primary"
                         className={classes.submit}
                         style={{ backgroundColor: "#FF4646" }}
-                        onClick={ ()=>setLoading(true) }
+                        onClick={ ()=>{
+                            
+                        } }
                     >
-                         {email.length > 0 && password.length > 0 && name.length > 0 && phone.length > 0 && loading == true ?
+                         {erremail == false && errpass == false && emailFormErr == false && phone.length > 0 && loading == true ?
                             <PulseLoader
                                 css={override}
                                 size={10}
@@ -191,7 +236,7 @@ const Signup = () => {
                             />
                             :
                             <Typography>
-                                Login
+                                REGISTER
                             </Typography>
                         } 
                     </Button>
@@ -204,9 +249,6 @@ const Signup = () => {
                     </Grid>
                 </form>
             </div>
-            <Box mt={5} mb={5}>
-                <Copyright />
-            </Box>
         </Container>
     );
 };

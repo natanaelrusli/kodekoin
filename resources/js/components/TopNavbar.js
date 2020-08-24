@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import MenuIcon from '@material-ui/icons/Menu';
 import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
 import { logoutHandler } from "./DataFunctions";
@@ -70,7 +71,7 @@ function NavbarComponent() {
                                 <Button
                                     onClick={logoutHandler}
                                     className={classes.navbutton}
-                                >
+                                    >
                                     Logout
                                 </Button>
                             </div>
