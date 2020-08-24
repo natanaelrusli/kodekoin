@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import ReactDOM from "react-dom";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 import Button from "@material-ui/core/Button";
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import LockIcon from '@material-ui/icons/Lock';
-import PaymentIcon from '@material-ui/icons/Payment';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import LockIcon from "@material-ui/icons/Lock";
+import PaymentIcon from "@material-ui/icons/Payment";
 
 import { css } from "@emotion/core";
 import PulseLoader from "react-spinners/PulseLoader";
@@ -35,8 +35,8 @@ import Navbar from "../components/TopNavbar";
 import ReferalForm from "../components/ReferalForm";
 import { updateInvoice } from "../components/DataFunctions";
 import { logoutHandler } from "../components/DataFunctions";
-import './css/navstyle.css';
-import '../components/css/listitems.css'
+import "./css/navstyle.css";
+import "../components/css/listitems.css";
 
 function Copyright() {
     return (
@@ -49,105 +49,105 @@ function Copyright() {
 }
 
 const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: white;
-  zindex: 1;
-  transition : 1s ease-in;
+    display: block;
+    margin: 0 auto;
+    border-color: white;
+    zindex: 1;
+    transition: 1s ease-in;
 `;
 
 const drawerWidth = 230;
 
 const useStyles = makeStyles(theme => ({
     root: {
-        display: 'flex',
-        backgroundColor: '#2E2E2E',
-      },
-      toolbar: {
+        display: "flex",
+        backgroundColor: "#2E2E2E"
+    },
+    toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
-        backgroundColor: '#2E2E2E',
-      },
-      toolbarIcon: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        ...theme.mixins.toolbar,
-      },
-      appBar: {
+        backgroundColor: "#2E2E2E"
+    },
+    toolbarIcon: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        padding: "0 8px",
+        ...theme.mixins.toolbar
+    },
+    appBar: {
         zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }),
-      },
-      appBarShift: {
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        })
+    },
+    appBarShift: {
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-      menuButton: {
-        marginRight: 36,
-      },
-      menuButtonHidden: {
-        display: 'none',
-      },
-      title: {
-        marginLeft: '0px',
-        flexGrow: 1,
-      },
-      drawerPaper: {
-        backgroundColor: '#2E2E2E',
-        zIndex: '1',
-        position: 'relative',
-        whiteSpace: 'nowrap',
+        transition: theme.transitions.create(["width", "margin"], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen
+        })
+    },
+    menuButton: {
+        marginRight: 36
+    },
+    menuButtonHidden: {
+        display: "none"
+    },
+    title: {
+        marginLeft: "0px",
+        flexGrow: 1
+    },
+    drawerPaper: {
+        backgroundColor: "#2E2E2E",
+        zIndex: "1",
+        position: "relative",
+        whiteSpace: "nowrap",
         width: drawerWidth,
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-      drawerPaperClose: {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
+        transition: theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen
+        })
+    },
+    drawerPaperClose: {
+        overflowX: "hidden",
+        transition: theme.transitions.create("width", {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
         }),
         width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
-        },
-      },
-      appBarSpacer: theme.mixins.toolbar,
-      content: {
+        [theme.breakpoints.up("sm")]: {
+            width: theme.spacing(9)
+        }
+    },
+    appBarSpacer: theme.mixins.toolbar,
+    content: {
         flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-      },
-      container: {
+        height: "100vh",
+        overflow: "auto"
+    },
+    container: {
         paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4),
-      },
-      paper: {
+        paddingBottom: theme.spacing(4)
+    },
+    paper: {
         padding: theme.spacing(2),
-        display: 'flex',
-        overflow: 'auto',
-        flexDirection: 'column',
-      },
-      fixedHeight: {
-        height: 240,
-      },
-      navbutton: {
-          color: 'white',
-      },
-      loadingAnimation: {
-          display: 'flex',
-          justifyContent: 'center'
-      }
-    }));
+        display: "flex",
+        overflow: "auto",
+        flexDirection: "column"
+    },
+    fixedHeight: {
+        height: 240
+    },
+    navbutton: {
+        color: "white"
+    },
+    loadingAnimation: {
+        display: "flex",
+        justifyContent: "center"
+    }
+}));
 
 export default function Dashboard() {
     const classes = useStyles();
@@ -157,7 +157,7 @@ export default function Dashboard() {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const invoices = JSON.parse(localStorage.getItem("invoices"));
     const [loading, setLoading] = useState(true);
-    const [menuSelect, setMenuSelect] = useState('dashboard');
+    const [menuSelect, setMenuSelect] = useState("dashboard");
 
     const [opensidebar, setOpensidebar] = useState(false);
 
@@ -167,7 +167,6 @@ export default function Dashboard() {
     const handleDrawerClose = () => {
         setOpensidebar(false);
     };
-    // console.log(userData);
     const chooseMenu = item => {
         setselectMenu(item);
     };
@@ -199,53 +198,68 @@ export default function Dashboard() {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={clsx(classes.appBar, opensidebar && classes.appBarShift)}>
+            <AppBar
+                position="fixed"
+                className={clsx(
+                    classes.appBar,
+                    opensidebar && classes.appBarShift
+                )}
+            >
                 <Toolbar className={classes.toolbar}>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    className={clsx(classes.menuButton, opensidebar && classes.menuButtonHidden)}
-                >
-                    <MenuIcon />
-                </IconButton>
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        className={clsx(
+                            classes.menuButton,
+                            opensidebar && classes.menuButtonHidden
+                        )}
+                    >
+                        <MenuIcon />
+                    </IconButton>
                     {users.map(user => (
-                        <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                        <Typography
+                            component="h1"
+                            variant="h6"
+                            color="inherit"
+                            noWrap
+                            className={classes.title}
+                        >
                             Hi, {user.firstName}!
                         </Typography>
                     ))}
-                <Button href="/" className='navbutton'>
-                    Home
-                </Button>
-                <Button
-                    onClick={logoutHandler}
-                    className='navbutton'
-                    >
-                    Logout
-                </Button>
+                    <Button href="/" className="navbutton">
+                        Home
+                    </Button>
+                    <Button onClick={logoutHandler} className="navbutton">
+                        Logout
+                    </Button>
                 </Toolbar>
             </AppBar>
 
             <Drawer
                 variant="temporary"
                 classes={{
-                paper: clsx(classes.drawerPaper, !opensidebar && classes.drawerPaperClose),
+                    paper: clsx(
+                        classes.drawerPaper,
+                        !opensidebar && classes.drawerPaperClose
+                    )
                 }}
                 open={opensidebar}
             >
                 <div className={classes.toolbarIcon}>
-                <IconButton onClick={handleDrawerClose}>
-                    <ChevronLeftIcon style={{ color : 'white' }}/>
-                </IconButton>
+                    <IconButton onClick={handleDrawerClose}>
+                        <ChevronLeftIcon style={{ color: "white" }} />
+                    </IconButton>
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button onClick={()=>setMenuSelect('dashboard')}>
+                    <ListItem button onClick={() => setMenuSelect("dashboard")}>
                         <ListItemIcon>
-                            <DashboardIcon className='white'/>
+                            <DashboardIcon className="white" />
                         </ListItemIcon>
-                        <ListItemText primary="Dashboard" className='white' />
+                        <ListItemText primary="Dashboard" className="white" />
                     </ListItem>
                     {/* <ListItem button onClick={()=>setMenuSelect('orders')}>
                         <ListItemIcon>
@@ -253,17 +267,26 @@ export default function Dashboard() {
                         </ListItemIcon>
                         <ListItemText primary="Orders" className='white'/>
                     </ListItem> */}
-                    <ListItem button onClick={()=>setMenuSelect('changepassword')}>
+                    <ListItem
+                        button
+                        onClick={() => setMenuSelect("changepassword")}
+                    >
                         <ListItemIcon>
-                            <LockIcon className='white'/>
+                            <LockIcon className="white" />
                         </ListItemIcon>
-                        <ListItemText primary="Change Password" className='white'/>
+                        <ListItemText
+                            primary="Change Password"
+                            className="white"
+                        />
                     </ListItem>
-                    <ListItem button onClick={()=>setMenuSelect('referal')}>
+                    <ListItem button onClick={() => setMenuSelect("referal")}>
                         <ListItemIcon>
-                            <PaymentIcon className='white'/>
+                            <PaymentIcon className="white" />
                         </ListItemIcon>
-                        <ListItemText primary="Referal Code" className='white' />
+                        <ListItemText
+                            primary="Referal Code"
+                            className="white"
+                        />
                     </ListItem>
                 </List>
             </Drawer>
@@ -272,65 +295,68 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                            {/* Profile */}
-                            {
-                                menuSelect == 'dashboard' &&
-                                <Grid item xs={12} md={12} lg={12}>
-                                    <Paper className={classes.paper}>
-                                        {users.map(user => (
-                                            <Profile
-                                                firstName={user.firstName}
-                                                lastName={user.lastName}
-                                                email={user.email}
-                                            />
-                                        ))}
-                                    </Paper>
+                        {/* Profile */}
+                        {menuSelect == "dashboard" && (
+                            <Grid item xs={12} md={12} lg={12}>
+                                <Paper className={classes.paper}>
+                                    {users.map(user => (
+                                        <Profile
+                                            firstName={user.firstName}
+                                            lastName={user.lastName}
+                                            email={user.email}
+                                        />
+                                    ))}
+                                </Paper>
 
-                                    <Paper className={classes.paper} style={{ marginTop: '20px' }}>
-                                        {loading ? (
-                                            <div>
-                                                <h3 className={classes.titleOrder}>
-                                                    Order History
-                                                </h3>
-                                                <div className={classes.loadingAnimation}>
-                                                    <PulseLoader
-                                                        css={override}
-                                                        size={10}
-                                                        color={"#FF4646"}
-                                                        loading={loading}
-                                                    />
-                                                </div>
+                                <Paper
+                                    className={classes.paper}
+                                    style={{ marginTop: "20px" }}
+                                >
+                                    {loading ? (
+                                        <div>
+                                            <h3 className={classes.titleOrder}>
+                                                Order History
+                                            </h3>
+                                            <div
+                                                className={
+                                                    classes.loadingAnimation
+                                                }
+                                            >
+                                                <PulseLoader
+                                                    css={override}
+                                                    size={10}
+                                                    color={"#FF4646"}
+                                                    loading={loading}
+                                                />
                                             </div>
-                                        ) : (
-                                            <Orders />
-                                        )}
-                                    </Paper>
-                                </Grid>
-                            }
-                            
-                            {/* Change Password */}
-                            {
-                                menuSelect == 'changepassword' &&
-                                <Grid item xs={12}>
-                                    <Paper className={classes.paper}>
-                                        <ChangePassword />
-                                    </Paper>
-                                </Grid>
-                            }
+                                        </div>
+                                    ) : (
+                                        <Orders />
+                                    )}
+                                </Paper>
+                            </Grid>
+                        )}
 
+                        {/* Change Password */}
+                        {menuSelect == "changepassword" && (
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper}>
+                                    <ChangePassword />
+                                </Paper>
+                            </Grid>
+                        )}
 
-                            {/* Referal Code */}
-                            {
-                                menuSelect == 'referal' &&
-                                <Grid item xs={12}>
-                                    <Paper className={classes.paper}>
-                                        <ReferalForm />
-                                    </Paper>
-                                </Grid>
-                            }
-                        </Grid>
-                    </Container>
-                </main>
+                        {/* Referal Code */}
+                        {menuSelect == "referal" && (
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper}>
+                                    <ReferalForm />
+                                </Paper>
+                            </Grid>
+                        )}
+                    </Grid>
+                </Container>
+            </main>
         </div>
     );
 }

@@ -10,14 +10,21 @@ import MediaQuery, { useMediaQuery } from "react-responsive";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
+import x from "../xendit";
+import QRCode from "qrcode";
 
 const Home = props => {
-    var voucher_codes = require("voucher-code-generator");
-    console.log(
-        voucher_codes.generate({
-            pattern: "#####-######-#####"
-        })
-    );
+    $(function() {
+        var canvas = document.getElementById("canvas");
+        QRCode.toCanvas(
+            canvas,
+            "00020101021226660014ID.LINKAJA.WWW011893600911002411480002152004230411480010303UME51450015ID.OR.GPNQR.WWW02150000000000000000303UME520454995802ID5920Placeholder merchant6007Jakarta610612345662380115sktn1AhOrHASFVk0715sktn1AhOrHASFVk53033605405100006304A3F7",
+            function(error) {
+                if (error) console.error(error);
+                console.log("success!");
+            }
+        );
+    });
     return (
         <div
             className="Home"
@@ -34,6 +41,7 @@ const Home = props => {
                     </div>
                     <div className="col-md-7">
                         <div className="lander">
+                            <canvas id="canvas"></canvas>
                             <PriceList></PriceList>
                         </div>
                     </div>
