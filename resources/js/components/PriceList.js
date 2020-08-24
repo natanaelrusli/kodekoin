@@ -3,12 +3,28 @@ import Card from "@material-ui/core/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MethodDropdown from "./MethodDropdown";
+import Form from "react-bootstrap/Form";
+import { makeStyles } from "@material-ui/core/styles";
 import "./css/pricelist.css";
 import { createInvoice } from "./DataFunctions";
 import { stringify } from "querystring";
 import { inArray } from "jquery";
 
+const useStyles = makeStyles(theme => ({
+    submit: {
+        backgroundColor: "#FF4646",
+        color: "#FFF",
+        borderColor: "#FF4646",
+        "&:hover, &:focus": {
+            backgroundColor: "#FF4646",
+            borderColor: "#FF4646"
+        }
+    },
+}));
+
 const PriceList = () => {
+    const classes = useStyles();
+
     //Items is for list of denom shown in the page
     const [items, setItems] = useState([
         10000,
@@ -41,6 +57,8 @@ const PriceList = () => {
         "alfamart", 
         "indomaret",
     ]);
+
+    const [referal, setReferal] = useState(true);
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
@@ -174,7 +192,7 @@ const PriceList = () => {
             {/* Payment method card */}
             <Card
                 style={{ width: "100%" }}
-                className="pr-3 pt-3 mb-5 shadow dark-grey-bg"
+                className="pr-3 pt-3 mb-3 shadow dark-grey-bg"
             >
                 <div className="denom-header mb-3 ml-3">
                     <h1>Pilih Metode Pembayaran</h1>
@@ -203,8 +221,44 @@ const PriceList = () => {
                 ></MethodDropdown>
             </Card>
 
+            {
+                referal && 
+                <Card
+                    style={{ width: "100%" }}
+                    className="p-3 mb-3 shadow dark-grey-bg"
+                >
+                    <React.Fragment>
+                        <div className="denom-header mb-3">
+                            <h1>Referal Code</h1>
+                        </div>
+                        <Form
+                            onSubmit={e => {
+                            
+                            }}
+                        >
+                            <Form.Group controlId="formBasicText" className="mt-1">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Put your referal code here..."
+                                    className="red-glow"
+                                    onChange={e => setPasswordOld(e.target.value)}
+                                />
+                            </Form.Group>
+
+                            <Button
+                                variant="primary"
+                                type="submit"
+                                className={classes.submit}
+                            >
+                                Submit Referal Code
+                            </Button>
+                        </Form>
+                    </React.Fragment>
+                </Card>
+            }
+
             {/* Checkout button */}
-            <div className="d-flex flex-row mt-3">
+            <div className="d-flex flex-row mt-5">
                 <Button
                     variant="warning"
                     className="checkoutbutton"
