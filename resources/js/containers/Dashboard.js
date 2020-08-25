@@ -33,6 +33,7 @@ import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
 import Navbar from "../components/TopNavbar";
 import ReferalForm from "../components/ReferalForm";
+import EditProfile from "../components/EditProfile";
 import { updateInvoice } from "../components/DataFunctions";
 import { logoutHandler } from "../components/DataFunctions";
 import './css/navstyle.css';
@@ -242,7 +243,7 @@ export default function Dashboard() {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button onClick={()=>setMenuSelect('dashboard')}>
+                    <ListItem button onClick={()=>{setMenuSelect('dashboard'); setOpensidebar(false)}}>
                         <ListItemIcon>
                             <DashboardIcon className='white'/>
                         </ListItemIcon>
@@ -254,13 +255,13 @@ export default function Dashboard() {
                         </ListItemIcon>
                         <ListItemText primary="Orders" className='white'/>
                     </ListItem> */}
-                    <ListItem button onClick={()=>setMenuSelect('changepassword')}>
+                    <ListItem button onClick={()=>{setMenuSelect('editprofile'); setOpensidebar(false)}}>
                         <ListItemIcon>
                             <LockIcon className='white'/>
                         </ListItemIcon>
-                        <ListItemText primary="Change Password" className='white'/>
+                        <ListItemText primary="Edit Profile" className='white'/>
                     </ListItem>
-                    <ListItem button onClick={()=>setMenuSelect('referal')}>
+                    <ListItem button onClick={()=>{setMenuSelect('referal'); setOpensidebar(false)}}>
                         <ListItemIcon>
                             <PaymentIcon className='white'/>
                         </ListItemIcon>
@@ -270,7 +271,7 @@ export default function Dashboard() {
             </Drawer>
 
             <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
+                <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
                             {/* Profile */}
@@ -311,9 +312,14 @@ export default function Dashboard() {
                             
                             {/* Change Password */}
                             {
-                                menuSelect == 'changepassword' &&
+                                menuSelect == 'editprofile' &&
                                 <Grid item xs={12}>
-                                    <Paper className={classes.paper}>
+                                        <Paper className={classes.paper}>
+                                            {users.map(user => (
+                                                <EditProfile firstname = {user.firstName} lastname = {user.lastName} email = {user.email}/>
+                                            ))}
+                                        </Paper>
+                                    <Paper className={classes.paper} style={{ marginTop: '20px' }}>
                                         <ChangePassword />
                                     </Paper>
                                 </Grid>

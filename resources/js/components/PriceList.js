@@ -241,6 +241,7 @@ const PriceList = () => {
                                     type="text"
                                     placeholder="Put your referal code here..."
                                     className="red-glow"
+                                    style={{ backgroundColor : '#1C1C1F', borderColor: '#1C1C1F', color : '#FFF' }}
                                     onChange={e => setPasswordOld(e.target.value)}
                                 />
                             </Form.Group>
