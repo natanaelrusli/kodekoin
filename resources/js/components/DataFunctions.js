@@ -145,12 +145,13 @@
 //         setMessage("pass lama tidak sama");
 //     }
 // };
-
+import QRCode from "qrcode";
 import x from "../xendit";
 const { Invoice: Invoice } = x,
     i = new Invoice({});
 
 const createHistory = require("history").createBrowserHistory;
+
 export const signUpHandler = (v, n, e, p, ph, s) => {
     v.preventDefault();
     axios
@@ -212,6 +213,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
             }
         });
 };
+
 export const loginHandler = (v, e, p, m, s) => {
     v.preventDefault();
     axios
@@ -247,16 +249,218 @@ export const loginHandler = (v, e, p, m, s) => {
         .catch(error => console.log(error));
 };
 
-export const createInvoice = async (e, o, a, t, s, p) => {
-    p(true),
+const virtualAccount = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const VirtualAcc = x.VirtualAcc;
+    const va = new VirtualAcc({});
+    await va
+        .createFixedVA({
+            externalID: Date.now().toString() + "+" + name + "+" + desc,
+            bankCode: method,
+            name: name,
+            suggestedAmt: price,
+            isClosed: !0,
+            expectedAmt: price
+        })
+        .then(e => {
+            console.log("fixed va created:", e);
+            createInvoice(name, email, desc, price, method, paytype, proccess);
+        });
+
+    // const { id } = fixedAcc;
+    // const retrievedAcc = await va.getFixedVA({ id });
+    // eslint-disable-next-line no-console
+    // console.log('fixed va details:', retrievedAcc);
+};
+
+const eWallet = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const EWallet = x.EWallet;
+    const ew = new EWallet({});
+    const item = {
+        id: Date.now().toString() + "+" + name + "+" + desc,
+        name: desc,
+        price: price,
+        quantity: 1
+    };
+    await ew
+        .createPayment({
+            externalID: Date.now().toString() + "+" + name + "+" + desc,
+            amount: price,
+            phone: phone,
+            ewalletType: method,
+            callbackURL: "http://kodekoin.com/ewalletcallback",
+            redirectURL: "http://kodekoin.com",
+            items: [item, item]
+        })
+        .then(e => {
+            console.log("create payment detail:", e);
+            createInvoice(name, email, desc, price, method, paytype, proccess);
+        });
+
+    // const retrievedPayment = await ew.getPayment({
+    //     externalID: payment.external_id,
+    //     ewalletType: payment.ewallet_type
+    // });
+    // // eslint-disable-next-line no-console
+    // console.log("EWallet payment detail:", retrievedPayment);
+};
+
+const retailOutlet = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const RetailOutlet = x.RetailOutlet;
+    const ro = new RetailOutlet({});
+    await ro
+        .createFixedPaymentCode({
+            externalID: Date.now().toString() + "+" + name + "+" + desc,
+            retailOutletName: method,
+            name: name,
+            expectedAmt: price
+        })
+        .then(e => {
+            console.log("fixed payment code created:", e);
+            createInvoice(name, email, desc, price, method, paytype, proccess);
+        });
+
+    // const { id } = pmCode;
+    // const retrievedPmCode = await ro.getFixedPaymentCode({ id });
+    // // eslint-disable-next-line no-console
+    // console.log("fixed payment code details:", retrievedPmCode);
+
+    // const updatedPmCode = await ro.updateFixedPaymentCode({
+    //     id,
+    //     expectedAmt: 12000
+    // });
+    // // eslint-disable-next-line no-console
+    // console.log("updated payment code details:", updatedPmCode);
+};
+
+const qRis = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const { QrCode } = x;
+    const q = new QrCode({});
+
+    await q
+        .createCode({
+            externalID: Date.now().toString(),
+            type: QrCode.Type.Dynamic,
+            callbackURL: "http://kodekoin.com",
+            amount: 10000
+        })
+        .then(e => {
+            console.log("created QR code", qrcode);
+            createInvoice(name, email, desc, price, method, paytype, proccess);
+        });
+
+    // qrcode = await q.getCode({ externalID: qrcode.external_id });
+    // console.log("retrieved QR code", qrcode);
+
+    // const payment = await q.simulate({ externalID: qrcode.external_id });
+    // console.log("simulated payment", payment);
+    // QRCode.toString(qrcode.qr_string, { type: "terminal" }, function(err, url) {
+    //     console.log(url);
+    // });
+    // const generateQR = async text => {
+    //     try {
+    //         console.log(await QRCode.toDataURL(text));
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
+    // console.log(generateQR(qrcode.qr_string));
+};
+
+export const createOrder = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    if (paytype == 0) {
+        virtualAccount(
+            name,
+            email,
+            phone,
+            desc,
+            price,
+            method,
+            paytype,
+            proccess
+        );
+    } else if (paytype == 1) {
+        eWallet(name, email, phone, desc, price, method, paytype, proccess);
+    } else if (paytype == 2) {
+        retailOutlet(
+            name,
+            email,
+            phone,
+            desc,
+            price,
+            method,
+            paytype,
+            proccess
+        );
+    } else if (paytype == 3) {
+        qRis(name, email, phone, desc, price, method, paytype, proccess);
+    }
+};
+
+const createInvoice = async (
+    name,
+    email,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    proccess(true),
         await i
             .createInvoice({
-                externalID: Date.now().toString() + "+" + e + "+" + a,
-                payerEmail: o,
-                description: a,
-                amount: t,
+                externalID: Date.now().toString() + "+" + name + "+" + desc,
+                payerEmail: email,
+                description: desc,
+                amount: price,
                 shouldSendEmail: !1,
-                paymentMethods: [s]
+                paymentMethods: [method],
+                successRedirectURL: "http://kodekoin.com",
+                failureRedirectURL: "http://kodekoin.com"
             })
             .then(e => {
                 console.log(e),
@@ -284,7 +488,7 @@ export const createInvoice = async (e, o, a, t, s, p) => {
                         })
                         .then(e => {
                             console.log("created invoice", e);
-                            p(false);
+                            proccess(false);
                             createHistory().push("/dashboard");
                             let pathUrl = window.location.href;
                             window.location.href = pathUrl;
@@ -296,8 +500,6 @@ export const createInvoice = async (e, o, a, t, s, p) => {
                 console.log(e);
             });
 };
-
-export const getUserData = () => {};
 
 const getInvoiceByEmail = async (e, l = undefined) => {
     console.log("sssss"),
@@ -331,6 +533,7 @@ export const updateInvoice = async (e, a, b) => {
         console.error(e);
     }
 };
+
 export const cancelOrder = e => {
     i.expireInvoice({ invoiceID: e }).then(e => {
         console.log("expired invoice", e);
@@ -340,7 +543,7 @@ export const cancelOrder = e => {
         e;
     });
 };
-export const detailOrder = e => {};
+
 export const payOrder = e => {
     axios
         .get(`http://localhost:8000/api/invoice/${e}`)
@@ -352,6 +555,7 @@ export const payOrder = e => {
         })
         .catch(e => console.log(e));
 };
+
 export const changePassHandler = (o, a, t, s) => {
     if (a == t && a != o) {
         axios
@@ -379,6 +583,7 @@ export const changePassHandler = (o, a, t, s) => {
             .catch(e => console.log(e));
     } else s("password doesn't match");
 };
+
 export const logoutHandler = () => {
     if ((localStorage.clear(), window.location.href.includes("dashboard"))) {
         console.log("Berhasil Logout"), createHistory().push("/");

@@ -112,4 +112,33 @@ class InvoiceController extends Controller
             ->get();
         return response()->json($invoices);
     }
+
+    public function ewallet(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function retail(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function virtual(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function qris(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
 }

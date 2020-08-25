@@ -24,4 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("invhistory/{email}", "InvoiceController@showhistory");
-Route::resource('invoice', 'InvoiceController');
+Route::post('/ewalletcallback', 'InvoiceController@ewallet');
+Route::post('/virtualcallback', 'InvoiceController@virtual');
+Route::post('/retailcallback', 'InvoiceController@retail');
+Route::post('/qriscallback', 'InvoiceController@qris');

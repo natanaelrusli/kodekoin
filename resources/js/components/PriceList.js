@@ -6,7 +6,7 @@ import MethodDropdown from "./MethodDropdown";
 import Form from "react-bootstrap/Form";
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/pricelist.css";
-import { createInvoice } from "./DataFunctions";
+import { createOrder } from "./DataFunctions";
 import { stringify } from "querystring";
 import { inArray } from "jquery";
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
             backgroundColor: "#FF4646",
             borderColor: "#FF4646"
         }
-    },
+    }
 }));
 
 const PriceList = () => {
@@ -47,16 +47,9 @@ const PriceList = () => {
         "permata"
     ]);
 
-    const [ewallet, setEwallet] = useState([
-        "ovo", 
-        "linkaja",
-        "dana"
-    ]);
+    const [ewallet, setEwallet] = useState(["ovo", "linkaja", "dana"]);
 
-    const [merchant, setMerchant] = useState([
-        "alfamart", 
-        "indomaret",
-    ]);
+    const [merchant, setMerchant] = useState(["alfamart", "indomaret"]);
 
     const [referal, setReferal] = useState(true);
 
@@ -90,12 +83,18 @@ const PriceList = () => {
     function sendPayment() {
         //Sending payment data to back end
         // alert("Send Payment " + String(method).toUpperCase() + " " + price);
-        createInvoice(
+        createOrder(
             userData.first_name,
             userData.email,
+            userData.phone,
             "RF Cash",
             price,
             String(method).toUpperCase(),
+            virtualAccount.include(method)
+                ? 0
+                : ewallet.include(method)
+                ? 1
+                : 2,
             setShowProccess
         );
         // Reset all states after sending data to back end
@@ -174,7 +173,7 @@ const PriceList = () => {
                     {items.map(item => (
                         <Button
                             variant="secondary-outline"
-                            style={{ fontWeight: 'bold' }}
+                            style={{ fontWeight: "bold" }}
                             className={
                                 price == item
                                     ? "orange-button"
@@ -221,8 +220,7 @@ const PriceList = () => {
                 ></MethodDropdown>
             </Card>
 
-            {
-                referal && 
+            {referal && (
                 <Card
                     style={{ width: "100%" }}
                     className="p-3 mb-3 shadow dark-grey-bg"
@@ -231,18 +229,23 @@ const PriceList = () => {
                         <div className="denom-header mb-3">
                             <h1>Referal Code</h1>
                         </div>
-                        <Form
-                            onSubmit={e => {
-                            
-                            }}
-                        >
-                            <Form.Group controlId="formBasicText" className="mt-1">
+                        <Form onSubmit={e => {}}>
+                            <Form.Group
+                                controlId="formBasicText"
+                                className="mt-1"
+                            >
                                 <Form.Control
                                     type="text"
                                     placeholder="Put your referal code here..."
                                     className="red-glow"
-                                    style={{ backgroundColor : '#1C1C1F', borderColor: '#1C1C1F', color : '#FFF' }}
-                                    onChange={e => setPasswordOld(e.target.value)}
+                                    style={{
+                                        backgroundColor: "#1C1C1F",
+                                        borderColor: "#1C1C1F",
+                                        color: "#FFF"
+                                    }}
+                                    onChange={e =>
+                                        setPasswordOld(e.target.value)
+                                    }
                                 />
                             </Form.Group>
 
@@ -256,7 +259,7 @@ const PriceList = () => {
                         </Form>
                     </React.Fragment>
                 </Card>
-            }
+            )}
 
             {/* Checkout button */}
             <div className="d-flex flex-row mt-5">
