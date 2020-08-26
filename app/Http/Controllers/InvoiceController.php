@@ -41,9 +41,7 @@ class InvoiceController extends Controller
             'id_external' => $request->external_id,
             'email' => $request->email,
             'amount' => $request->amount,
-            'bank' => $request->bank,
-            'retail' => $request->retail,
-            'ewallet' => $request->ewallet,
+            'method' => $request->method,
             'status' => $request->status,
             'description' => $request->description,
             'invoice_url' => $request->invoice_url,
@@ -110,6 +108,35 @@ class InvoiceController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(10)
             ->get();
+        return response()->json($invoices);
+    }
+
+    public function ewallet(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function retail(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function virtual(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
+        return response()->json($invoices);
+    }
+    public function qris(Request $request)
+    {
+        $invoices = Invoice::where("id_invoice", $request->id)->firstOrFail();
+        $invoices->status = $request->status;
+        $invoices->save();
         return response()->json($invoices);
     }
 }

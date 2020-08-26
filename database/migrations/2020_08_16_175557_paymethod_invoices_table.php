@@ -14,9 +14,7 @@ class PaymethodInvoicesTable extends Migration
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->string('bank')->nullable()->after('amount');
-            $table->string('retail')->nullable()->after('bank');
-            $table->string('ewallet')->nullable()->after('retail');
+            $table->string('method')->nullable()->after('amount');
         });
     }
 
@@ -28,9 +26,7 @@ class PaymethodInvoicesTable extends Migration
     public function down()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->dropColumn('bank');
-            $table->dropColumn('retail');
-            $table->dropColumn('ewallet');
+            $table->dropColumn('method');
         });
     }
 }

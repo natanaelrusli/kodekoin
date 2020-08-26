@@ -20,8 +20,20 @@ Route::post("login", "UserController@userLogin");
 Route::get("user/{email}", "UserController@userDetail");
 Route::get("pass/{email}", "UserController@userPass");
 
+Route::resource('/invoice', 'InvoiceController');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("invhistory/{email}", "InvoiceController@showhistory");
-Route::resource('invoice', 'InvoiceController');
+Route::get("/invhistory/{email}", "InvoiceController@showhistory");
+
+// Route::post('/invoicecallback', 'InvoiceController@update');
+Route::post('/ewalletcallback', 'EwalletController@update');
+Route::post('/virtualcallback', 'VirtualController@update');
+Route::post('/retailcallback', 'RetailController@update');
+Route::post('/qriscallback', 'QrcodeController@update');
+
+Route::post('/ewallet', 'EwalletController@store');
+Route::post('/virtual', 'VirtualController@store');
+Route::post('/retail', 'RetailController@store');
+Route::post('/qris', 'QrcodeController@store');

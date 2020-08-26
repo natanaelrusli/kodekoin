@@ -10,6 +10,12 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 const Home = props => {
+    var voucher_codes = require("voucher-code-generator");
+    console.log(
+        voucher_codes.generate({
+            pattern: "#####-######-#####"
+        })
+    );
     return (
         <div
             className="Home"
@@ -17,7 +23,7 @@ const Home = props => {
         >
             <Navbar></Navbar>
             <div className="container-fluid">
-                <div className="row" style={{ height: '100%' }}>
+                <div className="row" style={{ height: "100%" }}>
                     <div className="col-md-5 mt-3">
                         <MediaQuery minDeviceWidth={600}>
                             <HomeImage></HomeImage>
