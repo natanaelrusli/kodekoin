@@ -87,14 +87,16 @@ const PriceList = () => {
             userData.first_name,
             userData.email,
             userData.phone,
-            "RF Cash",
+            "RF-Cash",
             price,
             String(method).toUpperCase(),
-            virtualAccount.include(method)
+            virtualAccount.includes(method)
                 ? 0
-                : ewallet.include(method)
+                : ewallet.includes(method)
                 ? 1
-                : 2,
+                : merchant.includes(method)
+                ? 2
+                : 3,
             setShowProccess
         );
         // Reset all states after sending data to back end
