@@ -48,6 +48,7 @@ function ReferalForm() {
                         type="text"
                         placeholder="Put your referal code here..."
                         className="red-glow"
+                        aria-label = "Referal Code"
                         onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
@@ -55,6 +56,7 @@ function ReferalForm() {
                 <Button
                     variant="primary"
                     type="submit"
+                    aria-label = "Submit"
                     className={classes.submit}
                 >
                     Submit Referal Code

@@ -52,6 +52,7 @@ function EditProfile({firstname, lastname, email}) {
                         type="text"
                         placeholder="Name"
                         className="red-glow"
+                        aria-label = "First Name"
                         value = {firstname}
                         onChange={e => setPasswordOld(e.target.value)}
                     />
@@ -62,6 +63,7 @@ function EditProfile({firstname, lastname, email}) {
                         type="text"
                         placeholder="Name"
                         className="red-glow"
+                        aria-label = "Last Name"
                         value = {lastname}
                         onChange={e => setPasswordOld(e.target.value)}
                     />
@@ -72,6 +74,7 @@ function EditProfile({firstname, lastname, email}) {
                         type="email"
                         placeholder="E-mail"
                         className="red-glow"
+                        aria-label = "E-Mail"
                         value = {email}
                         onChange={e => setPasswordNew(e.target.value)}
                     />
@@ -79,6 +82,7 @@ function EditProfile({firstname, lastname, email}) {
                 <Button
                     variant="primary"
                     type="submit"
+                    aria-label = "Submit"
                     className={classes.submit}
                 >
                     Update Profile

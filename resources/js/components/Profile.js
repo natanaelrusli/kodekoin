@@ -22,13 +22,13 @@ export default function Profile(props){
   return (
     <React.Fragment>
       <h3 className={classes.title}>Profile</h3>
-      <Typography color="textSecondary" className={classes.depositContext}>
+      <Typography color="textSecondary" className={classes.depositContext} aria-label = "First Name">
         First Name : {props.firstName}
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
+      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Last Name">
         Last Name : {props.lastName}
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext}>
+      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
         Email : {props.email}
       </Typography>
     </React.Fragment>

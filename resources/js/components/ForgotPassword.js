@@ -92,6 +92,7 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                             autoComplete="email"
                             autoFocus
                             onChange={e => setemail(e.target.value)}
+                            aria-label = "Email Address"
                         />
                         {/* <p>{msg}</p> */}
                         <Button
@@ -102,6 +103,7 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                             color="primary"
                             className={classes.submit}
                             className="submit"
+                            aria-label = "Submit"
                             onClick = {changePassword}
                         >
                             Submit

@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { css } from "@emotion/core";
 import Container from "@material-ui/core/Container";
 import ReactDOM from "react-dom";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PulseLoader from "react-spinners/PulseLoader";
 import logo from "../images/logoimg.png";
 import "./css/signup.css";
@@ -165,6 +158,7 @@ const Signup = () => {
                                 name="name"
                                 autoComplete="name"
                                 autoFocus
+                                aria-label = "Name"
                                 onChange={e => setname(e.target.value)}
                             />
                         </Grid>
@@ -178,6 +172,7 @@ const Signup = () => {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
+                                aria-label = "Email"
                                 onChange={e => setemail(e.target.value)}
                             />
                             { erremail && <p className="errorText mb-1">Email already registered</p> }
@@ -195,6 +190,7 @@ const Signup = () => {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                aria-label = "Password"
                                 onChange={e => setpassword(e.target.value)}
                             />
                             { errpass && <p className="errorText mb-1">Password minimum 8 characters</p> }
@@ -210,6 +206,7 @@ const Signup = () => {
                                 fullWidth
                                 id="phone"
                                 label="Phone"
+                                aria-label = "Phone"
                                 onChange={e => setphone(e.target.value)}
                             />
                             { errphone && <p className="errorText mb-1">Phone number already registered</p> }
@@ -223,6 +220,7 @@ const Signup = () => {
                         color="primary"
                         className={classes.submit}
                         style={{ backgroundColor: "#FF4646" }}
+                        aria-label = "Signup"
                         onClick={ ()=>{
                             
                         } }
@@ -242,7 +240,7 @@ const Signup = () => {
                     </Button>
                     <Grid container justify="center">
                         <Grid item>
-                            <Link href="/login" style={{ color: "#FF4646" }}>
+                            <Link href="/login" style={{ color: "#FF4646" }} aria-label = "Login Link">
                                 Already have an account? Sign in
                             </Link>
                         </Grid>

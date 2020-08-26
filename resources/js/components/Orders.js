@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./css/orders.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,8 +7,9 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import CurrencyFormat from "react-currency-format";
 import Button from "react-bootstrap/Button";
-import Moment from "moment";
 import Modal from "react-bootstrap/Modal";
+import Moment from "moment";
+import "./css/orders.css";
 import { cancelOrder } from "./DataFunctions";
 import { method } from "lodash";
 

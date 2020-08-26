@@ -61,6 +61,7 @@ const ChangePassword = () => {
                         type="password"
                         placeholder="Current Password"
                         className="red-glow"
+                        aria-label = "Current Password"
                         onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
@@ -70,6 +71,7 @@ const ChangePassword = () => {
                         type="password"
                         placeholder="New Password"
                         className="red-glow"
+                        aria-label = "New Password"
                         onChange={e => setPasswordNew(e.target.value)}
                     />
                 </Form.Group>
@@ -79,12 +81,14 @@ const ChangePassword = () => {
                         type="password"
                         placeholder="Repeat New Password"
                         className="red-glow"
+                        aria-label = "Repeat New Password"
                         onChange={e => setPasswordConfNew(e.target.value)}
                     />
                 </Form.Group>
                 <Button
                     variant="primary"
                     type="submit"
+                    aria-label = "Submit"
                     className={classes.submit}
                 >
                     Change Password

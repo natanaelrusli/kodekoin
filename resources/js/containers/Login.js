@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -183,6 +181,7 @@ const Login = e => {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    aria-label = "Email"
                                     autoFocus
                                     onChange={e => setemail(e.target.value)}
                                 />
@@ -200,6 +199,7 @@ const Login = e => {
                                     id="password"
                                     autoComplete="current-password"
                                     aria-required="true"
+                                    aria-label = "Password"
                                     onChange={e => setpassword(e.target.value)}
                                 />
 
@@ -214,6 +214,7 @@ const Login = e => {
                                     className={classes.submit}
                                     onClick={() => {setLoading(true); setErruser(false); setErrpass(false)}}
                                     className="submit"
+                                    aria-label = "Submit"
                                 >
                                     {email.length > 0 && password.length > 0 &&  loading == true ?
                                         <PulseLoader
@@ -235,6 +236,7 @@ const Login = e => {
                                             href="#"
                                             variant="body2"
                                             style={{ color: "white" }}
+                                            aria-label = "Forgot Password"
                                         >
                                             Forgot password?
                                         </Link>
@@ -244,6 +246,7 @@ const Login = e => {
                                             href="/signup"
                                             variant="body2"
                                             style={{ color: "white" }}
+                                            aria-label = "Signup"
                                         >
                                             {"Don't have an account? Sign Up"}
                                         </Link>

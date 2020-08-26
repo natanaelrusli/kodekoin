@@ -5,9 +5,7 @@ import Navbar from "../components/TopNavbar";
 import PriceList from "../components/PriceList";
 import HomeImage from "../components/HomeImage";
 import GameDesc from "../components/GameDescription";
-import Grid from "@material-ui/core/Grid";
 import MediaQuery, { useMediaQuery } from "react-responsive";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 
