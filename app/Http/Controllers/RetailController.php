@@ -21,9 +21,9 @@ class RetailController extends Controller
             'type' => $request->type,
             'expected_amount' => $request->expected_amount,
             'expiration_date' => $request->expiration_date,
-            'id_retail' => $request->id
+            'id_retail' => $request->id_retail
         ]);
-        return response()->json('Retail Added Successfully', $request);
+        return response()->json('Retail Added Successfully');
     }
 
     public function update(Request $request)

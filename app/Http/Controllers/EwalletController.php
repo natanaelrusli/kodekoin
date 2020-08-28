@@ -18,7 +18,7 @@ class EwalletController extends Controller
             'status' => $request->status,
             'phone' => $request->phone,
         ]);
-        return response()->json('Ewallet Added Successfully', $request);
+        return response()->json('Ewallet Added Successfully');
     }
 
     public function update(Request $request)

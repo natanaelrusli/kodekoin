@@ -18,7 +18,7 @@ class QrcodeController extends Controller
             'type' => $request->type,
             'status' => $request->status
         ]);
-        return response()->json('Qrcode Added Successfully', $request);
+        return response()->json('Qrcode Added Successfully');
     }
 
     public function update(Request $request)
