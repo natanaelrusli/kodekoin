@@ -273,6 +273,7 @@ const virtualAccount = async (
         })
         .then(e => {
             console.log("fixed va created:", e);
+            storeVirtual(e);
             reqInvoice(name, email, desc, price, method, paytype, proccess);
         });
 
@@ -280,6 +281,79 @@ const virtualAccount = async (
     // const retrievedAcc = await va.getFixedVA({ id });
     // eslint-disable-next-line no-console
     // console.log('fixed va details:', retrievedAcc);
+};
+
+const storeEwallet = async resp => {
+    const business_id = resp.business_id ? resp.business_id : null;
+    const status = resp.status ? resp.status : null;
+    const phone = resp.phone ? resp.phone : null;
+    await axios
+        .post("http://localhost:8000/api/ewallet", {
+            external_id: resp.external_id,
+            amount: resp.amount,
+            checkout_url: resp.checkout_url,
+            ewallet_type: resp.ewallet_type,
+            business_id: resp.business_id,
+            status: resp.status,
+            phone: resp.phone
+        })
+        .then(e => {
+            console.log("stored ewallet", e);
+        });
+};
+const storeQrCode = async resp => {
+    await axios
+        .post("http://localhost:8000/api/qris", {
+            id_qr: resp.id_qr,
+            external_id: resp.external_id,
+            amount: resp.amount,
+            qr_string: resp.qr_string,
+            callback_url: resp.callback_url,
+            type: resp.type,
+            status: resp.status
+        })
+        .then(e => {
+            console.log("stored qr", e);
+        });
+};
+const storeRetail = async resp => {
+    await axios
+        .post("http://localhost:8000/api/retail", {
+            is_single_use: resp.is_single_use,
+            status: resp.status,
+            owner_id: resp.owner_id,
+            external_id: resp.external_id,
+            retail_outlet_name: resp.retail_outlet_name,
+            prefix: resp.prefix,
+            name: resp.name,
+            payment_code: resp.payment_code,
+            type: resp.type,
+            expected_amount: resp.expected_amount,
+            expiration_date: resp.expiration_date,
+            id_retail: resp.id
+        })
+        .then(e => {
+            console.log("stored retail", e);
+        });
+};
+const storeVirtual = async resp => {
+    await axios
+        .post("http://localhost:8000/api/virtual", {
+            is_closed: resp.is_closed,
+            status: resp.status,
+            currency: resp.currency,
+            owner_id: resp.owner_id,
+            external_id: resp.external_id,
+            bank_code: resp.bank_code,
+            merchant_code: resp.merchant_code,
+            name: resp.name,
+            account_number: resp.account_number,
+            is_single_use: resp.is_single_use,
+            id_va: resp.id
+        })
+        .then(e => {
+            console.log("stored virtual", e);
+        });
 };
 
 const eWallet = async (
@@ -305,7 +379,7 @@ const eWallet = async (
             externalID:
                 Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             amount: price,
-            phone: phone,
+            phone: "089911111111",
             items: [item, item],
             callbackURL: "http://kodekoin.com",
             redirectURL: "http://kodekoin.com",
@@ -313,6 +387,7 @@ const eWallet = async (
         })
         .then(e => {
             console.log("create payment detail:", e);
+            storeEwallet(e);
             storeInvoiceEQ(e, name, email, desc, method, paytype, proccess);
         });
 
@@ -346,6 +421,7 @@ const retailOutlet = async (
         })
         .then(e => {
             console.log("fixed payment code created:", e);
+            storeRetail(e);
             reqInvoice(name, email, desc, price, method, paytype, proccess);
         });
 
@@ -375,6 +451,7 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
         })
         .then(e => {
             console.log("created QR code", e);
+            storeQrCode(e);
             storeInvoiceEQ(e, name, email, desc, method, paytype, proccess);
         });
 
@@ -535,7 +612,7 @@ const reqInvoice = async (
                 failureRedirectURL: "http://kodekoin.com"
             })
             .then(e => {
-                console.log(e), storeInvoiceVR(e, method, proccess);
+                storeInvoiceVR(e, method, proccess);
             })
             .catch(e => {
                 p(false);

@@ -20,9 +20,9 @@ class VirtualController extends Controller
             'name' => $request->name,
             'account_number' => $request->account_number,
             'is_single_use' => $request->is_single_use,
-            'id_va' => $request->id
+            'id_va' => $request->id_va
         ]);
-        return response()->json('Virtual Added Successfully', $request);
+        return response()->json('Virtual Added Successfully');
     }
 
     public function update(Request $request)
