@@ -51,6 +51,8 @@ const PriceList = () => {
 
     const [merchant, setMerchant] = useState(["alfamart", "indomaret"]);
 
+    const [qris, setQris] = useState(["qris"]);
+
     const [referal, setReferal] = useState(true);
 
     //To store the price chosen by user
@@ -212,6 +214,13 @@ const PriceList = () => {
                     methods={virtualAccount}
                     setMethod={setMethod}
                     title="Virtual Account"
+                ></MethodDropdown>
+                <MethodDropdown
+                    chooseMethod={method}
+                    choosePrice={parseInt(price)}
+                    methods={qris}
+                    setMethod={setMethod}
+                    title="QRIS"
                 ></MethodDropdown>
                 <MethodDropdown
                     chooseMethod={method}
