@@ -49,7 +49,7 @@ function MethodDropdown({choosePrice, methods, title, setMethod, chooseMethod}) 
                                 >
                                     <div className={"row p-3 method__inner"}>
                                         <div className="method__img">
-                                            <img src={require("../images/" + Object.values({method}) + ".png")} style={{width: '50px', height: '50px'}}></img>
+                                            <img src={require("../images/methodlogo/" + Object.values({method}) + ".png")} style={{width: '50px', height: '50px'}}></img>
                                         </div>
 
                                         <Typography style={{ margin:'auto', color: '#2E2E2E', fontWeight: 'bold' }}>

@@ -3,7 +3,6 @@ import { Navbar, Nav, NavDropdown, Form, FormControl } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from "../images/logoimg.png";
 import "./css/navstyle.css";
 import { logoutHandler } from "./DataFunctions";
 
@@ -25,12 +24,13 @@ function NavbarComponent() {
 
     const classes = useStyles();
     const login = localStorage.getItem("isLoggedIn");
+    const logoimg = "logoimg.png";
 
     return (
         <Navbar style={{position: "sticky", top: "-1px", zIndex: "1"}} expand="sm" className={classes.nav}>
             <Navbar.Brand href="/">
                 <img
-                    src={logo}
+                    src={require("../images/" + logoimg)}
                     width="40"
                     className="d-inline-block align-top"
                     alt="logo"

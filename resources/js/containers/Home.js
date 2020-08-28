@@ -6,8 +6,6 @@ import PriceList from "../components/PriceList";
 import HomeImage from "../components/HomeImage";
 import GameDesc from "../components/GameDescription";
 import MediaQuery, { useMediaQuery } from "react-responsive";
-import Login from "./Login";
-import Signup from "./Signup";
 
 const Home = props => {
     var voucher_codes = require("voucher-code-generator");
