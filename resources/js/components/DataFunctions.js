@@ -145,15 +145,11 @@
 //         setMessage("pass lama tidak sama");
 //     }
 // };
-import QRCode from "qrcode";
+
 import x from "../xendit";
-import {
-    method
-} from "lodash";
-const {
-    Invoice: Invoice
-} = x,
-i = new Invoice({});
+import { method } from "lodash";
+const { Invoice: Invoice } = x,
+    i = new Invoice({});
 
 const createHistory = require("history").createBrowserHistory;
 
@@ -254,38 +250,6 @@ export const loginHandler = (v, e, p, m, s) => {
         .catch(error => console.log(error));
 };
 
-const virtualAccount = async (
-    name,
-    email,
-    desc,
-    price,
-    method,
-    paytype,
-    proccess
-) => {
-    const VirtualAcc = x.VirtualAcc;
-    const va = new VirtualAcc({});
-    await va
-        .createFixedVA({
-            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
-            bankCode: method,
-            name: name
-            // suggestedAmt: price,
-            // isClosed: !0,
-            // expectedAmt: price
-        })
-        .then(e => {
-            console.log("fixed va created:", e);
-            storeVirtual(e);
-            reqInvoice(name, email, desc, price, method, paytype, proccess);
-        });
-
-    // const { id } = fixedAcc;
-    // const retrievedAcc = await va.getFixedVA({ id });
-    // eslint-disable-next-line no-console
-    // console.log('fixed va details:', retrievedAcc);
-};
-
 const storeEwallet = async resp => {
     const business_id = resp.business_id ? resp.business_id : null;
     const status = resp.status ? resp.status : null;
@@ -304,6 +268,7 @@ const storeEwallet = async resp => {
             console.log("stored ewallet", e);
         });
 };
+
 const storeQrCode = async resp => {
     await axios
         .post("http://localhost:8000/api/qris", {
@@ -319,6 +284,7 @@ const storeQrCode = async resp => {
             console.log("stored qr", e);
         });
 };
+
 const storeRetail = async resp => {
     await axios
         .post("http://localhost:8000/api/retail", {
@@ -339,6 +305,7 @@ const storeRetail = async resp => {
             console.log("stored retail", e);
         });
 };
+
 const storeVirtual = async resp => {
     await axios
         .post("http://localhost:8000/api/virtual", {
@@ -357,6 +324,39 @@ const storeVirtual = async resp => {
         .then(e => {
             console.log("stored virtual", e);
         });
+};
+
+const virtualAccount = async (
+    name,
+    email,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const VirtualAcc = x.VirtualAcc;
+    const va = new VirtualAcc({});
+    await va
+        .createFixedVA({
+            externalID:
+                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            bankCode: method,
+            name: name
+            // suggestedAmt: price,
+            // isClosed: !0,
+            // expectedAmt: price
+        })
+        .then(e => {
+            console.log("fixed va created:", e);
+            storeVirtual(e);
+            reqInvoice(name, email, desc, price, method, paytype, proccess);
+        });
+
+    // const { id } = fixedAcc;
+    // const retrievedAcc = await va.getFixedVA({ id });
+    // eslint-disable-next-line no-console
+    // console.log('fixed va details:', retrievedAcc);
 };
 
 const eWallet = async (
@@ -379,11 +379,12 @@ const eWallet = async (
     };
     await ew
         .createPayment({
-            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            externalID:
+                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             amount: price,
             phone: "089911111111",
             items: [item, item],
-            callbackURL: "http://kodekoin.com",
+            callbackURL: "http://kodekoin.com/api/ewalletcallback",
             redirectURL: "http://kodekoin.com",
             ewalletType: method
         })
@@ -415,7 +416,8 @@ const retailOutlet = async (
     const ro = new RetailOutlet({});
     await ro
         .createFixedPaymentCode({
-            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            externalID:
+                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             retailOutletName: method,
             name: name,
             expectedAmt: price
@@ -440,16 +442,14 @@ const retailOutlet = async (
 };
 
 const qRis = async (name, email, desc, method, paytype, proccess) => {
-    const {
-        QrCode
-    } = x;
+    const { QrCode } = x;
     const q = new QrCode({});
 
     await q
         .createCode({
             externalID: Date.now().toString(),
             type: QrCode.Type.Dynamic,
-            callbackURL: "http://kodekoin.com",
+            callbackURL: "http://kodekoin.com/qriscallback",
             amount: 10000
         })
         .then(e => {
@@ -463,17 +463,6 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
 
     // const payment = await q.simulate({ externalID: qrcode.external_id });
     // console.log("simulated payment", payment);
-    // QRCode.toString(qrcode.qr_string, { type: "terminal" }, function(err, url) {
-    //     console.log(url);
-    // });
-    // const generateQR = async text => {
-    //     try {
-    //         console.log(await QRCode.toDataURL(text));
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
-    // console.log(generateQR(qrcode.qr_string));
 };
 
 export const createOrder = async (
@@ -544,11 +533,11 @@ const storeInvoiceEQ = async (
     const idin =
         paytype == 1 ? method + name + desc + Date.now().toString() : resp.id;
     const urin =
-        paytype == 1 ?
-        method != "OVO" ?
-        resp.checkout_url :
-        method + name + desc + Date.now().toString() :
-        resp.qr_string;
+        paytype == 1
+            ? method != "OVO"
+                ? resp.checkout_url
+                : method + name + desc + Date.now().toString()
+            : resp.qr_string;
     const status = resp.status ? resp.status : "PENDING";
     console.log(
         idin,
@@ -579,9 +568,9 @@ const storeInvoiceEQ = async (
         .then(e => {
             console.log("created invoice", e);
             proccess(false);
-            // createHistory().push("/dashboard");
-            // let pathUrl = window.location.href;
-            // window.location.href = pathUrl;
+            createHistory().push("/dashboard");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
         })
         .catch(e => console.log(e));
 };
@@ -597,44 +586,45 @@ const reqInvoice = async (
 ) => {
     proccess(true),
         await i
-        .createInvoice({
-            externalID: Date.now().toString() +
-                "-" +
-                name +
-                "-" +
-                desc +
-                "-" +
-                method,
-            payerEmail: email,
-            description: desc,
-            amount: price,
-            shouldSendEmail: !1,
-            paymentMethods: [method],
-            successRedirectURL: "http://kodekoin.com",
-            failureRedirectURL: "http://kodekoin.com"
-        })
-        .then(e => {
-            storeInvoiceVR(e, method, proccess);
-        })
-        .catch(e => {
-            p(false);
-            console.log(e);
-        });
+            .createInvoice({
+                externalID:
+                    Date.now().toString() +
+                    "-" +
+                    name +
+                    "-" +
+                    desc +
+                    "-" +
+                    method,
+                payerEmail: email,
+                description: desc,
+                amount: price,
+                shouldSendEmail: !1,
+                paymentMethods: [method],
+                successRedirectURL: "http://kodekoin.com",
+                failureRedirectURL: "http://kodekoin.com"
+            })
+            .then(e => {
+                storeInvoiceVR(e, method, proccess);
+            })
+            .catch(e => {
+                p(false);
+                console.log(e);
+            });
 };
 
 const getInvoiceByEmail = async (e, l = undefined) => {
     console.log("getInvoiceByEmail"),
         await axios
-        .get(`http://localhost:8000/api/invhistory/${e}`)
-        .then(
-            e =>
-            200 === e.status &&
-            (localStorage.setItem("invoices", JSON.stringify(e.data)),
-                console.log("success retrieve invoice"),
-                l == undefined ? (l = undefined) : l(!1),
-                "failed" === e.data.status && console.log(e.data.message))
-        )
-        .catch(e => console.log(e));
+            .get(`http://localhost:8000/api/invhistory/${e}`)
+            .then(
+                e =>
+                    200 === e.status &&
+                    (localStorage.setItem("invoices", JSON.stringify(e.data)),
+                    console.log("success retrieve invoice"),
+                    l == undefined ? (l = undefined) : l(!1),
+                    "failed" === e.data.status && console.log(e.data.message))
+            )
+            .catch(e => console.log(e));
 };
 
 export const updateInvoice = async (e, a, b) => {
@@ -646,11 +636,11 @@ export const updateInvoice = async (e, a, b) => {
         for (let a = 0; a < o.length; a++)
             for (let t = 0; t < e.length - 1; t++)
                 o[a].id == e[t].id_invoice &&
-                axios
-                .put(`http://localhost:8000/api/invoice/${e[t].id}`, {
-                    status: o[a].status
-                })
-                .catch(e => console.log(e));
+                    axios
+                        .put(`http://localhost:8000/api/invoice/${e[t].id}`, {
+                            status: o[a].status
+                        })
+                        .catch(e => console.log(e));
         getInvoiceByEmail(a, b);
     } catch (e) {
         console.error(e);
@@ -692,14 +682,14 @@ export const changePassHandler = (o, a, t, s) => {
             .then(e => {
                 console.log(e),
                     200 === e.data.status &&
-                    (s(e.data.message),
+                        (s(e.data.message),
                         console.log(e.data.message),
                         setTimeout(() => {
                             window.location.reload(!1);
                             s("");
                         }, 5e3)),
                     "failed" === e.data.status &&
-                    (s(e.data.message),
+                        (s(e.data.message),
                         console.log(e.data.message),
                         setTimeout(() => {
                             s("");
