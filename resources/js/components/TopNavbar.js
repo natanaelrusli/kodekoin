@@ -45,10 +45,10 @@ function NavbarComponent() {
                     {/* Only to push the other button to the right */}
                 </Nav>
                 {login ? (
-                    <Nav className="mr-sm-2">
+                    <div>
                         {/* showing name from session in here */}
                         {!window.location.href.includes("dashboard") ? (
-                            <div>
+                            <Nav className="mr-sm-2">
                                 <Button
                                     href="/dashboard"
                                     className={classes.navbutton}
@@ -61,10 +61,10 @@ function NavbarComponent() {
                                 >
                                     Logout
                                 </Button>
-                            </div>
+                            </Nav>
                         ) : 
                         (
-                            <div>
+                            <Nav className="mr-sm-2">
                                 <Button href="/" className={classes.navbutton}>
                                     Home
                                 </Button>
@@ -74,9 +74,9 @@ function NavbarComponent() {
                                     >
                                     Logout
                                 </Button>
-                            </div>
+                            </Nav>
                         )}
-                    </Nav>
+                    </div>
                 ) : (
                     <div>
                         <Nav className="mr-sm-2">

@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
 
 function EditProfile({firstname, lastname, email}) {
     const classes = useStyles();
-    console.log(firstname);
 
     return (
         <div>

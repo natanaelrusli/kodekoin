@@ -168,9 +168,6 @@ export default function Dashboard() {
         setOpensidebar(false);
     };
     // console.log(userData);
-    const chooseMenu = item => {
-        setselectMenu(item);
-    };
 
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
