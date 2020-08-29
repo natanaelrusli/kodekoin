@@ -147,9 +147,13 @@
 // };
 import QRCode from "qrcode";
 import x from "../xendit";
-import { method } from "lodash";
-const { Invoice: Invoice } = x,
-    i = new Invoice({});
+import {
+    method
+} from "lodash";
+const {
+    Invoice: Invoice
+} = x,
+i = new Invoice({});
 
 const createHistory = require("history").createBrowserHistory;
 
@@ -263,8 +267,7 @@ const virtualAccount = async (
     const va = new VirtualAcc({});
     await va
         .createFixedVA({
-            externalID:
-                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             bankCode: method,
             name: name
             // suggestedAmt: price,
@@ -304,7 +307,7 @@ const storeEwallet = async resp => {
 const storeQrCode = async resp => {
     await axios
         .post("http://localhost:8000/api/qris", {
-            id_qr: resp.id_qr,
+            id_qr: resp.id,
             external_id: resp.external_id,
             amount: resp.amount,
             qr_string: resp.qr_string,
@@ -376,8 +379,7 @@ const eWallet = async (
     };
     await ew
         .createPayment({
-            externalID:
-                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             amount: price,
             phone: "089911111111",
             items: [item, item],
@@ -413,8 +415,7 @@ const retailOutlet = async (
     const ro = new RetailOutlet({});
     await ro
         .createFixedPaymentCode({
-            externalID:
-                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            externalID: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
             retailOutletName: method,
             name: name,
             expectedAmt: price
@@ -439,7 +440,9 @@ const retailOutlet = async (
 };
 
 const qRis = async (name, email, desc, method, paytype, proccess) => {
-    const { QrCode } = x;
+    const {
+        QrCode
+    } = x;
     const q = new QrCode({});
 
     await q
@@ -541,11 +544,11 @@ const storeInvoiceEQ = async (
     const idin =
         paytype == 1 ? method + name + desc + Date.now().toString() : resp.id;
     const urin =
-        paytype == 1
-            ? method != "OVO"
-                ? resp.checkout_url
-                : method + name + desc + Date.now().toString()
-            : resp.qr_string;
+        paytype == 1 ?
+        method != "OVO" ?
+        resp.checkout_url :
+        method + name + desc + Date.now().toString() :
+        resp.qr_string;
     const status = resp.status ? resp.status : "PENDING";
     console.log(
         idin,
@@ -576,9 +579,9 @@ const storeInvoiceEQ = async (
         .then(e => {
             console.log("created invoice", e);
             proccess(false);
-            createHistory().push("/dashboard");
-            let pathUrl = window.location.href;
-            window.location.href = pathUrl;
+            // createHistory().push("/dashboard");
+            // let pathUrl = window.location.href;
+            // window.location.href = pathUrl;
         })
         .catch(e => console.log(e));
 };
@@ -594,59 +597,60 @@ const reqInvoice = async (
 ) => {
     proccess(true),
         await i
-            .createInvoice({
-                externalID:
-                    Date.now().toString() +
-                    "-" +
-                    name +
-                    "-" +
-                    desc +
-                    "-" +
-                    method,
-                payerEmail: email,
-                description: desc,
-                amount: price,
-                shouldSendEmail: !1,
-                paymentMethods: [method],
-                successRedirectURL: "http://kodekoin.com",
-                failureRedirectURL: "http://kodekoin.com"
-            })
-            .then(e => {
-                storeInvoiceVR(e, method, proccess);
-            })
-            .catch(e => {
-                p(false);
-                console.log(e);
-            });
+        .createInvoice({
+            externalID: Date.now().toString() +
+                "-" +
+                name +
+                "-" +
+                desc +
+                "-" +
+                method,
+            payerEmail: email,
+            description: desc,
+            amount: price,
+            shouldSendEmail: !1,
+            paymentMethods: [method],
+            successRedirectURL: "http://kodekoin.com",
+            failureRedirectURL: "http://kodekoin.com"
+        })
+        .then(e => {
+            storeInvoiceVR(e, method, proccess);
+        })
+        .catch(e => {
+            p(false);
+            console.log(e);
+        });
 };
 
 const getInvoiceByEmail = async (e, l = undefined) => {
     console.log("getInvoiceByEmail"),
         await axios
-            .get(`http://localhost:8000/api/invhistory/${e}`)
-            .then(
-                e =>
-                    200 === e.status &&
-                    (localStorage.setItem("invoices", JSON.stringify(e.data)),
-                    console.log("success retrieve invoice"),
-                    l == undefined ? (l = undefined) : l(!1),
-                    "failed" === e.data.status && console.log(e.data.message))
-            )
-            .catch(e => console.log(e));
+        .get(`http://localhost:8000/api/invhistory/${e}`)
+        .then(
+            e =>
+            200 === e.status &&
+            (localStorage.setItem("invoices", JSON.stringify(e.data)),
+                console.log("success retrieve invoice"),
+                l == undefined ? (l = undefined) : l(!1),
+                "failed" === e.data.status && console.log(e.data.message))
+        )
+        .catch(e => console.log(e));
 };
 
 export const updateInvoice = async (e, a, b) => {
     try {
-        const o = await i.getAllInvoices({ limit: 100 });
+        const o = await i.getAllInvoices({
+            limit: 100
+        });
         console.log(o);
         for (let a = 0; a < o.length; a++)
             for (let t = 0; t < e.length - 1; t++)
                 o[a].id == e[t].id_invoice &&
-                    axios
-                        .put(`http://localhost:8000/api/invoice/${e[t].id}`, {
-                            status: o[a].status
-                        })
-                        .catch(e => console.log(e));
+                axios
+                .put(`http://localhost:8000/api/invoice/${e[t].id}`, {
+                    status: o[a].status
+                })
+                .catch(e => console.log(e));
         getInvoiceByEmail(a, b);
     } catch (e) {
         console.error(e);
@@ -654,7 +658,9 @@ export const updateInvoice = async (e, a, b) => {
 };
 
 export const cancelOrder = e => {
-    i.expireInvoice({ invoiceID: e }).then(e => {
+    i.expireInvoice({
+        invoiceID: e
+    }).then(e => {
         console.log("expired invoice", e);
         createHistory().push("/");
         let pathUrl = window.location.href;
@@ -686,14 +692,14 @@ export const changePassHandler = (o, a, t, s) => {
             .then(e => {
                 console.log(e),
                     200 === e.data.status &&
-                        (s(e.data.message),
+                    (s(e.data.message),
                         console.log(e.data.message),
                         setTimeout(() => {
                             window.location.reload(!1);
                             s("");
                         }, 5e3)),
                     "failed" === e.data.status &&
-                        (s(e.data.message),
+                    (s(e.data.message),
                         console.log(e.data.message),
                         setTimeout(() => {
                             s("");
