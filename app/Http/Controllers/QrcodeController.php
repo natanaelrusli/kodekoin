@@ -10,7 +10,7 @@ class QrcodeController extends Controller
     public function store(Request $request)
     {
         Qrcode::create([
-            'id_qr' => $request->id,
+            'id_qr' => $request->id_qr,
             'external_id' => $request->external_id,
             'amount' => $request->amount,
             'qr_string' => $request->qr_string,

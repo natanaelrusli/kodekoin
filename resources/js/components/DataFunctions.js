@@ -145,7 +145,7 @@
 //         setMessage("pass lama tidak sama");
 //     }
 // };
-import QRCode from "qrcode";
+
 import x from "../xendit";
 import { method } from "lodash";
 const { Invoice: Invoice } = x,
@@ -250,6 +250,82 @@ export const loginHandler = (v, e, p, m, s) => {
         .catch(error => console.log(error));
 };
 
+const storeEwallet = async resp => {
+    const business_id = resp.business_id ? resp.business_id : null;
+    const status = resp.status ? resp.status : null;
+    const phone = resp.phone ? resp.phone : null;
+    await axios
+        .post("http://localhost:8000/api/ewallet", {
+            external_id: resp.external_id,
+            amount: resp.amount,
+            checkout_url: resp.checkout_url,
+            ewallet_type: resp.ewallet_type,
+            business_id: resp.business_id,
+            status: resp.status,
+            phone: resp.phone
+        })
+        .then(e => {
+            console.log("stored ewallet", e);
+        });
+};
+
+const storeQrCode = async resp => {
+    await axios
+        .post("http://localhost:8000/api/qris", {
+            id_qr: resp.id,
+            external_id: resp.external_id,
+            amount: resp.amount,
+            qr_string: resp.qr_string,
+            callback_url: resp.callback_url,
+            type: resp.type,
+            status: resp.status
+        })
+        .then(e => {
+            console.log("stored qr", e);
+        });
+};
+
+const storeRetail = async resp => {
+    await axios
+        .post("http://localhost:8000/api/retail", {
+            is_single_use: resp.is_single_use,
+            status: resp.status,
+            owner_id: resp.owner_id,
+            external_id: resp.external_id,
+            retail_outlet_name: resp.retail_outlet_name,
+            prefix: resp.prefix,
+            name: resp.name,
+            payment_code: resp.payment_code,
+            type: resp.type,
+            expected_amount: resp.expected_amount,
+            expiration_date: resp.expiration_date,
+            id_retail: resp.id
+        })
+        .then(e => {
+            console.log("stored retail", e);
+        });
+};
+
+const storeVirtual = async resp => {
+    await axios
+        .post("http://localhost:8000/api/virtual", {
+            is_closed: resp.is_closed,
+            status: resp.status,
+            currency: resp.currency,
+            owner_id: resp.owner_id,
+            external_id: resp.external_id,
+            bank_code: resp.bank_code,
+            merchant_code: resp.merchant_code,
+            name: resp.name,
+            account_number: resp.account_number,
+            is_single_use: resp.is_single_use,
+            id_va: resp.id
+        })
+        .then(e => {
+            console.log("stored virtual", e);
+        });
+};
+
 const virtualAccount = async (
     name,
     email,
@@ -283,79 +359,6 @@ const virtualAccount = async (
     // console.log('fixed va details:', retrievedAcc);
 };
 
-const storeEwallet = async resp => {
-    const business_id = resp.business_id ? resp.business_id : null;
-    const status = resp.status ? resp.status : null;
-    const phone = resp.phone ? resp.phone : null;
-    await axios
-        .post("http://localhost:8000/api/ewallet", {
-            external_id: resp.external_id,
-            amount: resp.amount,
-            checkout_url: resp.checkout_url,
-            ewallet_type: resp.ewallet_type,
-            business_id: resp.business_id,
-            status: resp.status,
-            phone: resp.phone
-        })
-        .then(e => {
-            console.log("stored ewallet", e);
-        });
-};
-const storeQrCode = async resp => {
-    await axios
-        .post("http://localhost:8000/api/qris", {
-            id_qr: resp.id_qr,
-            external_id: resp.external_id,
-            amount: resp.amount,
-            qr_string: resp.qr_string,
-            callback_url: resp.callback_url,
-            type: resp.type,
-            status: resp.status
-        })
-        .then(e => {
-            console.log("stored qr", e);
-        });
-};
-const storeRetail = async resp => {
-    await axios
-        .post("http://localhost:8000/api/retail", {
-            is_single_use: resp.is_single_use,
-            status: resp.status,
-            owner_id: resp.owner_id,
-            external_id: resp.external_id,
-            retail_outlet_name: resp.retail_outlet_name,
-            prefix: resp.prefix,
-            name: resp.name,
-            payment_code: resp.payment_code,
-            type: resp.type,
-            expected_amount: resp.expected_amount,
-            expiration_date: resp.expiration_date,
-            id_retail: resp.id
-        })
-        .then(e => {
-            console.log("stored retail", e);
-        });
-};
-const storeVirtual = async resp => {
-    await axios
-        .post("http://localhost:8000/api/virtual", {
-            is_closed: resp.is_closed,
-            status: resp.status,
-            currency: resp.currency,
-            owner_id: resp.owner_id,
-            external_id: resp.external_id,
-            bank_code: resp.bank_code,
-            merchant_code: resp.merchant_code,
-            name: resp.name,
-            account_number: resp.account_number,
-            is_single_use: resp.is_single_use,
-            id_va: resp.id
-        })
-        .then(e => {
-            console.log("stored virtual", e);
-        });
-};
-
 const eWallet = async (
     name,
     email,
@@ -381,7 +384,7 @@ const eWallet = async (
             amount: price,
             phone: "089911111111",
             items: [item, item],
-            callbackURL: "http://kodekoin.com",
+            callbackURL: "http://kodekoin.com/api/ewalletcallback",
             redirectURL: "http://kodekoin.com",
             ewalletType: method
         })
@@ -446,7 +449,7 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
         .createCode({
             externalID: Date.now().toString(),
             type: QrCode.Type.Dynamic,
-            callbackURL: "http://kodekoin.com",
+            callbackURL: "http://kodekoin.com/qriscallback",
             amount: 10000
         })
         .then(e => {
@@ -460,17 +463,6 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
 
     // const payment = await q.simulate({ externalID: qrcode.external_id });
     // console.log("simulated payment", payment);
-    // QRCode.toString(qrcode.qr_string, { type: "terminal" }, function(err, url) {
-    //     console.log(url);
-    // });
-    // const generateQR = async text => {
-    //     try {
-    //         console.log(await QRCode.toDataURL(text));
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
-    // console.log(generateQR(qrcode.qr_string));
 };
 
 export const createOrder = async (
@@ -637,7 +629,9 @@ const getInvoiceByEmail = async (e, l = undefined) => {
 
 export const updateInvoice = async (e, a, b) => {
     try {
-        const o = await i.getAllInvoices({ limit: 100 });
+        const o = await i.getAllInvoices({
+            limit: 100
+        });
         console.log(o);
         for (let a = 0; a < o.length; a++)
             for (let t = 0; t < e.length - 1; t++)
@@ -654,7 +648,9 @@ export const updateInvoice = async (e, a, b) => {
 };
 
 export const cancelOrder = e => {
-    i.expireInvoice({ invoiceID: e }).then(e => {
+    i.expireInvoice({
+        invoiceID: e
+    }).then(e => {
         console.log("expired invoice", e);
         createHistory().push("/");
         let pathUrl = window.location.href;

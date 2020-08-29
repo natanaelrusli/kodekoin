@@ -21,7 +21,9 @@ const useStyles = makeStyles(theme => ({
         }
     }
 }));
-
+function preventDefault(event) {
+    event.preventDefault();
+}
 const PriceList = () => {
     const classes = useStyles();
 
@@ -240,7 +242,7 @@ const PriceList = () => {
                         <div className="denom-header mb-3">
                             <h1>Referal Code</h1>
                         </div>
-                        <Form onSubmit={e => {}}>
+                        <Form onSubmit={e => preventDefault(e)}>
                             <Form.Group
                                 controlId="formBasicText"
                                 className="mt-1"
@@ -264,6 +266,7 @@ const PriceList = () => {
                                 variant="primary"
                                 type="submit"
                                 className={classes.submit}
+                                disabled={true}
                             >
                                 Submit Referal Code
                             </Button>
