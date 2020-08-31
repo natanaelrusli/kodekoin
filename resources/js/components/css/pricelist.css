@@ -151,7 +151,7 @@
 }
 
 .checkoutbutton:hover{
-    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    border: 2px solid white !important;
     transition: ease-in 0.2s !important;
 }
 
@@ -219,40 +219,6 @@
 
 .lg-btn{
     width: 70px;
-}
-
-.method{
-    transition: ease-in 0.2s !important;
-    background-color: #222222 !important;
-    cursor: pointer;
-}
-
-.method-inactive{
-    background-color: #2E2E2E !important;
-}
-
-.choose{
-    transition: ease-in 0.2s !important;
-    background-color: var(--base-red) !important;
-}
-
-.choose h3{
-    transition: ease-in 0.2s !important;
-    color: white;
-}
-
-.choose:hover{
-    cursor: pointer;
-}
-
-.method__inner{
-    display: flex;
-    flex-direction: row;
-}
-
-.method__inner img {
-    height: 100%;
-    flex: 0.1;
 }
 
 .dark {

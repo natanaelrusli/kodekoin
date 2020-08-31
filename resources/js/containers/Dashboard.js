@@ -208,7 +208,7 @@ export default function Dashboard() {
                     <MenuIcon />
                 </IconButton>
                     {users.map(user => (
-                        <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                        <Typography key={user.email} component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                             Hi, {user.firstName}!
                         </Typography>
                     ))}
@@ -276,6 +276,7 @@ export default function Dashboard() {
                                     <Paper className={classes.paper}>
                                         {users.map(user => (
                                             <Profile
+                                                key={user.email}
                                                 firstName={user.firstName}
                                                 lastName={user.lastName}
                                                 email={user.email}
@@ -311,7 +312,7 @@ export default function Dashboard() {
                                 <Grid item xs={12}>
                                         <Paper className={classes.paper}>
                                             {users.map(user => (
-                                                <EditProfile firstname = {user.firstName} lastname = {user.lastName} email = {user.email}/>
+                                                <EditProfile key={user.email} firstname = {user.firstName} lastname = {user.lastName} email = {user.email}/>
                                             ))}
                                         </Paper>
                                     <Paper className={classes.paper} style={{ marginTop: '20px' }}>

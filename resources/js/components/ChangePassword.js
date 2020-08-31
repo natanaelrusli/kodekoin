@@ -55,7 +55,7 @@ const ChangePassword = () => {
                     );
                 }}
             >
-                <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Group controlId="formBasicOldPas" className="mt-3">
                     <Form.Label>Current Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -65,7 +65,7 @@ const ChangePassword = () => {
                         onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Group controlId="formBasicNewPass" className="mt-3">
                     <Form.Label>New Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -75,7 +75,7 @@ const ChangePassword = () => {
                         onChange={e => setPasswordNew(e.target.value)}
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Group controlId="formBasicRepeatPass" className="mt-3">
                     <Form.Label>Repeat New Password</Form.Label>
                     <Form.Control
                         type="password"

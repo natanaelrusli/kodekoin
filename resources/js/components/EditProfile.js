@@ -45,26 +45,26 @@ function EditProfile({firstname, lastname, email}) {
                     preventDefault(e);
                 }}
             >
-                <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Group controlId="formBasicFName" className="mt-3">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Name"
+                        placeholder="First Name"
                         className="red-glow"
                         aria-label = "First Name"
-                        value = {firstname}
-                        onChange={e => setPasswordOld(e.target.value)}
+                        defaultValue = {firstname}
+                        // onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail" className="mt-3">
+                <Form.Group controlId="formBasicLName" className="mt-3">
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Name"
+                        placeholder="Last Name"
                         className="red-glow"
                         aria-label = "Last Name"
-                        value = {lastname}
-                        onChange={e => setPasswordOld(e.target.value)}
+                        defaultValue = {lastname}
+                        // onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail" className="mt-3">
@@ -74,8 +74,8 @@ function EditProfile({firstname, lastname, email}) {
                         placeholder="E-mail"
                         className="red-glow"
                         aria-label = "E-Mail"
-                        value = {email}
-                        onChange={e => setPasswordNew(e.target.value)}
+                        defaultValue = {email}
+                        // onChange={e => setPasswordNew(e.target.value)}
                     />
                 </Form.Group>
                 <Button

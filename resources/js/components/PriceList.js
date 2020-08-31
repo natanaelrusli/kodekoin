@@ -17,7 +17,11 @@ const useStyles = makeStyles(theme => ({
         borderColor: "#FF4646",
         "&:hover, &:focus": {
             backgroundColor: "#FF4646",
-            borderColor: "#FF4646"
+            borderColor: "#FFF"
+        },
+        "&:disabled" : {
+            backgroundColor: "#565B61",
+            borderColor: "#565B61"
         }
     }
 }));
@@ -263,7 +267,7 @@ const PriceList = () => {
                             </Form.Group>
 
                             <Button
-                                variant="primary"
+                                variant="secondary"
                                 type="submit"
                                 className={classes.submit}
                                 disabled={true}
