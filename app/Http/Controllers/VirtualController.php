@@ -30,6 +30,6 @@ class VirtualController extends Controller
         $virtual = Virtual::where('id_va', $request->id)->firstOrFail();
         $virtual->status = $request->status;
         $virtual->save();
-        return response()->json('Virtual Updated Successfully', $virtual);
+        return response()->json('Virtual Updated Successfully');
     }
 }

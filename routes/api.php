@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post("signup", "UserController@userSignUp");
-Route::post("resetpass", "UserController@resetPassword");
-Route::post("login", "UserController@userLogin");
-Route::get("user/{email}", "UserController@userDetail");
-Route::get("pass/{email}", "UserController@userPass");
+Route::namespace('Auth')->group(function () {
+    Route::post('register', 'RegisterController');
+    Route::post('login', 'LoginController');
+    Route::post('logout', 'LogoutController');
+    Route::post('resetpass', 'ResetPasswordController');
+});
 
 Route::resource('/invoice', 'InvoiceController');
 
@@ -26,12 +27,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("/invhistory/{email}", "InvoiceController@showhistory");
-
-// Route::post('/invoicecallback', 'InvoiceController@update');
-Route::post('/ewalletcallback', 'EwalletController@update');
-Route::post('/virtualcallback', 'VirtualController@update');
-Route::post('/retailcallback', 'RetailController@update');
-Route::post('/qriscallback', 'QrcodeController@update');
 
 Route::post('/ewallet', 'EwalletController@store');
 Route::post('/virtual', 'VirtualController@store');
