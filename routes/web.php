@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +19,18 @@ use Illuminate\Support\Facades\Route;
 if (App::environment('production')) {
     URL::forceScheme('https');
 }
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::middleware(['auth:api'])->group(function () {
+    Route::view('/dashboard', 'dashboard');
+});
+Route::view('/', 'app');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
-Route::view('/dashboard', 'dashboard');
-Route::view('/', 'app');
 // Route::get('{reactRoutes}', function () {
 //     return view('app'); // your start view
 // })->where('reactRoutes', '^((?!api).)*$'); // except 'api' word

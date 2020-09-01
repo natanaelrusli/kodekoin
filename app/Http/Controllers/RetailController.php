@@ -31,6 +31,6 @@ class RetailController extends Controller
         $retail = Retail::where('id_retail', $request->id)->firstOrFail();
         $retail->status = $request->status;
         $retail->save();
-        return response()->json('Retail Updated Successfully', $retail);
+        return response()->json('Retail Updated Successfully');
     }
 }

@@ -134,4 +134,12 @@ class UserController extends Controller
             return response()->json(["status" => "failed", "success" => false, "message" => "Unable to reset password. Incorrect current password."]);
         }
     }
+
+    // public function isAuth($request, Closure $next)
+    // {
+    //     if (!$this->auth->user()) {
+    //         return view('login');
+    //     }
+    //     return $next($request);
+    // }
 }

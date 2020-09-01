@@ -23,9 +23,9 @@ class EwalletController extends Controller
 
     public function update(Request $request)
     {
-        $ewallet = Ewallet::where('external_id', $request->external_id)->firstOrFail();
+        $ewallet = Ewallet::where('external_id', $request->external_id)->get();
         $ewallet->status = $request->status;
         $ewallet->save();
-        return response()->json('Ewallet Updated Successfully', $ewallet);
+        return response()->json('Ewallet Updated Successfully');
     }
 }

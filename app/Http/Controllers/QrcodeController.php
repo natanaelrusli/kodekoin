@@ -26,6 +26,6 @@ class QrcodeController extends Controller
         $qrcode = Qrcode::where('id_qr', $request->id)->firstOrFail();
         $qrcode->status = $request->status;
         $qrcode->save();
-        return response()->json('Qrcode Updated Successfully', $qrcode);
+        return response()->json('Qrcode Updated Successfully');
     }
 }
