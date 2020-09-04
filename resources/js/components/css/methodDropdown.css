@@ -34,11 +34,12 @@
 .choose{
     transition: ease-in 0.2s !important;
     background-color: var(--base-red) !important;
+    color: var(--white) !important;
 }
 
-.choose h3{
+.choose p{
     transition: ease-in 0.2s !important;
-    color: white;
+    color: white !important;
 }
 
 .choose:hover{
