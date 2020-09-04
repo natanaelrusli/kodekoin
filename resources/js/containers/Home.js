@@ -8,12 +8,17 @@ import GameDesc from "../components/GameDescription";
 import MediaQuery, { useMediaQuery } from "react-responsive";
 
 const Home = props => {
-    var voucher_codes = require("voucher-code-generator");
-    console.log(
-        voucher_codes.generate({
-            pattern: "#####-######-#####"
-        })
-    );
+    const login = localStorage.getItem("isLoggedIn");
+    const createHistory = require("history").createBrowserHistory;
+    let history = createHistory();
+
+    useEffect(() => {
+        if (!(login == "true")) {
+            history.push("/login");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
+        }
+    }, []);
     return (
         <div
             className="Home"

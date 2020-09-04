@@ -20,12 +20,16 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+        $email_status = User::where("email", $request->email)->first();
 
-        if (!$token = auth()->attempt($request->only('email', 'password'))) {
-            return response(null, 401);
+        if (is_null($email_status)) {
+            return response()->json(["status" => "failed", "success" => false, "message" => "Unable to login. Email doesn't exist."]);
+        } else if (!$token = auth()->attempt($request->only('email', 'password'))) {
+            return response()->json(["status" => "failed", "success" => false, "message" => "Unable to login. Incorrect password."]);
         }
+        // dd($token);
         $user = $this->userDetail($request->email);
-        return response()->json(['message' => 'You\'re now registered!', 'data' => $user, 'token' => $token]);
+        return response()->json(['message' => 'You\'re logged in successfully!', 'data' => $user, 'token' => $token]);
     }
     public function userDetail($email)
     {

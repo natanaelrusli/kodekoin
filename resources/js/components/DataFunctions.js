@@ -88,18 +88,17 @@ export const loginHandler = (v, e, p, m, s) => {
                     "token",
                     JSON.stringify(response.data.token)
                 );
-                m(response.data.message);
+                m(response.message);
                 console.log(response.data.message);
                 getInvoiceByEmail(e);
                 setTimeout(() => {
-                    localStorage.setItem("isLoggedIn", true);
-                    s(true);
                     m("");
-                }, 5000);
+                    s(true);
+                }, 8000);
             }
 
-            if (PaymentResponse.status === "failed") {
-                m(response.data.message);
+            if (response.status === "failed") {
+                m(response.message);
                 console.log(response.data.message);
                 setTimeout(() => {
                     m("");
@@ -480,6 +479,7 @@ const getInvoiceByEmail = async (e, l = undefined) => {
                     200 === e.status &&
                     (localStorage.setItem("invoices", JSON.stringify(e.data)),
                     console.log("success retrieve invoice"),
+                    localStorage.setItem("isLoggedIn", true),
                     l == undefined ? (l = undefined) : l(!1),
                     "failed" === e.data.status && console.log(e.data.message))
             )

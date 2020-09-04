@@ -28,11 +28,11 @@ function Copyright() {
 }
 
 const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: white;
-  zindex: 1;
-  transition : 1s ease-in;
+    display: block;
+    margin: 0 auto;
+    border-color: white;
+    zindex: 1;
+    transition: 1s ease-in;
 `;
 
 const useStyles = makeStyles(theme => ({
@@ -112,22 +112,22 @@ const Login = e => {
 
     const login = localStorage.getItem("isLoggedIn");
 
-    if (redirect || login == "true") {
+    if (login == "true") {
         setLoading(false);
         history.push("/");
         let pathUrl = window.location.href;
         window.location.href = pathUrl;
     }
 
-    if ( msg == 'Unable to login. Incorrect password.' ) {
+    if (msg == "Unable to login. Incorrect password.") {
         setLoading(false);
-        setmsg('');
+        setmsg("");
         setErrpass(true);
     }
 
-    if ( msg == "Unable to login. Email doesn't exist." ) {
+    if (msg == "Unable to login. Email doesn't exist.") {
         setLoading(false);
-        setmsg('');
+        setmsg("");
         setErruser(true);
     }
 
@@ -181,12 +181,16 @@ const Login = e => {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
-                                    aria-label = "Email"
+                                    aria-label="Email"
                                     autoFocus
                                     onChange={e => setemail(e.target.value)}
                                 />
 
-                                { erruser && <p className="errorText mb-1">User doesn't exists</p> }
+                                {erruser && (
+                                    <p className="errorText mb-1">
+                                        User doesn't exists
+                                    </p>
+                                )}
 
                                 <TextField
                                     variant="outlined"
@@ -199,35 +203,47 @@ const Login = e => {
                                     id="password"
                                     autoComplete="current-password"
                                     aria-required="true"
-                                    aria-label = "Password"
+                                    aria-label="Password"
                                     onChange={e => setpassword(e.target.value)}
                                 />
 
-                                { errpass && <p className="errorText mb-1">Incorrect Password</p> }
-                                
+                                {errpass && (
+                                    <p className="errorText mb-1">
+                                        Incorrect Password
+                                    </p>
+                                )}
+
                                 <Button
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    style={{ backgroundColor: "#FF4646", marginTop: "10px", marginBottom: "2px" }}
+                                    style={{
+                                        backgroundColor: "#FF4646",
+                                        marginTop: "10px",
+                                        marginBottom: "2px"
+                                    }}
                                     color="primary"
                                     className={classes.submit}
-                                    onClick={() => {setLoading(true); setErruser(false); setErrpass(false)}}
+                                    onClick={() => {
+                                        setLoading(true);
+                                        setErruser(false);
+                                        setErrpass(false);
+                                    }}
                                     className="submit"
-                                    aria-label = "Submit"
+                                    aria-label="Submit"
                                 >
-                                    {email.length > 0 && password.length > 0 &&  loading == true ?
+                                    {email.length > 0 &&
+                                    password.length > 0 &&
+                                    loading == true ? (
                                         <PulseLoader
                                             css={override}
                                             size={10}
                                             color={"white"}
                                             loading={loading}
                                         />
-                                        :
-                                        <Typography>
-                                            Login
-                                        </Typography>
-                                    }
+                                    ) : (
+                                        <Typography>Login</Typography>
+                                    )}
                                 </Button>
                                 <Grid container style={{ marginTop: "10px" }}>
                                     <Grid item xs>
@@ -236,7 +252,7 @@ const Login = e => {
                                             href="#"
                                             variant="body2"
                                             style={{ color: "white" }}
-                                            aria-label = "Forgot Password"
+                                            aria-label="Forgot Password"
                                         >
                                             Forgot password?
                                         </Link>
@@ -246,7 +262,7 @@ const Login = e => {
                                             href="/signup"
                                             variant="body2"
                                             style={{ color: "white" }}
-                                            aria-label = "Signup"
+                                            aria-label="Signup"
                                         >
                                             {"Don't have an account? Sign Up"}
                                         </Link>
