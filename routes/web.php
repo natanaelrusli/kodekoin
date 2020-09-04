@@ -26,9 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:api'])->group(function () {
-    Route::view('/dashboard', 'dashboard');
-});
+Route::view('/dashboard', 'dashboard');
 Route::view('/', 'app');
 Route::view('/login', 'login');
 Route::view('/signup', 'signup');
