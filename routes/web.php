@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::middleware(['auth:api'])->group(function () {
     Route::view('/dashboard', 'dashboard');
 });

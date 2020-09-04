@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function EditProfile({firstname, lastname, email}) {
+function EditProfile({firstname, lastname, email, phone}) {
     const classes = useStyles();
 
     return (
@@ -75,6 +75,17 @@ function EditProfile({firstname, lastname, email}) {
                         className="red-glow"
                         aria-label = "E-Mail"
                         defaultValue = {email}
+                        // onChange={e => setPasswordNew(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group controlId="formBasicPhone" className="mt-3">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Phone Number"
+                        className="red-glow"
+                        aria-label = "Phone Number"
+                        defaultValue = {phone}
                         // onChange={e => setPasswordNew(e.target.value)}
                     />
                 </Form.Group>

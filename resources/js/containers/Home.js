@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./css/Home.css";
 import ReactDOM from "react-dom";
 import Navbar from "../components/TopNavbar";
@@ -19,6 +19,7 @@ const Home = props => {
             window.location.href = pathUrl;
         }
     }, []);
+    
     return (
         <div
             className="Home"

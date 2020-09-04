@@ -152,7 +152,6 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles();
     const [users, setUsers] = useState([]);
-    const [open, setOpen] = useState(false);
     const login = localStorage.getItem("isLoggedIn");
     const userData = JSON.parse(localStorage.getItem("userData"));
     const invoices = JSON.parse(localStorage.getItem("invoices"));
@@ -167,9 +166,6 @@ export default function Dashboard() {
     const handleDrawerClose = () => {
         setOpensidebar(false);
     };
-    // console.log(userData);
-
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     const createHistory = require("history").createBrowserHistory;
     let history = createHistory();
@@ -187,7 +183,9 @@ export default function Dashboard() {
                         userData != null ? userData.first_name : "Testing",
                     lastName: userData != null ? userData.last_name : "Test",
                     email:
-                        userData != null ? userData.email : "Testing@test.com"
+                        userData != null ? userData.email : "Testing@test.com",
+                    phone:
+                        userData != null ? userData.phone : "Testing@test.com"
                 }
             ]);
         }
@@ -280,6 +278,7 @@ export default function Dashboard() {
                                                 firstName={user.firstName}
                                                 lastName={user.lastName}
                                                 email={user.email}
+                                                phone={user.phone}
                                             />
                                         ))}
                                     </Paper>
@@ -312,7 +311,7 @@ export default function Dashboard() {
                                 <Grid item xs={12}>
                                         <Paper className={classes.paper}>
                                             {users.map(user => (
-                                                <EditProfile key={user.email} firstname = {user.firstName} lastname = {user.lastName} email = {user.email}/>
+                                                <EditProfile key={user.email} firstname = {user.firstName} lastname = {user.lastName} email = {user.email} phone={user.phone}/>
                                             ))}
                                         </Paper>
                                     <Paper className={classes.paper} style={{ marginTop: '20px' }}>

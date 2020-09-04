@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Title from './Title';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -30,6 +29,9 @@ export default function Profile(props){
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
         Email : {props.email}
+      </Typography>
+      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
+        Phone : {props.phone}
       </Typography>
     </React.Fragment>
   );

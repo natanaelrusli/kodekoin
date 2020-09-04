@@ -20,8 +20,8 @@ const useStyles = makeStyles(theme => ({
             borderColor: "#FFF"
         },
         "&:disabled" : {
-            backgroundColor: "#565B61",
-            borderColor: "#565B61"
+            backgroundColor: "#FF4646",
+            borderColor: "#FF4646"
         }
     }
 }));
@@ -59,7 +59,7 @@ const PriceList = () => {
 
     const [qris, setQris] = useState(["qris"]);
 
-    const [referal, setReferal] = useState(true);
+    const [referal, setReferal] = useState(false);
 
     //To store the price chosen by user
     const [price, setPrice] = useState(false);
@@ -267,7 +267,7 @@ const PriceList = () => {
                             </Form.Group>
 
                             <Button
-                                variant="secondary"
+                                variant="primary"
                                 type="submit"
                                 className={classes.submit}
                                 disabled={true}
