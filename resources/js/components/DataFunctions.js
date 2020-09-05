@@ -15,7 +15,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
         })
         .then(response => {
             console.log(response);
-            if (response.status === 200) {
+            if (response.data.status === 200) {
                 s(response.data.message);
                 console.log(response.data.message);
                 setTimeout(() => {
@@ -27,8 +27,8 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
                         password: p
                     })
                     .then(response => {
-                        console.log(response);
-                        if (response.status === 200) {
+                        console.log(response.data.message);
+                        if (response.data.status === 200) {
                             getInvoiceByEmail(e);
                             localStorage.setItem("isLoggedIn", true);
                             localStorage.setItem(
@@ -44,14 +44,11 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
                             setTimeout(() => {
                                 s("");
                             }, 5000);
-                            createHistory().push("/");
-                            let pathUrl = window.location.href;
-                            window.location.href = pathUrl;
                         }
 
-                        if (response.status === "failed") {
+                        if (response.data.status === "failed") {
                             s(response.data.message);
-                            console.log(response.data.message);
+                            console.log("aaaa", response.data.message);
                             setTimeout(() => {
                                 s("");
                             }, 5000);
@@ -60,7 +57,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
                     .catch(error => console.log(error));
             }
 
-            if (response.status === "failed") {
+            if (response.data.status === "failed") {
                 s(response.data.message);
                 console.log(response.data.message);
                 setTimeout(() => {
@@ -79,7 +76,7 @@ export const loginHandler = (v, e, p, m, s) => {
         })
         .then(response => {
             console.log(response);
-            if (response.status === 200) {
+            if (response.data.status === 200) {
                 localStorage.setItem(
                     "userData",
                     JSON.stringify(response.data.data)
@@ -88,7 +85,7 @@ export const loginHandler = (v, e, p, m, s) => {
                     "token",
                     JSON.stringify(response.data.token)
                 );
-                m(response.message);
+                m(response.data.message);
                 console.log(response.data.message);
                 getInvoiceByEmail(e);
                 setTimeout(() => {
@@ -97,8 +94,8 @@ export const loginHandler = (v, e, p, m, s) => {
                 }, 8000);
             }
 
-            if (response.status === "failed") {
-                m(response.message);
+            if (response.data.status === "failed") {
+                m(response.data.message);
                 console.log(response.data.message);
                 setTimeout(() => {
                     m("");
@@ -106,6 +103,80 @@ export const loginHandler = (v, e, p, m, s) => {
             }
         })
         .catch(error => console.log(error));
+};
+
+export const createOrder = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    console.log(method, phone, price);
+    if (paytype == 0) {
+        virtualAccount(name, email, desc, price, method, paytype, proccess);
+    } else if (paytype == 1) {
+        eWallet(name, email, phone, desc, price, method, paytype, proccess);
+    } else if (paytype == 2) {
+        retailOutlet(
+            name,
+            email,
+            phone,
+            desc,
+            price,
+            method,
+            paytype,
+            proccess
+        );
+    } else if (paytype == 3) {
+        qRis(name, email, desc, method, paytype, proccess);
+    }
+};
+
+const eWallet = async (
+    name,
+    email,
+    phone,
+    desc,
+    price,
+    method,
+    paytype,
+    proccess
+) => {
+    const EWallet = x.EWallet;
+    const ew = new EWallet({});
+    const item = {
+        id: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+        name: desc,
+        price: price,
+        quantity: 1
+    };
+    await ew
+        .createPayment({
+            externalID:
+                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
+            amount: price,
+            phone: phone,
+            items: [item, item],
+            callbackURL: "https://kodekoin.com/api/ewalletcallback",
+            redirectURL: "https://kodekoin.com",
+            ewalletType: method
+        })
+        .then(e => {
+            console.log("create payment detail:", e);
+            storeEwallet(e);
+            storeInvoiceEQ(e, name, email, desc, method, paytype, proccess);
+        });
+
+    // const retrievedPayment = await ew.getPayment({
+    //     externalID: payment.external_id,
+    //     ewalletType: payment.ewallet_type
+    // });
+    // // eslint-disable-next-line no-console
+    // console.log("EWallet payment detail:", retrievedPayment);
 };
 
 const storeEwallet = async resp => {
@@ -217,49 +288,6 @@ const virtualAccount = async (
     // console.log('fixed va details:', retrievedAcc);
 };
 
-const eWallet = async (
-    name,
-    email,
-    phone,
-    desc,
-    price,
-    method,
-    paytype,
-    proccess
-) => {
-    const EWallet = x.EWallet;
-    const ew = new EWallet({});
-    const item = {
-        id: Date.now().toString() + "-" + name + "-" + desc + "-" + method,
-        name: desc,
-        price: price,
-        quantity: 1
-    };
-    await ew
-        .createPayment({
-            externalID:
-                Date.now().toString() + "-" + name + "-" + desc + "-" + method,
-            amount: price,
-            phone: "089911111111",
-            items: [item, item],
-            callbackURL: "https://kodekoin.com/api/ewalletcallback",
-            redirectURL: "https://kodekoin.com",
-            ewalletType: method
-        })
-        .then(e => {
-            console.log("create payment detail:", e);
-            storeEwallet(e);
-            storeInvoiceEQ(e, name, email, desc, method, paytype, proccess);
-        });
-
-    // const retrievedPayment = await ew.getPayment({
-    //     externalID: payment.external_id,
-    //     ewalletType: payment.ewallet_type
-    // });
-    // // eslint-disable-next-line no-console
-    // console.log("EWallet payment detail:", retrievedPayment);
-};
-
 const retailOutlet = async (
     name,
     email,
@@ -321,37 +349,6 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
 
     // const payment = await q.simulate({ externalID: qrcode.external_id });
     // console.log("simulated payment", payment);
-};
-
-export const createOrder = async (
-    name,
-    email,
-    phone,
-    desc,
-    price,
-    method,
-    paytype,
-    proccess
-) => {
-    console.log(method, phone, price);
-    if (paytype == 0) {
-        virtualAccount(name, email, desc, price, method, paytype, proccess);
-    } else if (paytype == 1) {
-        eWallet(name, email, phone, desc, price, method, paytype, proccess);
-    } else if (paytype == 2) {
-        retailOutlet(
-            name,
-            email,
-            phone,
-            desc,
-            price,
-            method,
-            paytype,
-            proccess
-        );
-    } else if (paytype == 3) {
-        qRis(name, email, desc, method, paytype, proccess);
-    }
 };
 
 const storeInvoiceVR = async (resp, m, proccess) => {
@@ -481,6 +478,10 @@ const getInvoiceByEmail = async (e, l = undefined) => {
                     console.log("success retrieve invoice"),
                     localStorage.setItem("isLoggedIn", true),
                     l == undefined ? (l = undefined) : l(!1),
+                    console.log(window.location.href),
+                    "https://kodekoin.com/dashboard" !== window.location.href &&
+                        (createHistory().push("/"),
+                        (window.location.href = window.location.href)),
                     "failed" === e.data.status && console.log(e.data.message))
             )
             .catch(e => console.log(e));
@@ -560,7 +561,7 @@ export const changePassHandler = (o, a, t, s) => {
 
 export const logoutHandler = () => {
     if ((localStorage.clear(), window.location.href.includes("dashboard"))) {
-        console.log("Berhasil Logout"), createHistory().push("/");
+        console.log("Berhasil Logout"), createHistory().push("/login");
         let o = window.location.href;
         window.location.href = o;
     } else window.location.reload(!1);

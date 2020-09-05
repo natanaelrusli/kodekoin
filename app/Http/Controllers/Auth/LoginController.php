@@ -29,7 +29,7 @@ class LoginController extends Controller
         }
         // dd($token);
         $user = $this->userDetail($request->email);
-        return response()->json(['message' => 'You\'re logged in successfully!', 'data' => $user, 'token' => $token]);
+        return response()->json(["status" => 200, 'message' => 'You\'re logged in successfully!', 'data' => $user, 'token' => $token]);
     }
     public function userDetail($email)
     {

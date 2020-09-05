@@ -9,7 +9,7 @@ class VirtualController extends Controller
 {
     public function store(Request $request)
     {
-        Virtual::create([
+        Virtual::updateOrInsert([
             'is_closed' => $request->is_closed,
             'status' => $request->status,
             'currency' => $request->currency,
@@ -20,16 +20,22 @@ class VirtualController extends Controller
             'name' => $request->name,
             'account_number' => $request->account_number,
             'is_single_use' => $request->is_single_use,
-            'id_va' => $request->id_va
+            'id_va' => $request->id
         ]);
+
         return response()->json('Virtual Added Successfully');
     }
 
     public function update(Request $request)
     {
-        $virtual = Virtual::where('id_va', $request->id)->firstOrFail();
-        $virtual->status = $request->status;
-        $virtual->save();
+        $affected = Virtual::where('id_va', $request->id)
+            ->update([
+                'status' => $request->payment_id,
+            ]);
+        dd($affected);
+        // $virtual = Virtual::updateData('id_va', $request->id)->firstOrFail();
+        // $virtual->status = $request->status;
+        // $virtual->save();
         return response()->json('Virtual Updated Successfully');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ResetPasswordController extends Controller
 {
@@ -17,10 +18,12 @@ class ResetPasswordController extends Controller
     public function __invoke(Request $request)
     {
         $user = User::where("email", $request->email)->first();
-        if (bcrypt($request->passold) == $user->password) {
-            $user->password = bcrypt($request->passnew);
-            $user->save();
-            return response()->json(["status" => $this->status_code, "success" => true, "message" => "Reset password success!", "data" => $request]);
+        // dd(auth()->user()->password, $request->passold, $user->password);
+        if (Hash::check($request->passold, $user->password)) {
+            User::where("email", $request->email)->update([
+                'password' => bcrypt($request->passnew)
+            ]);
+            return response()->json(["status" => 200, "success" => true, "message" => "Reset password success!", "data" => $request]);
         } else {
             return response()->json(["status" => "failed", "success" => false, "message" => "Unable to reset password. Incorrect current password."]);
         }
