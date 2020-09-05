@@ -19,6 +19,7 @@ const Home = props => {
             window.location.href = pathUrl;
         }
     }, []);
+
     return (
         <div
             className="Home"
