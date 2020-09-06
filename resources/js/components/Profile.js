@@ -31,7 +31,7 @@ export default function Profile(props){
         Email : {props.email}
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
-        Phone : {props.phone}
+        Phone Number : {props.phone}
       </Typography>
     </React.Fragment>
   );
