@@ -29,7 +29,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import Orders from "../components/Orders";
 import Profile from "../components/Profile";
 import ChangePassword from "../components/ChangePassword";
-import Navbar from "../components/TopNavbar";
+import Binding from "../components/BindingAccount";
 import ReferalForm from "../components/ReferalForm";
 import EditProfile from "../components/EditProfile";
 import { updateInvoice } from "../components/DataFunctions";
@@ -267,42 +267,52 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer}/>
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                            {/* Profile */}
+                        {/* Profile */}
                             {
                                 menuSelect == 'dashboard' &&
-                                <Grid item xs={12} md={12} lg={12}>
-                                    <Paper className={classes.paper}>
-                                        {users.map(user => (
-                                            <Profile
-                                                key={user.email}
-                                                firstName={user.firstName}
-                                                lastName={user.lastName}
-                                                email={user.email}
-                                                phone={user.phone}
-                                            />
-                                        ))}
-                                    </Paper>
+                                <React.Fragment>
+                                    <Grid item xs={12} md={6} lg={6}>
+                                        <Paper className={classes.paper}>
+                                            {users.map(user => (
+                                                <Profile
+                                                    key={user.email}
+                                                    firstName={user.firstName}
+                                                    lastName={user.lastName}
+                                                    email={user.email}
+                                                    phone={user.phone}
+                                                />
+                                            ))}
+                                        </Paper>
+                                    </Grid>
 
-                                    <Paper className={classes.paper} style={{ marginTop: '20px' }}>
-                                        {loading ? (
-                                            <div>
-                                                <h3 className={classes.titleOrder}>
-                                                    Order History
-                                                </h3>
-                                                <div className={classes.loadingAnimation}>
-                                                    <PulseLoader
-                                                        css={override}
-                                                        size={10}
-                                                        color={"#FF4646"}
-                                                        loading={loading}
-                                                    />
+                                    <Grid item xs={12} md={6} lg={6}>
+                                        <Paper className={classes.paper}>
+                                            <Binding/>
+                                        </Paper>
+                                    </Grid>
+
+                                    <Grid item xs={12} md={12} lg={12}>
+                                        <Paper className={classes.paper} style={{ marginTop: '5px' }}>
+                                            {loading ? (
+                                                <div>
+                                                    <h3 className={classes.titleOrder}>
+                                                        Order History
+                                                    </h3>
+                                                    <div className={classes.loadingAnimation}>
+                                                        <PulseLoader
+                                                            css={override}
+                                                            size={10}
+                                                            color={"#FF4646"}
+                                                            loading={loading}
+                                                        />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ) : (
-                                            <Orders />
-                                        )}
-                                    </Paper>
-                                </Grid>
+                                            ) : (
+                                                <Orders />
+                                            )}
+                                        </Paper>
+                                    </Grid>
+                                </React.Fragment>
                             }
                             
                             {/* Change Password */}
