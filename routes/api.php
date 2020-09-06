@@ -26,7 +26,7 @@ Route::resource('/invoice', 'InvoiceController');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("/invhistory/{email}", "InvoiceController@showhistory");
+Route::post("/invhistory", "InvoiceController@showhistory");
 
 Route::post('/ewallet', 'EwalletController@store');
 Route::post('/virtual', 'VirtualController@store');

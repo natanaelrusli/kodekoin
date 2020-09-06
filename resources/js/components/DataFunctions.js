@@ -3,7 +3,8 @@ const { Invoice: Invoice } = x,
     i = new Invoice({});
 
 const createHistory = require("history").createBrowserHistory;
-
+// https://kodekoin.com
+// http://127.0.0.1:8000
 export const signUpHandler = (v, n, e, p, ph, s) => {
     v.preventDefault();
     axios
@@ -470,7 +471,7 @@ const reqInvoice = async (
 const getInvoiceByEmail = async (e, l = undefined) => {
     console.log("getInvoiceByEmail"),
         await axios
-            .get(`https://kodekoin.com/api/invhistory/${e}`)
+            .post("https://kodekoin.com/api/invhistory/", { email: e })
             .then(
                 e =>
                     200 === e.status &&
