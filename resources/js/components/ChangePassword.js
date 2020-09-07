@@ -43,7 +43,7 @@ const ChangePassword = () => {
 
     return (
         <React.Fragment>
-            <h3 className={classes.title}>Change Password</h3>
+            <h3 className={classes.title}>Ubah Sandi</h3>
             <Form
                 onSubmit={e => {
                     preventDefault(e);
@@ -56,7 +56,7 @@ const ChangePassword = () => {
                 }}
             >
                 <Form.Group controlId="formBasicOldPas" className="mt-3">
-                    <Form.Label>Current Password</Form.Label>
+                    <Form.Label>Sandi Saat Ini</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="Current Password"
@@ -66,7 +66,7 @@ const ChangePassword = () => {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicNewPass" className="mt-3">
-                    <Form.Label>New Password</Form.Label>
+                    <Form.Label>Sandi Baru</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="New Password"
@@ -76,7 +76,7 @@ const ChangePassword = () => {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicRepeatPass" className="mt-3">
-                    <Form.Label>Repeat New Password</Form.Label>
+                    <Form.Label>Ulangi Sandi Baru</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="Repeat New Password"
@@ -91,7 +91,7 @@ const ChangePassword = () => {
                     aria-label = "Submit"
                     className={classes.submit}
                 >
-                    Change Password
+                    Ubah Sandi
                 </Button>
             </Form>
         </React.Fragment>

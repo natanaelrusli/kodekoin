@@ -193,25 +193,25 @@ const Orders = () => {
                 </Modal.Footer>
             </Modal>
 
-            <h3 className={classes.title}>Order History</h3>
+            <h3 className={classes.title}>Riwayat Pemesanan</h3>
 
             <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell>
-                            <strong>Date</strong>
+                            <strong>Tanggal</strong>
                         </TableCell>
                         <TableCell>
-                            <strong>Product</strong>
+                            <strong>Produk</strong>
                         </TableCell>
                         <TableCell>
                             <strong>Status</strong>
                         </TableCell>
                         <TableCell>
-                            <strong>Sale Amount</strong>
+                            <strong>Harga</strong>
                         </TableCell>
                         <TableCell align="right">
-                            <strong>Action</strong>
+                            <strong>Tindakan</strong>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -249,7 +249,7 @@ const Orders = () => {
                                     }}
                                     size="sm"
                                 >
-                                    Detail
+                                    Detil
                                 </Button>
                                 <a href={inv.invoice_url} target="_blank">
                                     <Button
@@ -277,7 +277,7 @@ const Orders = () => {
                                         // onClick={() => payOrder(inv.id)}
                                         size="sm"
                                     >
-                                        Pay
+                                        Bayar
                                     </Button>
                                 </a>
                                 <Button
@@ -309,7 +309,7 @@ const Orders = () => {
                                     onClick={() => cancelOrder(inv.id_invoice)}
                                     size="sm"
                                 >
-                                    Cancel
+                                    Batalkan
                                 </Button>
                             </TableCell>
                         </TableRow>

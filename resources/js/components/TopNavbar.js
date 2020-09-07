@@ -53,26 +53,26 @@ function NavbarComponent() {
                                     href="/dashboard"
                                     className={classes.navbutton}
                                 >
-                                    Profile
+                                    Profil
                                 </Button>
                                 <Button
                                     onClick={logoutHandler}
                                     className={classes.navbutton}
                                 >
-                                    Logout
+                                    Keluar
                                 </Button>
                             </Nav>
                         ) : 
                         (
                             <Nav className="mr-sm-2">
                                 <Button href="/" className={classes.navbutton}>
-                                    Home
+                                    Beranda
                                 </Button>
                                 <Button
                                     onClick={logoutHandler}
                                     className={classes.navbutton}
                                     >
-                                    Logout
+                                    Keluar
                                 </Button>
                             </Nav>
                         )}
@@ -81,10 +81,10 @@ function NavbarComponent() {
                     <div>
                         <Nav className="mr-sm-2">
                             <Button href="/login" className={classes.navbutton}>
-                                Login
+                                Masuk
                             </Button>
                             <Button href="/signup" className={classes.navbutton}>
-                                Signup
+                                Daftar
                             </Button>
                         </Nav>
                     </div>

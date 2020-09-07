@@ -39,14 +39,14 @@ function EditProfile({firstname, lastname, email, phone}) {
     return (
         <div>
             <React.Fragment>
-            <h3 className={classes.title}>Edit Profile</h3>
+            <h3 className={classes.title}>Sunting Profil</h3>
             <Form
                 onSubmit={e => {
                     preventDefault(e);
                 }}
             >
                 <Form.Group controlId="formBasicFName" className="mt-3">
-                    <Form.Label>First Name</Form.Label>
+                    <Form.Label>Nama Depan</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="First Name"
@@ -57,7 +57,7 @@ function EditProfile({firstname, lastname, email, phone}) {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicLName" className="mt-3">
-                    <Form.Label>Last Name</Form.Label>
+                    <Form.Label>Nama Belakang</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Last Name"
@@ -68,18 +68,18 @@ function EditProfile({firstname, lastname, email, phone}) {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail" className="mt-3">
-                    <Form.Label>E-mail</Form.Label>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="email"
-                        placeholder="E-mail"
+                        placeholder="Email"
                         className="red-glow"
-                        aria-label = "E-Mail"
+                        aria-label = "EMail"
                         defaultValue = {email}
                         // onChange={e => setPasswordNew(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicPhone" className="mt-3">
-                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Label>Nomor HP</Form.Label>
                     <Form.Control
                         type="number"
                         placeholder="Phone Number"
@@ -95,7 +95,7 @@ function EditProfile({firstname, lastname, email, phone}) {
                     aria-label = "Submit"
                     className={classes.submit}
                 >
-                    Update Profile
+                    Ubah Profil
                 </Button>
             </Form>
         </React.Fragment>

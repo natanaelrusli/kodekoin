@@ -178,7 +178,7 @@ const Login = e => {
                                     required
                                     fullWidth
                                     id="email"
-                                    label="Email Address"
+                                    label="Alamat Email"
                                     name="email"
                                     autoComplete="email"
                                     aria-label="Email"
@@ -188,7 +188,7 @@ const Login = e => {
 
                                 {erruser && (
                                     <p className="errorText mb-1">
-                                        User doesn't exists
+                                        Alamat Email belum terdaftar
                                     </p>
                                 )}
 
@@ -198,7 +198,7 @@ const Login = e => {
                                     required
                                     fullWidth
                                     name="password"
-                                    label="Password"
+                                    label="Kata Sandi"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
@@ -209,7 +209,7 @@ const Login = e => {
 
                                 {errpass && (
                                     <p className="errorText mb-1">
-                                        Incorrect Password
+                                        Password Salah
                                     </p>
                                 )}
 
@@ -225,16 +225,19 @@ const Login = e => {
                                     color="primary"
                                     className={classes.submit}
                                     onClick={() => {
-                                        setLoading(true);
+                                        if (email.length > 0 &&
+                                            password.length > 0) {
+                                            setLoading(true);
+                                        } else {
+                                            setLoading(false);
+                                        }
                                         setErruser(false);
                                         setErrpass(false);
                                     }}
                                     className="submit"
                                     aria-label="Submit"
                                 >
-                                    {email.length > 0 &&
-                                    password.length > 0 &&
-                                    loading == true ? (
+                                    {loading == true ? (
                                         <PulseLoader
                                             css={override}
                                             size={10}
@@ -242,7 +245,7 @@ const Login = e => {
                                             loading={loading}
                                         />
                                     ) : (
-                                        <Typography>Login</Typography>
+                                        <Typography>Masuk</Typography>
                                     )}
                                 </Button>
                                 <Grid container style={{ marginTop: "10px" }}>
@@ -254,7 +257,7 @@ const Login = e => {
                                             style={{ color: "white" }}
                                             aria-label="Forgot Password"
                                         >
-                                            Forgot password?
+                                            Lupa Password?
                                         </Link>
                                     </Grid>
                                     <Grid item>
@@ -264,7 +267,7 @@ const Login = e => {
                                             style={{ color: "white" }}
                                             aria-label="Signup"
                                         >
-                                            {"Don't have an account? Sign Up"}
+                                            {"Belum punya akun? Daftar!"}
                                         </Link>
                                     </Grid>
                                 </Grid>

@@ -1,14 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Button from "react-bootstrap/Button";
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
 const useStyles = makeStyles({
-  depositContext: {
-    flex: 1,
+  nameLabel: {
+    fontSize: '20px',
   },
 
   title: {
@@ -20,18 +21,15 @@ export default function Profile(props){
   const classes = useStyles();
   return (
     <React.Fragment>
-      <h3 className={classes.title}>Profile</h3>
-      <Typography color="textSecondary" className={classes.depositContext} aria-label = "First Name">
-        First Name : {props.firstName}
+      <h3 className={classes.title}>Profil</h3>
+      <Typography color="textPrimary" className={classes.nameLabel} aria-label = "Name">
+        {props.firstName} {props.lastName} 
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Last Name">
-        Last Name : {props.lastName}
+      <Typography color="textSecondary" aria-label = "Email">
+        {props.email}
       </Typography>
-      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
-        Email : {props.email}
-      </Typography>
-      <Typography color="textSecondary" className={classes.depositContext} aria-label = "Email">
-        Phone Number : {props.phone}
+      <Typography color="textSecondary" aria-label = "Phone">
+        {props.phone}
       </Typography>
     </React.Fragment>
   );

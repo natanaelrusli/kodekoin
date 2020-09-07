@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/component.css";
+import { grey } from "@material-ui/core/colors";
 
 function preventDefault(event) {
     event.preventDefault();
@@ -17,6 +18,12 @@ const useStyles = makeStyles(theme => ({
         color: "#FF4646"
     },
 
+    subtitle: {
+        color: "grey",
+        fontSize: "15px",
+        marginBottom: "5px",
+    },
+
     submit: {
         backgroundColor: "#FFF",
         color: "#FF4646",
@@ -29,7 +36,6 @@ const useStyles = makeStyles(theme => ({
 
     form: {
         width: "100%", // Fix IE 11 issue.
-        marginTop: theme.spacing(3)
     }
 }));
 
@@ -37,7 +43,8 @@ function ReferalForm() {
     const classes = useStyles();
     return (
         <React.Fragment>
-            <h3 className={classes.title}>Referal Code</h3>
+            <h3 className={classes.title}>Kode Referal</h3>
+            <p className={classes.subtitle}>Untuk mendapatkan kode referal yang bisa kamu share secara publik, dan dapat mendapatkan bonus saat orang lain memakai kode referal-mu<br></br>Kamu boleh mengajukan kode referal kamu pada kolom dibawah ini. Tim kami akan menganalisa apakah akun kamu layak untuk mendapatkan kode referal<br></br>Analisa akan dilakukan paling lama   2 hari sejak pengajuan dilakukan.</p>
             <Form
                 onSubmit={e => {
                    
@@ -46,9 +53,9 @@ function ReferalForm() {
                 <Form.Group controlId="formBasicText" className="mt-1">
                     <Form.Control
                         type="text"
-                        placeholder="Put your referal code here..."
-                        className="red-glow"
-                        aria-label = "Referal Code"
+                        placeholder="Masukkan kode referalmu disini..."
+                        className="red-glow referal__form"
+                        aria-label = "Kode Referal"
                         onChange={e => setPasswordOld(e.target.value)}
                     />
                 </Form.Group>
@@ -59,7 +66,7 @@ function ReferalForm() {
                     aria-label = "Submit"
                     className={classes.submit}
                 >
-                    Submit Referal Code
+                    Ajukan Kode Referal
                 </Button>
             </Form>
         </React.Fragment>

@@ -43,7 +43,7 @@ const useStyles = makeStyles({
         borderColor: "#FF4646",
         width: "100px",
         margin: '0 auto',
-        fontSize: '10px',
+        fontSize: '9.5px',
         "&:hover, &:focus": {
             backgroundColor: "#FF4646",
             borderColor: "#FF4646"
@@ -70,7 +70,7 @@ function BindingAccount() {
 
     return (
         <React.Fragment>    
-            <h3 className={classes.title}>Bidning Account</h3>
+            <h3 className={classes.title}>Menghubungkan Akun</h3>
 
             <Card className={classes.root} variant="outlined">
                 <CardContent className={classes.card}>
@@ -83,7 +83,7 @@ function BindingAccount() {
                         disabled = {bind == false? true : false}
                         onClick = {handleBindClick}
                     >
-                        {bind == false? 'Already Binded' : 'Bind'}
+                        {bind == false? 'Telah Terhubung' : 'Hubungkan Akun'}
                     </Button>
                 </CardContent>
             </Card>

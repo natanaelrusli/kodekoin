@@ -134,11 +134,15 @@ const Signup = () => {
         >
             <div className={classes.paper}>
                 <img src={logo} width={80} className="mb-3"></img>
-                <h1 className="signup-text">Sign Up</h1>
+                <h1 className="signup-text">Daftar</h1>
                 <form
                     className={classes.form}
                     onSubmit={e =>{
-                        setLoading(true);
+                        if (erremail == false && errpass == false && emailFormErr == false && phone.length > 0) {
+                            setLoading(true);
+                        } else {
+                            setLoading(false);
+                        }
                         setErremail(false);
                         setErrpass(false);
                         setEmailFormErr(false);
@@ -154,11 +158,11 @@ const Signup = () => {
                                 required
                                 fullWidth
                                 id="name"
-                                label="Name"
+                                label="Nama"
                                 name="name"
                                 autoComplete="name"
                                 autoFocus
-                                aria-label = "Name"
+                                aria-label = "Nama"
                                 onChange={e => setname(e.target.value)}
                             />
                         </Grid>
@@ -169,14 +173,14 @@ const Signup = () => {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="Alamat Email"
                                 name="email"
                                 autoComplete="email"
                                 aria-label = "Email"
                                 onChange={e => setemail(e.target.value)}
                             />
-                            { erremail && <p className="errorText mb-1">Email already registered</p> }
-                            { emailFormErr && <p className="errorText mb-1">Invalid Email</p> }
+                            { erremail && <p className="errorText mb-1">Email sudah terdaftar</p> }
+                            { emailFormErr && <p className="errorText mb-1">Email tidak valid</p> }
 
                         </Grid>
 
@@ -186,14 +190,14 @@ const Signup = () => {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="Kata Sandi"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                aria-label = "Password"
+                                aria-label = "Kata Sandi"
                                 onChange={e => setpassword(e.target.value)}
                             />
-                            { errpass && <p className="errorText mb-1">Password minimum 8 characters</p> }
+                            { errpass && <p className="errorText mb-1">Password minimum 8 karakter</p> }
 
                         </Grid>
                         <Grid item xs={12}>
@@ -205,11 +209,11 @@ const Signup = () => {
                                 required
                                 fullWidth
                                 id="phone"
-                                label="Phone"
+                                label="Nomor HP"
                                 aria-label = "Phone"
                                 onChange={e => setphone(e.target.value)}
                             />
-                            { errphone && <p className="errorText mb-1">Phone number already registered</p> }
+                            { errphone && <p className="errorText mb-1">Nomor HP telah terdaftar</p> }
                         </Grid>
                     </Grid>
                     {/* <p style={{ color: 'white' }}>{msg}</p> */}
@@ -220,12 +224,12 @@ const Signup = () => {
                         color="primary"
                         className={classes.submit}
                         style={{ backgroundColor: "#FF4646" }}
-                        aria-label = "Signup"
+                        aria-label = "Daftar"
                         onClick={ ()=>{
                             
                         } }
                     >
-                         {erremail == false && errpass == false && emailFormErr == false && phone.length > 0 && loading == true ?
+                         {loading == true ?
                             <PulseLoader
                                 css={override}
                                 size={10}
@@ -234,14 +238,14 @@ const Signup = () => {
                             />
                             :
                             <Typography>
-                                REGISTER
+                                DAFTAR
                             </Typography>
                         } 
                     </Button>
                     <Grid container justify="center">
                         <Grid item>
                             <Link href="/login" style={{ color: "#FF4646" }} aria-label = "Login Link">
-                                Already have an account? Sign in
+                                Sudah punya akun ? Masuk
                             </Link>
                         </Grid>
                     </Grid>

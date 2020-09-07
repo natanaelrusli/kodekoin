@@ -137,6 +137,13 @@ const useStyles = makeStyles(theme => ({
         overflow: 'auto',
         flexDirection: 'column',
       },
+      profile: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+        height:'160px',
+      },
       fixedHeight: {
         height: 240,
       },
@@ -211,13 +218,13 @@ export default function Dashboard() {
                         </Typography>
                     ))}
                 <Button href="/" className='navbutton'>
-                    Home
+                    Beranda
                 </Button>
                 <Button
                     onClick={logoutHandler}
                     className='navbutton'
                     >
-                    Logout
+                    Keluar
                 </Button>
                 </Toolbar>
             </AppBar>
@@ -240,7 +247,7 @@ export default function Dashboard() {
                         <ListItemIcon>
                             <DashboardIcon className='white'/>
                         </ListItemIcon>
-                        <ListItemText primary="Dashboard" className='white' />
+                        <ListItemText primary="Dasbor" className='white' />
                     </ListItem>
                     {/* <ListItem button onClick={()=>setMenuSelect('orders')}>
                         <ListItemIcon>
@@ -252,13 +259,13 @@ export default function Dashboard() {
                         <ListItemIcon>
                             <LockIcon className='white'/>
                         </ListItemIcon>
-                        <ListItemText primary="Edit Profile" className='white'/>
+                        <ListItemText primary="Sunting Profil" className='white'/>
                     </ListItem>
                     <ListItem button onClick={()=>{setMenuSelect('referal'); setOpensidebar(false)}}>
                         <ListItemIcon>
                             <PaymentIcon className='white'/>
                         </ListItemIcon>
-                        <ListItemText primary="Referal Code" className='white' />
+                        <ListItemText primary="Kode Referal" className='white' />
                     </ListItem>
                 </List>
             </Drawer>
@@ -272,7 +279,7 @@ export default function Dashboard() {
                                 menuSelect == 'dashboard' &&
                                 <React.Fragment>
                                     <Grid item xs={12} md={6} lg={6}>
-                                        <Paper className={classes.paper}>
+                                        <Paper className={classes.profile}>
                                             {users.map(user => (
                                                 <Profile
                                                     key={user.email}
@@ -286,7 +293,7 @@ export default function Dashboard() {
                                     </Grid>
 
                                     <Grid item xs={12} md={6} lg={6}>
-                                        <Paper className={classes.paper}>
+                                        <Paper className={classes.profile}>
                                             <Binding/>
                                         </Paper>
                                     </Grid>
@@ -296,7 +303,7 @@ export default function Dashboard() {
                                             {loading ? (
                                                 <div>
                                                     <h3 className={classes.titleOrder}>
-                                                        Order History
+                                                        Riwayat Pemesanan
                                                     </h3>
                                                     <div className={classes.loadingAnimation}>
                                                         <PulseLoader

@@ -76,7 +76,8 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
             >
                 <div className={classes.paper}>
                     <img src={logo} width={60}></img>
-                    <h1 className="header__text">Reset Password</h1>
+                    <h1 className="header__text">Setel Ulang Sandi</h1>
+                    <span className="header__subtitle">Lupa password? Masukan alamat email yang telah kamu daftar</span>
                     <form
                         className={classes.form}
                         // onSubmit={onSubmitHandler}
@@ -87,7 +88,7 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label="Alamat Email"
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -103,15 +104,15 @@ function ForgotPassword({changePassword, triggerChangeComponent}) {
                             color="primary"
                             className={classes.submit}
                             className="submit"
-                            aria-label = "Submit"
+                            aria-label = "Masukan"
                             onClick = {changePassword}
                         >
-                            Submit
+                            Masukan
                         </Button>
                         <Grid container style={{marginTop: "10px"}}>
                             <Grid item xs>
                                 <Link  onClick={triggerChangeComponent} variant="body2" style={{ color: 'white' }} className="link">
-                                    Back
+                                    Kembali
                                 </Link>
                             </Grid>
                         </Grid>
