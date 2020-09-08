@@ -28,14 +28,20 @@ class VirtualController extends Controller
 
     public function update(Request $request)
     {
+
+        // dd($affected);
+        // $virtual = Virtual::updateData('id_va', $request->id)->firstOrFail();
+        // $virtual->status = $request->status;
+        // $virtual->save();
+        // return response()->json('Virtual Updated Successfully');
         $affected = Virtual::where('id_va', $request->id)
             ->update([
                 'status' => $request->payment_id,
             ]);
-        dd($affected);
-        // $virtual = Virtual::updateData('id_va', $request->id)->firstOrFail();
-        // $virtual->status = $request->status;
-        // $virtual->save();
-        return response()->json('Virtual Updated Successfully');
+        if ($affected) {
+            return response()->json(['status' => 200, 'message' => 'Retail Updated Successfully', 'data' => $affected]);
+        } else {
+            return response(null, 401);
+        }
     }
 }

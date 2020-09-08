@@ -19,6 +19,7 @@ Route::namespace('Auth')->group(function () {
     Route::post('login', 'LoginController');
     Route::post('logout', 'LogoutController');
     Route::post('resetpass', 'ResetPasswordController');
+    Route::post('bindaccount', 'BindingController');
 });
 
 Route::resource('/invoice', 'InvoiceController');

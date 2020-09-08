@@ -480,7 +480,8 @@ const getInvoiceByEmail = async (e, l = undefined) => {
                     localStorage.setItem("isLoggedIn", true),
                     l == undefined ? (l = undefined) : l(!1),
                     console.log(window.location.href),
-                    "http://127.0.0.1:8000/dashboard" !== window.location.href &&
+                    "http://127.0.0.1:8000/dashboard" !==
+                        window.location.href &&
                         (createHistory().push("/"),
                         (window.location.href = window.location.href)),
                     "failed" === e.data.status && console.log(e.data.message))
@@ -566,4 +567,18 @@ export const logoutHandler = () => {
         let o = window.location.href;
         window.location.href = o;
     } else window.location.reload(!1);
+};
+
+export const bindingAccount = async (email) => {
+    axios
+        .post("http://127.0.0.1:8000/api/bindaccount", {
+            email: email,
+            is_binding: true
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 };

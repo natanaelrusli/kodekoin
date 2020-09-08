@@ -28,9 +28,14 @@ class RetailController extends Controller
 
     public function update(Request $request)
     {
-        $retail = Retail::where('id_retail', $request->id)->firstOrFail();
-        $retail->status = $request->status;
-        $retail->save();
-        return response()->json('Retail Updated Successfully');
+        $affected = Retail::where('id_retail', $request->id)
+            ->update([
+                'status' => $request->status,
+            ]);
+        if ($affected) {
+            return response()->json(['status' => 200, 'message' => 'Retail Updated Successfully', 'data' => $affected]);
+        } else {
+            return response(null, 401);
+        }
     }
 }
