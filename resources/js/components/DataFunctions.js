@@ -4,11 +4,11 @@ const { Invoice: Invoice } = x,
 
 const createHistory = require("history").createBrowserHistory;
 // http://127.0.0.1:8000
-// http://127.0.0.1:8000
+// https://kodekoin.com/
 export const signUpHandler = (v, n, e, p, ph, s) => {
     v.preventDefault();
     axios
-        .post("http://127.0.0.1:8000/api/register", {
+        .post("https://kodekoin.com/api/register", {
             name: n,
             email: e,
             phone: ph,
@@ -23,7 +23,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
                     s("");
                 }, 5000);
                 axios
-                    .post("http://127.0.0.1:8000/api/login", {
+                    .post("https://kodekoin.com/api/login", {
                         email: e,
                         password: p
                     })
@@ -71,7 +71,7 @@ export const signUpHandler = (v, n, e, p, ph, s) => {
 export const loginHandler = (v, e, p, m, s) => {
     v.preventDefault();
     axios
-        .post("http://127.0.0.1:8000/api/login", {
+        .post("https://kodekoin.com/api/login", {
             email: e,
             password: p
         })
@@ -162,8 +162,8 @@ const eWallet = async (
             amount: price,
             phone: phone,
             items: [item, item],
-            callbackURL: "http://127.0.0.1:8000/api/ewalletcallback",
-            redirectURL: "http://127.0.0.1:8000",
+            callbackURL: "https://kodekoin.com/api/ewalletcallback",
+            redirectURL: "https://kodekoin.com",
             ewalletType: method
         })
         .then(e => {
@@ -185,7 +185,7 @@ const storeEwallet = async resp => {
     const status = resp.status ? resp.status : null;
     const phone = resp.phone ? resp.phone : null;
     await axios
-        .post("http://127.0.0.1:8000/api/ewallet", {
+        .post("https://kodekoin.com/api/ewallet", {
             external_id: resp.external_id,
             amount: resp.amount,
             checkout_url: resp.checkout_url,
@@ -201,7 +201,7 @@ const storeEwallet = async resp => {
 
 const storeQrCode = async resp => {
     await axios
-        .post("http://127.0.0.1:8000/api/qris", {
+        .post("https://kodekoin.com/api/qris", {
             id_qr: resp.id,
             external_id: resp.external_id,
             amount: resp.amount,
@@ -217,7 +217,7 @@ const storeQrCode = async resp => {
 
 const storeRetail = async resp => {
     await axios
-        .post("http://127.0.0.1:8000/api/retail", {
+        .post("https://kodekoin.com/api/retail", {
             is_single_use: resp.is_single_use,
             status: resp.status,
             owner_id: resp.owner_id,
@@ -238,7 +238,7 @@ const storeRetail = async resp => {
 
 const storeVirtual = async resp => {
     await axios
-        .post("http://127.0.0.1:8000/api/virtual", {
+        .post("https://kodekoin.com/api/virtual", {
             is_closed: resp.is_closed,
             status: resp.status,
             currency: resp.currency,
@@ -336,7 +336,7 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
         .createCode({
             externalID: Date.now().toString(),
             type: QrCode.Type.Dynamic,
-            callbackURL: "http://127.0.0.1:8000/qriscallback",
+            callbackURL: "https://kodekoin.com/qriscallback",
             amount: 10000
         })
         .then(e => {
@@ -354,7 +354,7 @@ const qRis = async (name, email, desc, method, paytype, proccess) => {
 
 const storeInvoiceVR = async (resp, m, proccess) => {
     await axios
-        .post("http://127.0.0.1:8000/api/invoice", {
+        .post("https://kodekoin.com/api/invoice", {
             id_invoice: resp.id,
             id_user: resp.user_id,
             external_id: resp.external_id,
@@ -409,7 +409,7 @@ const storeInvoiceEQ = async (
         Date.now().toString()
     );
     await axios
-        .post("http://127.0.0.1:8000/api/invoice", {
+        .post("https://kodekoin.com/api/invoice", {
             id_invoice: idin,
             id_user: name,
             external_id: resp.external_id,
@@ -456,8 +456,8 @@ const reqInvoice = async (
                 amount: price,
                 shouldSendEmail: !1,
                 paymentMethods: [method],
-                successRedirectURL: "http://127.0.0.1:8000",
-                failureRedirectURL: "http://127.0.0.1:8000"
+                successRedirectURL: "https://kodekoin.com",
+                failureRedirectURL: "https://kodekoin.com"
             })
             .then(e => {
                 storeInvoiceVR(e, method, proccess);
@@ -471,7 +471,7 @@ const reqInvoice = async (
 const getInvoiceByEmail = async (e, l = undefined) => {
     console.log("getInvoiceByEmail"),
         await axios
-            .post("http://127.0.0.1:8000/api/invhistory/", { email: e })
+            .post("https://kodekoin.com/api/invhistory/", { email: e })
             .then(
                 e =>
                     200 === e.status &&
@@ -480,8 +480,7 @@ const getInvoiceByEmail = async (e, l = undefined) => {
                     localStorage.setItem("isLoggedIn", true),
                     l == undefined ? (l = undefined) : l(!1),
                     console.log(window.location.href),
-                    "http://127.0.0.1:8000/dashboard" !==
-                        window.location.href &&
+                    "https://kodekoin.com/dashboard" !== window.location.href &&
                         (createHistory().push("/"),
                         (window.location.href = window.location.href)),
                     "failed" === e.data.status && console.log(e.data.message))
@@ -499,7 +498,7 @@ export const updateInvoice = async (e, a, b) => {
             for (let t = 0; t < e.length - 1; t++)
                 o[a].id == e[t].id_invoice &&
                     axios
-                        .put(`http://127.0.0.1:8000/api/invoice/${e[t].id}`, {
+                        .put(`https://kodekoin.com/api/invoice/${e[t].id}`, {
                             status: o[a].status
                         })
                         .catch(e => console.log(e));
@@ -523,7 +522,7 @@ export const cancelOrder = e => {
 
 export const payOrder = e => {
     axios
-        .get(`http://127.0.0.1:8000/api/invoice/${e}`)
+        .get(`https://kodekoin.com/api/invoice/${e}`)
         .then(e => {
             console.log(e.data.invoice_url);
             createHistory().push(e.data.invoice_url);
@@ -536,7 +535,7 @@ export const payOrder = e => {
 export const changePassHandler = (o, a, t, s) => {
     if (a == t && a != o) {
         axios
-            .post("http://127.0.0.1:8000/api/resetpass", {
+            .post("https://kodekoin.com/api/resetpass", {
                 email: JSON.parse(localStorage.getItem("userData")).email,
                 passold: o,
                 passnew: a
@@ -569,12 +568,71 @@ export const logoutHandler = () => {
     } else window.location.reload(!1);
 };
 
-export const bindingAccount = async (email) => {
+export const bindingAccount = async email => {
     axios
-        .post("http://127.0.0.1:8000/api/bindaccount", {
+        .post("https://kodekoin.com/api/bindaccount", {
             email: email,
             is_binding: true
         })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+
+export const createReferral = async (email, code) => {
+    await axios
+        .post("https://kodekoin.com/api/referral", {
+            email: email,
+            referral_code: code
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const updateReferral = async (email, code) => {
+    await axios
+        .patch("https://kodekoin.com/api/referral", {
+            email: email,
+            referral_code: code
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const deleteReferral = async email => {
+    await axios
+        .delete("https://kodekoin.com/api/referral", {
+            email: email
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const showReferral = async email => {
+    await axios
+        .get(`https://kodekoin.com/api/referral/${email}`)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const showallReferral = async () => {
+    await axios
+        .get(`https://kodekoin.com/api/referral`)
         .then(response => {
             console.log(response);
         })
