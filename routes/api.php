@@ -33,3 +33,8 @@ Route::post('/ewallet', 'EwalletController@store');
 Route::post('/virtual', 'VirtualController@store');
 Route::post('/retail', 'RetailController@store');
 Route::post('/qris', 'QrcodeController@store');
+
+Route::patch('referral', 'ReferralController@update');
+Route::post('referral', 'ReferralController@store');
+Route::delete('referral', 'ReferralController@destroy');
+Route::get('referral', 'ReferralController@index');

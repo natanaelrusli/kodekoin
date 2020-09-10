@@ -14,7 +14,7 @@ class ReferralController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Referral::all());
     }
 
     /**
@@ -35,7 +35,16 @@ class ReferralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $referral = Referral::where('email', $request->email)->first();
+        if ($referral) {
+            return response()->json(['status' => 'failed', 'message' => 'Email already request the referral code']);
+        } else {
+            $data = Referral::create([
+                'email' => $request->email,
+                'referral_code' => $request->referral_code
+            ]);
+            return response()->json(['status' => 200, 'message' => 'Success requesting referral code!', 'data' => $data]);
+        }
     }
 
     /**
@@ -67,9 +76,14 @@ class ReferralController extends Controller
      * @param  \App\Referral  $referral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Referral $referral)
+    public function update(Request $request)
     {
-        //
+        $data = Referral::where('email', $request->email)->first();
+        if ($data) {
+            Referral::where('email', $request->email)->Update(['referral_code' => $request->referral_code]);
+            return response()->json(['status' => 200, 'message' => 'Update Success']);
+        }
+        return response()->json(['status' => "failed", 'message' => 'Update Failed! Email never request yet']);
     }
 
     /**
@@ -78,8 +92,13 @@ class ReferralController extends Controller
      * @param  \App\Referral  $referral
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Referral $referral)
+    public function destroy(Request $request)
     {
-        //
+        $data = Referral::where('email', $request->email)->first();
+        if ($data) {
+            Referral::where('email', $request->email)->delete();
+            return response()->json(['status' => 200, 'message' => 'Delete Success']);
+        }
+        return response()->json(['status' => "failed", 'message' => 'Delete Failed! Email not found@']);
     }
 }

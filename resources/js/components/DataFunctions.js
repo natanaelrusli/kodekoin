@@ -569,7 +569,7 @@ export const logoutHandler = () => {
     } else window.location.reload(!1);
 };
 
-export const bindingAccount = async (email) => {
+export const bindingAccount = async email => {
     axios
         .post("http://127.0.0.1:8000/api/bindaccount", {
             email: email,
