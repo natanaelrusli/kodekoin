@@ -21,8 +21,8 @@ class BindingController extends Controller
             // dd("sukses");
             User::where('email', $request->email)
                 ->update(['is_binding' => $request->is_binding]);
-            return response()->json(['message' => 'binding Updated Successfully']);
+            return response()->json(['status' => 200, 'message' => 'binding Updated Successfully']);
         }
-        return response("Email not found in gratismain DB", 401);
+        return response()->json(['status' => 'failed', 'message' => 'Email not found in gratismain DB']);
     }
 }
