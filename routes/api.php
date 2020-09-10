@@ -38,3 +38,4 @@ Route::patch('referral', 'ReferralController@update');
 Route::post('referral', 'ReferralController@store');
 Route::delete('referral', 'ReferralController@destroy');
 Route::get('referral', 'ReferralController@index');
+Route::get('referral/{email}', 'ReferralController@show');

@@ -582,3 +582,62 @@ export const bindingAccount = async email => {
             console.error(error);
         });
 };
+
+export const createReferral = async (email, code) => {
+    await axios
+        .post("http://127.0.0.1:8000/api/referral", {
+            email: email,
+            referral_code: code
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const updateReferral = async (email, code) => {
+    await axios
+        .patch("http://127.0.0.1:8000/api/referral", {
+            email: email,
+            referral_code: code
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const deleteReferral = async email => {
+    await axios
+        .delete("http://127.0.0.1:8000/api/referral", {
+            email: email
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const showReferral = async email => {
+    await axios
+        .get(`http://127.0.0.1:8000/api/referral/${email}`)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+export const showallReferral = async () => {
+    await axios
+        .get(`http://127.0.0.1:8000/api/referral`)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};

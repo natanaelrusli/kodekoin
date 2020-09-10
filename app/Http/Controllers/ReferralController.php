@@ -53,9 +53,13 @@ class ReferralController extends Controller
      * @param  \App\Referral  $referral
      * @return \Illuminate\Http\Response
      */
-    public function show(Referral $referral)
+    public function show($email)
     {
-        //
+        $data = Referral::where('email', $email)->first();
+        if ($data) {
+            return response()->json(['status' => 200, 'data' => $data]);
+        }
+        return response()->json(['status' => "failed", 'message' => 'Email not found']);
     }
 
     /**
@@ -99,6 +103,6 @@ class ReferralController extends Controller
             Referral::where('email', $request->email)->delete();
             return response()->json(['status' => 200, 'message' => 'Delete Success']);
         }
-        return response()->json(['status' => "failed", 'message' => 'Delete Failed! Email not found@']);
+        return response()->json(['status' => "failed", 'message' => 'Delete Failed! Email not found']);
     }
 }
