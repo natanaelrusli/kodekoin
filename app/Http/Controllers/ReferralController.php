@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Referral;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReferralController extends Controller
 {
@@ -15,6 +16,11 @@ class ReferralController extends Controller
     public function index()
     {
         return response()->json(Referral::all());
+    }
+
+    public function testing()
+    {
+        return response()->json(['message' => DB::connection('mysql2')]);
     }
 
     /**
