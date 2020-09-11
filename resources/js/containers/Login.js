@@ -251,8 +251,7 @@ const Login = e => {
                                 <Grid container style={{ marginTop: "10px" }}>
                                     <Grid item xs>
                                         <Link
-                                            onClick={triggerChangeComponent}
-                                            href="#"
+                                            href="/forgotpassword"
                                             variant="body2"
                                             style={{ color: "white" }}
                                             aria-label="Forgot Password"

@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::view('/dashboard', 'dashboard');
 Route::view('/', 'app');
 Route::view('/login', 'login');
+Route::view('/forgotpassword', 'forgotPassword');
 Route::view('/signup', 'signup');
 // Route::get('{reactRoutes}', function () {
 //     return view('app'); // your start view
