@@ -31,7 +31,7 @@
         "@material-ui/lab": "^4.0.0-alpha.56",
         "dotenv": "^8.2.0",
         "fs": "0.0.1-security",
-        "moment": "^2.27.0",
+        "moment": "^2.29.2",
         "react-bootstrap": "^1.2.2",
         "react-bootstrap-dialog": "^0.13.0",
         "react-currency-format": "^1.0.0",
